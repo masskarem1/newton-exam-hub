@@ -125,13 +125,150 @@
 
     .lookup-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr auto;
+      grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: end;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 600px) {
       .lookup-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Found Exams Cards Grid (After Search) */
+    .found-exams-section {
+      display: none;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1.5px solid var(--line);
+    }
+
+    .found-exams-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .found-exams-title {
+      font-size: 13.5px;
+      font-weight: 900;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .found-count-badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .found-exams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .found-exam-card {
+      border: 2px solid #cbd5e1;
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      position: relative;
+    }
+    .found-exam-card:hover {
+      border-color: #38bdf8;
+      background: #f0f9ff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.09);
+    }
+    .found-exam-card.active {
+      border-color: var(--primary);
+      background: #f0f9ff;
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.14);
+    }
+
+    .found-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .found-card-title {
+      font-size: 14.5px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+
+    .found-card-course {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .found-card-score-box {
+      background: #dcfce7;
+      border: 1.5px solid #86efac;
+      color: #15803d;
+      padding: 6px 11px;
+      border-radius: 10px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .found-card-score-val {
+      font-size: 15px;
+      font-weight: 900;
+      display: block;
+      line-height: 1.1;
+    }
+    .found-card-score-pct {
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .found-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 8px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+
+    .found-card-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .found-card-action-tag {
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+    .found-exam-card.active .found-card-action-tag {
+      background: var(--primary);
+      color: #fff;
+      padding: 2px 9px;
+      border-radius: 12px;
     }
 
     .field-label {
@@ -891,24 +1028,7 @@
   <section class="control-panel">
     <div class="lookup-grid">
       <div>
-        <label class="field-label" for="examSelector">1. Select Assessment / Group</label>
-        <select id="examSelector" class="field-select" onchange="onExamSelectionChanged()">
-          <option value="ALL_Q2">Quiz 2 - All Groups (Auto-Detect MON-1 / TUE-1 / TUE-2 / WED-1 by Student ID)</option>
-          <option value="ALL_Q1">Quiz 1 - All Groups (Auto-Detect MON-1 / MON-2 / TUE-1 / TUE-2 / WED-1 / WED-2 by Student ID)</option>
-          <option value="Q2_MON1_PHYS.101_F26-27">Quiz 2 - Dentistry PHYS.101 (Group MON-1)</option>
-          <option value="Q2_TUE1_PHYS.101_F26-27">Quiz 2 - Dentistry PHYS.101 (Group TUE-1)</option>
-          <option value="Q2_TUE2_PHYS.101_F26-27">Quiz 2 - Dentistry PHYS.101 (Group TUE-2)</option>
-          <option value="Q2_WED1_PHYS.101_F26-27">Quiz 2 - Dentistry PHYS.101 (Group WED-1)</option>
-          <option value="Q1_MON1_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group MON-1)</option>
-          <option value="Q1_MON2_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group MON-2)</option>
-          <option value="Q1_TUE1_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group TUE-1)</option>
-          <option value="Q1_TUE2_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group TUE-2)</option>
-          <option value="Q1_WED1_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group WED-1)</option>
-          <option value="Q1_WED2_PHYS.101_F26-27">Quiz 1 - Dentistry PHYS.101 (Group WED-2)</option>
-        </select>
-      </div>
-      <div>
-        <label class="field-label" for="studentIdInput">2. Student University ID</label>
+        <label class="field-label" for="studentIdInput">Student University ID</label>
         <input
           type="text"
           id="studentIdInput"
@@ -920,12 +1040,24 @@
       </div>
       <div>
         <button type="button" id="btnLookupSheet" class="btn-primary" onclick="lookupStudentSheet()">
-          <span>🔍</span> View Bubble Sheet
+          <span>🔍</span> Search My Exams
         </button>
       </div>
     </div>
 
     <div id="statusBanner" class="status-banner"></div>
+
+    <!-- Found Exams Cards Container (Populated after Student ID search) -->
+    <div id="foundExamsSection" class="found-exams-section">
+      <div class="found-exams-header">
+        <div class="found-exams-title">
+          <span>📚</span>
+          <span id="foundExamsStudentHeader">Found Assessments</span>
+        </div>
+        <span id="foundExamsCountBadge" class="found-count-badge">0 Exams Found</span>
+      </div>
+      <div id="foundExamsGrid" class="found-exams-grid"></div>
+    </div>
   </section>
 
   <!-- Main Exam Workspace -->
@@ -1077,19 +1209,15 @@
     dr.style.display = dr.style.display === 'block' ? 'none' : 'block';
   }
 
+  window.foundStudentSheets = [];
+  window.activeFoundSheetIndex = 0;
+
   window.addEventListener('DOMContentLoaded', async () => {
     updateMasteryBadge();
     const params = new URLSearchParams(window.location.search);
-    const urlSheet = params.get('sheet') || params.get('sheet_id');
-    const urlExam = params.get('exam') || params.get('exam_id');
+    const urlExam = params.get('exam') || params.get('exam_id') || '';
     const urlId = params.get('id') || params.get('student_id');
-
-    if (urlSheet) {
-      const sheetInput = document.getElementById('customSheetIdInput');
-      if (sheetInput) sheetInput.value = urlSheet;
-    }
-
-    await loadPublishedExamsList(urlExam);
+    window._urlPreferredExamId = urlExam;
 
     if (urlId) {
       const idInput = document.getElementById('studentIdInput');
@@ -1098,64 +1226,22 @@
     }
   });
 
-  async function loadPublishedExamsList(preferredExamId = null) {
-    try {
-      const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || '';
-      const qs = sheetId ? `&sheet_id=${encodeURIComponent(sheetId)}` : '';
-      const res = await fetch(`/api/exam-hub?action=list-exams${qs}`);
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data.success && Array.isArray(data.exams) && data.exams.length > 0) {
-        const sel = document.getElementById('examSelector');
-        if (sel) {
-          sel.innerHTML = data.exams.map(ex =>
-            `<option value="${safeEscapeHtml(ex.exam_id)}">${safeEscapeHtml(ex.exam_title)} (${safeEscapeHtml(ex.course_id)})</option>`
-          ).join('');
-          if (preferredExamId && data.exams.some(e => e.exam_id === preferredExamId)) {
-            sel.value = preferredExamId;
-          }
-        }
-      }
-    } catch (e) {
-      // Offline or opened as file:// — keep default dropdown options
-    }
-  }
-
-  function onExamSelectionChanged() {
-    const sid = document.getElementById('studentIdInput')?.value.trim();
-    if (sid) lookupStudentSheet();
-  }
-
   // =========================================================================
-  // 2. LOOKUP STUDENT SHEET (From /api/exam-hub or Local CSV Override)
+  // 2. LOOKUP STUDENT EXAMS & RENDER FOUND EXAM CARDS
   // =========================================================================
   async function lookupStudentSheet() {
     const rawId = document.getElementById('studentIdInput')?.value.trim() || '';
-    const examId = document.getElementById('examSelector')?.value || 'Q2_PHYS101';
-    const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || '';
+    const preferredExamId = window._urlPreferredExamId || 'ALL';
 
     if (!rawId) {
       showStatus('⚠️ Please enter your Student University ID.', 'error');
       return;
     }
 
-    // Check if local CSV override was loaded in the browser
-    if (window.localCsvStudentDB && Object.keys(window.localCsvStudentDB).length > 0) {
-      const found = findInLocalCsvDB(rawId);
-      if (!found) {
-        showStatus(`❌ Student ID <strong>${safeEscapeHtml(rawId)}</strong> not found in the loaded CSV file.`, 'error');
-        document.getElementById('examWorkspace').style.display = 'none';
-        return;
-      }
-      showStatus('', 'info');
-      renderStudentSheetPayload(found);
-      return;
-    }
-
     const btn = document.getElementById('btnLookupSheet');
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = '<span>⏳</span> Loading...';
+      btn.innerHTML = '<span>⏳</span> Searching...';
     }
     showStatus('', 'info');
 
@@ -1165,29 +1251,110 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'get-student-sheet',
-          exam_id: examId,
-          student_id: rawId,
-          sheet_id: sheetId || undefined
+          exam_id: preferredExamId,
+          student_id: rawId
         })
       });
 
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) {
-        showStatus(`⚠️ ${safeEscapeHtml(data.error || 'Could not find student record for this assessment.')}`, 'error');
+        showStatus(`⚠️ ${safeEscapeHtml(data.error || 'Could not find student record for any published assessment.')}`, 'error');
+        document.getElementById('foundExamsSection').style.display = 'none';
         document.getElementById('examWorkspace').style.display = 'none';
         return;
       }
 
-      renderStudentSheetPayload(data);
+      const sheets = Array.isArray(data.sheets) && data.sheets.length > 0 ? data.sheets : [data];
+      window.foundStudentSheets = sheets;
+
+      // Determine initial active card index (match preferredExamId if present, else first card)
+      let initIdx = 0;
+      if (preferredExamId && preferredExamId !== 'ALL') {
+        const matchIdx = sheets.findIndex(s => s.exam_id === preferredExamId || (preferredExamId === 'ALL_Q1' && /^Q1_/i.test(s.exam_id)) || (preferredExamId === 'ALL_Q2' && /^Q2_/i.test(s.exam_id)));
+        if (matchIdx !== -1) initIdx = matchIdx;
+      }
+      window._urlPreferredExamId = '';
+
+      renderFoundExamsCards(sheets, initIdx);
+      renderStudentSheetPayload(sheets[initIdx]);
     } catch (err) {
       showStatus(`⚠️ Network error connecting to Exam Hub API: ${safeEscapeHtml(err.message)}`, 'error');
     } finally {
       if (btn) {
         btn.disabled = false;
-        btn.innerHTML = '<span>🔍</span> View Bubble Sheet';
+        btn.innerHTML = '<span>🔍</span> Search My Exams';
       }
     }
   }
+
+  function renderFoundExamsCards(sheets, activeIdx = 0) {
+    const sec = document.getElementById('foundExamsSection');
+    const grid = document.getElementById('foundExamsGrid');
+    const headerEl = document.getElementById('foundExamsStudentHeader');
+    const countEl = document.getElementById('foundExamsCountBadge');
+    if (!sec || !grid) return;
+
+    if (!sheets || sheets.length === 0) {
+      sec.style.display = 'none';
+      return;
+    }
+
+    window.activeFoundSheetIndex = activeIdx;
+    const firstStu = sheets[0]?.student || {};
+    if (headerEl) {
+      headerEl.innerHTML = `Found Assessments for <span style="color:#0284c7;">${safeEscapeHtml(firstStu.name || 'Student')}</span> (<span style="font-family:monospace;">${safeEscapeHtml(firstStu.student_id || '')}</span>)`;
+    }
+    if (countEl) {
+      countEl.textContent = `${sheets.length} Exam${sheets.length > 1 ? 's' : ''} Found`;
+    }
+
+    grid.innerHTML = sheets.map((sh, idx) => {
+      const st = sh.student || {};
+      const isActive = idx === activeIdx;
+      const earned = st.earned_points ?? 0;
+      const possible = st.possible_points ?? (st.questions?.length || 10);
+      const pct = possible > 0 ? Math.round((earned / possible) * 100) : 0;
+      const qCount = st.questions?.length || 10;
+
+      let scoreBg = '#dcfce7', scoreBorder = '#86efac', scoreColor = '#15803d';
+      if (pct < 50) {
+        scoreBg = '#fee2e2'; scoreBorder = '#fca5a5'; scoreColor = '#b91c1c';
+      } else if (pct < 75) {
+        scoreBg = '#fef3c7'; scoreBorder = '#fcd34d'; scoreColor = '#b45309';
+      }
+
+      return `
+        <div class="found-exam-card ${isActive ? 'active' : ''}" id="foundExamCard_${idx}" onclick="window.selectFoundExamCard(${idx})">
+          <div class="found-card-top">
+            <div>
+              <div class="found-card-title">📝 ${safeEscapeHtml(sh.exam_title || sh.exam_id)}</div>
+              <div class="found-card-course">${safeEscapeHtml(sh.course_name || sh.course_id || 'PHYS.101')} • ${safeEscapeHtml(sh.instructor || 'Dr. M. Ali')}</div>
+            </div>
+            <div class="found-card-score-box" style="background:${scoreBg}; border-color:${scoreBorder}; color:${scoreColor};">
+              <span class="found-card-score-val">${earned} / ${possible}</span>
+              <span class="found-card-score-pct">${pct}%</span>
+            </div>
+          </div>
+          <div class="found-card-bottom">
+            <div class="found-card-pills">
+              <span class="model-pill">Model ${safeEscapeHtml(st.model || 'A')}</span>
+              <span style="background:#e2e8f0; color:#334155; padding:2px 8px; border-radius:6px;">${qCount} Qs</span>
+            </div>
+            <span class="found-card-action-tag">${isActive ? '✓ Viewing Sheet' : 'View Bubble Sheet →'}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    sec.style.display = 'block';
+  }
+
+  window.selectFoundExamCard = function(idx) {
+    const sheets = window.foundStudentSheets || [];
+    if (!sheets[idx]) return;
+    renderFoundExamsCards(sheets, idx);
+    renderStudentSheetPayload(sheets[idx]);
+  };
 
   // =========================================================================
   // 3. RENDER DIGITAL BUBBLE SHEET & INTERACTIVE QUESTION CARDS

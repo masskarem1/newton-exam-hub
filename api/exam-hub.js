@@ -924,16 +924,46 @@ export default async function handler(req, res) {
       }
     }
 
-    // ACTION 3: Lookup Single Student Bubble Sheet by Student ID Only
+    // ACTION 3: Lookup Student Bubble Sheet(s) by Student ID Only (Returns all matched exams for cards + primary sheet)
     if (action === 'get-student-sheet') {
-      if (!lookup.ok) {
-        return res.status(lookup.status || 404).json({ error: lookup.error });
+      const allMatched = [];
+      let firstError = null;
+
+      for (const candExam of publishedExams) {
+        const resCand = findStudentInExam(candExam, body.student_id);
+        if (resCand.ok) {
+          allMatched.push(sanitizeStudentSheetForClient(candExam, resCand.student));
+        } else if (resCand.status === 409 || resCand.status === 400) {
+          return res.status(resCand.status).json({ error: resCand.error });
+        } else if (!firstError) {
+          firstError = resCand;
+        }
       }
-      const payload = sanitizeStudentSheetForClient(exam, lookup.student);
+
+      if (allMatched.length === 0) {
+        return res.status(firstError?.status || 404).json({
+          error: firstError?.error || 'Student ID not found in any published exam.'
+        });
+      }
+
+      // Determine which matched sheet should be primary (if exam_id or ALL_Q1 / ALL_Q2 was specified)
+      let primarySheet = allMatched[0];
+      if (requestedExamId && !isMetaAll) {
+        const exactExam = allMatched.find(s => s.exam_id === requestedExamId);
+        if (exactExam) primarySheet = exactExam;
+      } else if (wantQ1Family) {
+        const q1Match = allMatched.find(s => /^Q1_/i.test(s.exam_id));
+        if (q1Match) primarySheet = q1Match;
+      } else if (wantQ2Family) {
+        const q2Match = allMatched.find(s => /^Q2_/i.test(s.exam_id));
+        if (q2Match) primarySheet = q2Match;
+      }
+
       return res.status(200).json({
         success: true,
         source: hubState.source,
-        ...payload
+        sheets: allMatched,
+        ...primarySheet
       });
     }
 

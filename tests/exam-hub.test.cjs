@@ -200,9 +200,18 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
   await dom.window.lookupStudentSheet();
 
   const doc = dom.window.document;
+  assert.equal(doc.getElementById('examSelector'), null, 'Assessment dropdown must be removed');
+  const foundCards = doc.querySelectorAll('#foundExamsGrid .found-exam-card');
+  assert.equal(foundCards.length, 2, 'Should render 2 Found Exam Cards (Quiz 2 and Quiz 1) for student 200022703');
+
   assert.equal(doc.getElementById('bubbleStudentName').textContent, 'Zyad Ayman Rezk Kotb Mohamed');
   assert.equal(doc.getElementById('bubbleScore').textContent, '10.5 / 15');
   assert.equal(doc.getElementById('bubbleScorePct').textContent, '70%');
+
+  // Switch to the second found exam card (Quiz 1) and verify it renders Quiz 1 (10 / 10)
+  dom.window.selectFoundExamCard(1);
+  assert.equal(doc.getElementById('bubbleScore').textContent, '10 / 10');
+  assert.equal(doc.getElementById('bubbleScorePct').textContent, '100%');
 
   const gridRows = doc.querySelectorAll('#bubbleSheetGrid .question-row');
   assert.equal(gridRows.length, 10, 'Should render 10 OMR bubble rows');
