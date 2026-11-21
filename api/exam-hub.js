@@ -802,7 +802,7 @@ export function createMcqChallengeToken({ examId, studentId, qNum, difficulty, c
     q: Number(qNum),
     diff: String(difficulty || 'medium'),
     ans: String(correctOption || 'A').trim().toUpperCase(),
-    exp: String(explanation || '').slice(0, 1200),
+    exp: String(explanation || '').slice(0, 4000),
     iat: Date.now()
   });
   const encrypted = Buffer.concat([cipher.update(payload, 'utf8'), cipher.final()]);
@@ -877,11 +877,9 @@ function getDomainKnowledgeBase(isEn) {
 
 async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature = 0.25 }) {
   const candidateModels = [
-    'gemini-3.5-flash-lite',
-    'gemini-3.5-flash',
-    'gemini-3.8-flash',
     'gemini-2.5-flash',
-    'gemini-2.0-flash'
+    'gemini-2.0-flash',
+    'gemini-2.5-flash-lite'
   ];
 
   let lastError = null;
@@ -890,8 +888,11 @@ async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature =
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
       const generationConfig = {
         temperature,
-        maxOutputTokens: 2200
+        maxOutputTokens: 8192
       };
+      if (modelName.startsWith('gemini-2.5')) {
+        generationConfig.thinkingConfig = { thinkingBudget: 512 };
+      }
       if (expectJson) {
         generationConfig.responseMimeType = 'application/json';
       }
@@ -903,12 +904,17 @@ async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature =
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig
         }),
-        signal: AbortSignal.timeout ? AbortSignal.timeout(9000) : undefined
+        signal: AbortSignal.timeout ? AbortSignal.timeout(18000) : undefined
       });
 
       if (res.ok) {
         const json = await res.json();
-        const rawText = json.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        const parts = json.candidates?.[0]?.content?.parts || [];
+        const rawText = parts
+          .filter(p => !p.thought && typeof p.text === 'string')
+          .map(p => p.text)
+          .join('')
+          .trim();
         if (rawText) {
           if (expectJson) {
             const cleaned = rawText.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
@@ -1155,9 +1161,9 @@ export default async function handler(req, res) {
 
       // 4A. Standard Step-by-Step Explanation (with Cross-Model Stem & Choice Log Deduplication)
       if (action === 'explain') {
-        const cacheKey = `EXPL_${exam.exam_id}_M${student.model}_Q${qNum}_S${stuAns}_K${correctAns}_C${isCorrect ? 1 : 0}_${lang}`;
-        const stemChoiceKey = `EXPL_STEM_${stemHash}_S${stuAns}_${stuChoiceHash}_K${correctAns}_${keyChoiceHash}_C${isCorrect ? 1 : 0}_${lang}`;
-        const stemGenericKey = `EXPL_STEM_${stemHash}_${lang}`;
+        const cacheKey = `EXPL_v3_${exam.exam_id}_M${student.model}_Q${qNum}_S${stuAns}_K${correctAns}_C${isCorrect ? 1 : 0}_${lang}`;
+        const stemChoiceKey = `EXPL_STEM_v3_${stemHash}_S${stuAns}_${stuChoiceHash}_K${correctAns}_${keyChoiceHash}_C${isCorrect ? 1 : 0}_${lang}`;
+        const stemGenericKey = `EXPL_STEM_v3_${stemHash}_${lang}`;
 
         const cachedExpl = aiResponseCache.get(cacheKey) ||
           aiResponseCache.get(stemChoiceKey) ||
@@ -1195,11 +1201,12 @@ ${domainKB}
 
 INSTRUCTIONS:
 ${isEn
-  ? `- Write 100% in clear academic English (under 150 words).
-- Start with "${explanationLabel}:" and explain step-by-step why choice (${correctAns}) is correct and why (${stuAns || 'Blank'}) is ${isCorrect ? 'right' : 'incorrect'}.`
-  : `- اكتب الشرح كاملاً باللغة العربية الفصحى الواضحة (أقل من 150 كلمة) مع وضع المصطلحات العلمية الإنجليزية بين قوسين مثل: المتانة (Toughness).
-- ابدأ بـ "${explanationLabel}:" واشرح بالخطوات لماذا الخيار (${correctAns}) هو الصحيح ولماذا (${stuAns || 'عدم الإجابة'}) ${isCorrect ? 'صحيح' : 'خاطئ'}.`}
-- Use standalone $$...$$ on separate lines for equations. NEVER put Arabic characters inside $...$ or $$...$$ math blocks.`;
+  ? `- Write 100% in clear academic English (120-200 words, complete from start to finish — NEVER cut off mid-sentence).
+- Start with "${explanationLabel}:" and explain step-by-step why choice (${correctAns}) is correct and why (${stuAns || 'Blank'}) is ${isCorrect ? 'right' : 'incorrect'}, ending with a complete final conclusion sentence.`
+  : `- اكتب الشرح كاملاً باللغة العربية الفصحى الواضحة (120-200 كلمة، مكتمل تماماً حتى الجملة الختامية دون أي بتر) مع وضع المصطلحات العلمية الإنجليزية بين قوسين مثل: المتانة (Toughness).
+- ابدأ بـ "${explanationLabel}:" واشرح بالخطوات لماذا الخيار (${correctAns}) هو الصحيح ولماذا (${stuAns || 'عدم الإجابة'}) ${isCorrect ? 'صحيح' : 'خاطئ'}، واختم بجملة واضحة تؤكد الإجابة النهائية.`}
+- MOBILE EQUATION FORMATTING RULE: Keep every $$...$$ equation SHORT so it fits on narrow phone screens without clipping. Put the symbolic formula on one $$...$$ line, the numerical substitution on a second $$...$$ line, and the final result on a third $$...$$ line (at most ONE "=" per $$...$$ block).
+- NEVER put Arabic characters inside $...$ or $$...$$ math blocks.`;
 
         let gemRes;
         if (inflightAiRequests.has(stemChoiceKey)) {

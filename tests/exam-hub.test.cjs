@@ -226,9 +226,16 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
   assert.equal(doc.getElementById('qBody_0').classList.contains('open'), false, 'Q1 should auto-close when Q2 is clicked');
   assert.equal(doc.getElementById('qBody_1').classList.contains('open'), true, 'Q2 should open when clicked');
 
-  // Verify Arabic MathJax sanitizer never leaves Arabic inside $...$
+  // Verify Arabic MathJax sanitizer never leaves Arabic inside $...$ or $$...$$ and preserves formula after Arabic label
   const formattedAr = dom.window.fixArabicMath('قانون القوة $$ \\text{التوتر السطحي} = \\frac{F}{L} $$ حيث $F$ هي القوة ($\\text{نيوتن}$)');
-  assert.ok(!/\$(?:[^$]*[\u0600-\u06FF][^$]*)\$/.test(formattedAr), 'Arabic characters must be stripped out of inline math delimiters');
+  const mathBlocks = formattedAr.match(/\$\$[\s\S]*?\$\$|\$[^$]+\$/g) || [];
+  assert.ok(mathBlocks.every(b => !/[\u0600-\u06FF]/.test(b)), 'Arabic characters must never remain inside any $...$ or $$...$$ math block');
+  assert.ok(formattedAr.includes('$$ \\frac{F}{L} $$'), 'Math formula after Arabic label must remain intact inside $$...$$');
+
+  // Verify long multi-equality equations auto-split into stacked $$...$$ lines
+  const splitLongEq = dom.window.fixArabicMath('$$ Y = \\frac{F \\cdot L_0}{A \\cdot \\Delta L} = \\frac{200 \\times 2.0}{1.0 \\times 10^{-4} \\times 2.0 \\times 10^{-3}} = 2.0 \\times 10^9 \\text{ Pa} $$');
+  const displayBlockCount = (splitLongEq.match(/\$\$[\s\S]*?\$\$/g) || []).length;
+  assert.ok(displayBlockCount >= 2, 'Long chained equation with 3 equalities should auto-split into stacked display math blocks');
 
   // Verify Cross-Model Stem & Choice Hash Deduplication (Quota-Saving AI Logs)
   const hModelA = apiMod.computeQuestionStemAndChoiceHashes(
