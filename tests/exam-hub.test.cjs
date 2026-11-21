@@ -21,20 +21,29 @@ function createMockRes() {
   };
 }
 
-test('1. Universal CSV Parser & 3-Tab Google Sheet State Builder', async () => {
+test('1. Universal CSV Parser & 3-Tab Google Sheet State Builder (Dent101 Quiz 2: 4 Groups, 160 Questions, 870 Students)', async () => {
   const apiMod = await import('../api/exam-hub.js');
   const settingsCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Settings.csv'), 'utf8');
   const questionsCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Models_Questions.csv'), 'utf8');
   const responsesCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Student_Responses.csv'), 'utf8');
 
   const state = apiMod.buildExamHubStateFromCSVs({ settingsCsv, questionsCsv, responsesCsv });
-  assert.ok(state.exams.Q2_PHYS101, 'Q2_PHYS101 exam should be loaded');
-  const q2 = state.exams.Q2_PHYS101;
-  assert.equal(q2.students.length, 3, 'Should parse 3 student rows');
-  assert.equal(q2.model_keys.A[1], 'D');
-  assert.equal(q2.model_keys.A[2], 'B');
-  assert.equal(q2.model_keys.B[1], 'B');
-  assert.ok(q2.question_bank.A[5].question_text.includes('Poiseuille'), 'Should preserve multi-line LaTeX question text');
+  assert.ok(state.exams['Q2_MON1_PHYS.101_F26-27'], 'MON1 should be loaded');
+  assert.ok(state.exams['Q2_TUE1_PHYS.101_F26-27'], 'TUE1 should be loaded');
+  assert.ok(state.exams['Q2_TUE2_PHYS.101_F26-27'], 'TUE2 should be loaded');
+  assert.ok(state.exams['Q2_WED1_PHYS.101_F26-27'], 'WED1 should be loaded');
+
+  const totalStudents =
+    state.exams['Q2_MON1_PHYS.101_F26-27'].students.length +
+    state.exams['Q2_TUE1_PHYS.101_F26-27'].students.length +
+    state.exams['Q2_TUE2_PHYS.101_F26-27'].students.length +
+    state.exams['Q2_WED1_PHYS.101_F26-27'].students.length;
+  assert.equal(totalStudents, 870, 'Should parse all 870 student rows across MON1, TUE1, TUE2, WED1');
+
+  const mon1 = state.exams['Q2_MON1_PHYS.101_F26-27'];
+  assert.equal(mon1.model_keys.A[1], 'B');
+  assert.equal(mon1.model_keys.B[1], 'B');
+  assert.ok(mon1.question_bank.A[1].question_text.includes('equation of continuity'), 'Should load MON1 Q1 text');
 });
 
 test('2. Student ID Lookup (Exact 9-Digit, Legacy 5-Digit Suffix & Ambiguity Rejection)', async () => {
@@ -72,24 +81,26 @@ test('3. Server-Side Student Isolation & Answer Key Release Gate', async () => {
   const apiMod = await import('../api/exam-hub.js');
   const handler = apiMod.default;
 
-  // Test get-student-sheet via handler
+  // Test get-student-sheet via handler (Auto-Detect across all 4 Quiz 2 groups with exam_id = 'ALL')
   const req = {
     method: 'POST',
-    body: { action: 'get-student-sheet', exam_id: 'Q2_PHYS101', student_id: '46095' }
+    body: { action: 'get-student-sheet', exam_id: 'ALL', student_id: '35074' }
   };
   const res = createMockRes();
   await handler(req, res);
 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.success, true);
-  assert.equal(res.body.student.student_id, '200046095');
-  assert.equal(res.body.student.earned_points, 8);
+  assert.equal(res.body.exam_id, 'Q2_MON1_PHYS.101_F26-27');
+  assert.equal(res.body.student.student_id, '200035074');
+  assert.equal(res.body.student.earned_points, 10.5);
+  assert.equal(res.body.student.possible_points, 15);
   assert.equal(res.body.student.questions.length, 10);
-  // Question 2: Shahd answered A, key is B -> is_correct must be false
-  const q2 = res.body.student.questions.find(q => q.q_num === 2);
-  assert.equal(q2.student_ans, 'A');
-  assert.equal(q2.correct_ans, 'B');
-  assert.equal(q2.is_correct, false);
+  // Question 5 on MON1 Model B: student answered B, key is C -> is_correct must be false
+  const q5 = res.body.student.questions.find(q => q.q_num === 5);
+  assert.equal(q5.student_ans, 'B');
+  assert.equal(q5.correct_ans, 'C');
+  assert.equal(q5.is_correct, false);
 
   // Verify answer withholding when release_answers is FALSE
   const unreleasedExam = {
@@ -153,7 +164,7 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
   const html = fs.readFileSync(path.join(__dirname, '../exam-hub.html'), 'utf8');
 
   const dom = new JSDOM(html, {
-    url: 'https://newton.example.edu/exam-hub.html?exam=Q2_PHYS101&id=200046095',
+    url: 'https://newton.example.edu/exam-hub.html?exam=ALL&id=200022703',
     runScripts: 'dangerously'
   });
 
@@ -177,14 +188,14 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
     };
   };
 
-  // Trigger lookup
-  dom.window.document.getElementById('studentIdInput').value = '200046095';
+  // Trigger lookup for WED1 student 200022703
+  dom.window.document.getElementById('studentIdInput').value = '200022703';
   await dom.window.lookupStudentSheet();
 
   const doc = dom.window.document;
-  assert.equal(doc.getElementById('bubbleStudentName').textContent, 'Shahd Mohamed Ali');
-  assert.equal(doc.getElementById('bubbleScore').textContent, '8 / 10');
-  assert.equal(doc.getElementById('bubbleScorePct').textContent, '80%');
+  assert.equal(doc.getElementById('bubbleStudentName').textContent, 'Zyad Ayman Rezk Kotb Mohamed');
+  assert.equal(doc.getElementById('bubbleScore').textContent, '10.5 / 15');
+  assert.equal(doc.getElementById('bubbleScorePct').textContent, '70%');
 
   const gridRows = doc.querySelectorAll('#bubbleSheetGrid .question-row');
   assert.equal(gridRows.length, 10, 'Should render 10 OMR bubble rows');

@@ -1,4 +1,20 @@
 import crypto from 'crypto';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+function readBundledTemplateCsv(fileName, fallbackStr) {
+  try {
+    const p = path.join(__dirname, '..', 'google-sheet-templates', fileName);
+    if (fs.existsSync(p)) {
+      return fs.readFileSync(p, 'utf8');
+    }
+  } catch (e) {}
+  return fallbackStr;
+}
 
 // ============================================================================
 // NEWTON STANDALONE EXAM HUB API (ZERO-SUPABASE ARCHITECTURE)
@@ -252,15 +268,22 @@ export function buildExamHubStateFromCSVs({ settingsCsv, questionsCsv, responses
       const pts = (cPts !== -1 && parseFloat(r[cPts]) > 0) ? parseFloat(r[cPts]) : 1;
       let qText = (cText !== -1 && r[cText]) ? r[cText].trim() : '';
 
-      // Append separate Option A..E columns if present and not already inside Question_Text
-      const extraOpts = [];
-      if (cOptA !== -1 && r[cOptA]) extraOpts.push(`A) ${r[cOptA]}`);
-      if (cOptB !== -1 && r[cOptB]) extraOpts.push(`B) ${r[cOptB]}`);
-      if (cOptC !== -1 && r[cOptC]) extraOpts.push(`C) ${r[cOptC]}`);
-      if (cOptD !== -1 && r[cOptD]) extraOpts.push(`D) ${r[cOptD]}`);
-      if (cOptE !== -1 && r[cOptE]) extraOpts.push(`E) ${r[cOptE]}`);
-      if (extraOpts.length > 0) {
-        qText = qText ? `${qText}\n${extraOpts.join('\n')}` : extraOpts.join('\n');
+      // Only append separate Choice_A..Choice_E columns if Question_Text does not already include choices
+      if (!qText || !/\bA\)\s+/i.test(qText)) {
+        const formatChoice = (letter, rawVal) => {
+          const clean = String(rawVal || '').trim();
+          if (!clean) return '';
+          return new RegExp(`^${letter}[).:-]\\s*`, 'i').test(clean) ? clean : `${letter}) ${clean}`;
+        };
+        const extraOpts = [];
+        if (cOptA !== -1 && r[cOptA]) extraOpts.push(formatChoice('A', r[cOptA]));
+        if (cOptB !== -1 && r[cOptB]) extraOpts.push(formatChoice('B', r[cOptB]));
+        if (cOptC !== -1 && r[cOptC]) extraOpts.push(formatChoice('C', r[cOptC]));
+        if (cOptD !== -1 && r[cOptD]) extraOpts.push(formatChoice('D', r[cOptD]));
+        if (cOptE !== -1 && r[cOptE]) extraOpts.push(formatChoice('E', r[cOptE]));
+        if (extraOpts.length > 0) {
+          qText = qText ? `${qText}\n${extraOpts.join('\n')}` : extraOpts.join('\n');
+        }
       }
       // Unescape literal \n sequences pasted into single-line spreadsheet cells
       qText = qText.replace(/\\n/g, '\n');
@@ -464,20 +487,29 @@ export function buildExamHubStateFromCSVs({ settingsCsv, questionsCsv, responses
 
 const DEFAULT_GOOGLE_SHEET_ID = '13dlchvvBJeut4e7o1edXVy7rjrTiMoX93yCUzbE4RCQ';
 
+function loadBundledFallbackState(sheetId = null, sheetNotice = null) {
+  const settingsCsv = readBundledTemplateCsv('Settings.csv', BUILTIN_SAMPLE_SETTINGS_CSV);
+  const questionsCsv = readBundledTemplateCsv('Models_Questions.csv', BUILTIN_SAMPLE_QUESTIONS_CSV);
+  const responsesCsv = readBundledTemplateCsv('Student_Responses.csv', BUILTIN_SAMPLE_RESPONSES_CSV);
+  return {
+    source: 'bundled_dent101_quiz2',
+    sheet_id: sheetId,
+    ...(sheetNotice ? { sheet_notice: sheetNotice } : {}),
+    ...buildExamHubStateFromCSVs({
+      settingsCsv,
+      questionsCsv,
+      responsesCsv,
+      defaultExamId: 'Q2_MON1_PHYS.101_F26-27'
+    })
+  };
+}
+
 async function loadExamHubData(customSheetId = null) {
   const rawSheetRef = customSheetId || process.env.GOOGLE_SHEET_ID || process.env.GOOGLE_SHEET_URL || DEFAULT_GOOGLE_SHEET_ID;
   const sheetId = extractGoogleSheetId(rawSheetRef);
 
   if (!sheetId) {
-    return {
-      source: 'builtin_sample',
-      sheet_id: null,
-      ...buildExamHubStateFromCSVs({
-        settingsCsv: BUILTIN_SAMPLE_SETTINGS_CSV,
-        questionsCsv: BUILTIN_SAMPLE_QUESTIONS_CSV,
-        responsesCsv: BUILTIN_SAMPLE_RESPONSES_CSV
-      })
-    };
+    return loadBundledFallbackState(null);
   }
 
   const cached = sheetCache.get(sheetId);
@@ -502,25 +534,16 @@ async function loadExamHubData(customSheetId = null) {
       ...buildExamHubStateFromCSVs({
         settingsCsv,
         questionsCsv,
-        responsesCsv
+        responsesCsv,
+        defaultExamId: 'Q2_MON1_PHYS.101_F26-27'
       })
     };
 
     sheetCache.set(sheetId, { fetchedAt: Date.now(), data: state });
     return state;
   } catch (err) {
-    // Graceful fallback to built-in sample if sheet isn't shared yet or offline during local tests
-    if (!customSheetId && !process.env.GOOGLE_SHEET_ID && !process.env.GOOGLE_SHEET_URL) {
-      return {
-        source: 'builtin_sample',
-        sheet_id: sheetId,
-        sheet_notice: err.message,
-        ...buildExamHubStateFromCSVs({
-          settingsCsv: BUILTIN_SAMPLE_SETTINGS_CSV,
-          questionsCsv: BUILTIN_SAMPLE_QUESTIONS_CSV,
-          responsesCsv: BUILTIN_SAMPLE_RESPONSES_CSV
-        })
-      };
+    if (!customSheetId) {
+      return loadBundledFallbackState(sheetId, err.message);
     }
     throw err;
   }
@@ -806,9 +829,22 @@ export default async function handler(req, res) {
 
     // ACTION 2: List Published Exams for the Dropdown
     if (action === 'list-exams') {
-      const examList = Object.values(allExams)
-        .filter(e => e.is_published !== false)
-        .map(e => ({
+      const publishedExams = Object.values(allExams).filter(e => e.is_published !== false);
+      const examList = [];
+      if (publishedExams.length > 1) {
+        examList.push({
+          exam_id: 'ALL',
+          course_id: publishedExams[0]?.course_id || 'DENT_PHYS.101_F26_27',
+          course_name: publishedExams[0]?.course_name || 'Dentistry Physics 101',
+          exam_title: 'Quiz 2 - All Groups (Auto-Detect MON-1 / TUE-1 / TUE-2 / WED-1 by Student ID)',
+          instructor: publishedExams[0]?.instructor || 'Dr. M. Ali',
+          num_questions: publishedExams[0]?.num_questions || 10,
+          max_score: publishedExams[0]?.max_score || 15,
+          release_answers: true
+        });
+      }
+      for (const e of publishedExams) {
+        examList.push({
           exam_id: e.exam_id,
           course_id: e.course_id,
           course_name: e.course_name,
@@ -817,7 +853,8 @@ export default async function handler(req, res) {
           num_questions: e.num_questions,
           max_score: e.max_score,
           release_answers: e.release_answers !== false
-        }));
+        });
+      }
 
       return res.status(200).json({
         success: true,
@@ -826,22 +863,47 @@ export default async function handler(req, res) {
       });
     }
 
-    // Resolve target exam
+    // Resolve target exam & student (with automatic cross-group search across published groups)
     const requestedExamId = String(body.exam_id || '').trim();
-    const exam = (requestedExamId && allExams[requestedExamId])
-      ? allExams[requestedExamId]
-      : Object.values(allExams).find(e => e.is_published !== false) || Object.values(allExams)[0];
+    const publishedExams = Object.values(allExams).filter(e => e.is_published !== false);
 
-    if (!exam) {
+    if (Object.keys(allExams).length === 0) {
       return res.status(404).json({ error: 'No exams configured in the Google Sheet.' });
     }
-    if (exam.is_published === false) {
+    if (requestedExamId && requestedExamId !== 'ALL' && allExams[requestedExamId] && allExams[requestedExamId].is_published === false) {
       return res.status(403).json({ error: 'This exam is currently hidden by your instructor.' });
+    }
+
+    let exam = (requestedExamId && requestedExamId !== 'ALL' && allExams[requestedExamId])
+      ? allExams[requestedExamId]
+      : publishedExams[0] || Object.values(allExams)[0];
+
+    let lookup = findStudentInExam(exam, body.student_id);
+
+    // If student was not found in the selected group (or 'ALL' was selected), search across all published groups
+    if (!lookup.ok && lookup.status === 404) {
+      const groupMatches = [];
+      for (const candExam of publishedExams) {
+        const resCand = findStudentInExam(candExam, body.student_id);
+        if (resCand.ok) {
+          groupMatches.push({ exam: candExam, student: resCand.student });
+        } else if (resCand.status === 409) {
+          return res.status(409).json({ error: resCand.error });
+        }
+      }
+      if (groupMatches.length === 1) {
+        exam = groupMatches[0].exam;
+        lookup = { ok: true, student: groupMatches[0].student };
+      } else if (groupMatches.length > 1) {
+        // Student exists in multiple groups; if a specific group was selected use it, else use the first match
+        const preferred = groupMatches.find(m => m.exam.exam_id === requestedExamId) || groupMatches[0];
+        exam = preferred.exam;
+        lookup = { ok: true, student: preferred.student };
+      }
     }
 
     // ACTION 3: Lookup Single Student Bubble Sheet by Student ID Only
     if (action === 'get-student-sheet') {
-      const lookup = findStudentInExam(exam, body.student_id);
       if (!lookup.ok) {
         return res.status(lookup.status || 404).json({ error: lookup.error });
       }
@@ -861,7 +923,6 @@ export default async function handler(req, res) {
         });
       }
 
-      const lookup = findStudentInExam(exam, body.student_id);
       if (!lookup.ok) {
         return res.status(lookup.status || 401).json({ error: lookup.error });
       }

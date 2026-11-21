@@ -1,13 +1,801 @@
-Exam_ID,Model,Q_Num,Correct_Key,Points,Question_Text
-Q2_PHYS101,A,1,D,1,"Hooke's Law within the elastic limit states that restoring force or stress is directly proportional to strain:\nA) \( F = m a \)\nB) \( P = F / A \)\nC) \( V = I R \)\nD) \( F = k \Delta L \)"
-Q2_PHYS101,A,2,B,1,"Which dental tissue has the HIGHEST toughness (total area under the stress-strain curve before fracture)?\nA) Enamel\nB) Dentin\nC) Ceramic crown\nD) Glass ionomer"
-Q2_PHYS101,A,3,A,1,"Statement: 'Enamel is tough compared to dentin.' Is this statement scientifically True or False?\nA) False — Enamel is the hardest tissue, but it is brittle with low toughness compared to dentin\nB) True — Enamel is both tougher and harder than dentin\nC) True — Because enamel has a higher Young's modulus\nD) False — Dentin has higher hardness than enamel"
-Q2_PHYS101,A,4,C,1,"What is the dimensional formula of Surface Tension \( \gamma = F / L \)?\nA) \( [M L T^{-2}] \)\nB) \( [M L^{-1} T^{-2}] \)\nC) \( [M T^{-2}] \)\nD) \( [M L^{-1} T^{-1}] \)"
-Q2_PHYS101,A,5,B,1,"According to Poiseuille's Law \( Q = \frac{\pi \Delta P r^4}{8 \eta L} \), if the radius \( r \) of a blood vessel doubles while other factors remain constant, the volume flow rate \( Q \) increases by a factor of:\nA) 2\nB) 16\nC) 4\nD) 8"
-Q2_PHYS101,A,6,A,1,"What is the dimensional formula of longitudinal strain \( \epsilon = \Delta L / L_0 \)?\nA) Dimensionless \( [1] \)\nB) \( [L] \)\nC) \( [M L^{-1} T^{-2}] \)\nD) \( [L^2] \)"
-Q2_PHYS101,A,7,C,1,"Young's Modulus of Elasticity \( E \) is represented graphically on a stress-strain curve by:\nA) The total area under the entire curve up to fracture\nB) The maximum stress at the breaking point\nC) The slope of the initial linear elastic region\nD) The plastic deformation width"
-Q2_PHYS101,A,8,D,1,"What is the SI unit and dimensional formula of dynamic viscosity \( \eta \)?\nA) \( \text{N/m} \), \( [M T^{-2}] \)\nB) \( \text{Pa} \), \( [M L^{-1} T^{-2}] \)\nC) \( \text{J} \), \( [M L^2 T^{-2}] \)\nD) \( \text{Pa}\cdot\text{s} \), \( [M L^{-1} T^{-1}] \)"
-Q2_PHYS101,A,9,B,1,"According to Stokes' Law \( F_d = 6 \pi \eta r v \), the viscous drag force on a small sphere moving at terminal velocity is proportional to:\nA) \( r^2 v^2 \)\nB) \( r v \)\nC) \( r^4 \)\nD) \( 1 / r \)"
-Q2_PHYS101,A,10,A,1,"Using King's Interpolation formula for the Mode \( \text{Mode} = L + \left(\frac{f_2}{f_1 + f_2}\right) \times w \), if \( L = 20 \), \( f_1 = 10 \), \( f_2 = 10 \), and class width \( w = 10 \), the Mode equals:\nA) 25\nB) 22\nC) 28\nD) 30"
-Q2_PHYS101,B,1,B,1,"Which dental tissue has the HIGHEST toughness (total area under the stress-strain curve before fracture)?\nA) Enamel\nB) Dentin\nC) Ceramic crown\nD) Glass ionomer"
-Q2_PHYS101,B,2,D,1,"Hooke's Law within the elastic limit states that restoring force or stress is directly proportional to strain:\nA) \( F = m a \)\nB) \( P = F / A \)\nC) \( V = I R \)\nD) \( F = k \Delta L \)"
+Exam_ID,Model,Q_Num,Correct_Key,Points,Question_Text,Question_Stem,Choice_A,Choice_B,Choice_C,Choice_D,Correct_Choice,Topic
+Q2_MON1_PHYS.101_F26-27,A,1,B,1.5,"Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?
+A) decreases
+B) increases
+C) stays the same
+D) More input is needed","Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?",A) decreases,B) increases,C) stays the same,D) More input is needed,B) increases,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,A,2,A,1.5,"Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.
+A) equal to
+B) less than
+C) greater than
+D) none of these","Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.",A) equal to,B) less than,C) greater than,D) none of these,A) equal to,Buoyancy
+Q2_MON1_PHYS.101_F26-27,A,3,A,1.5,"According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:
+A) low
+B) high
+C) unchnged
+D) doubled","According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:",A) low,B) high,C) unchnged,D) doubled,A) low,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,A,4,C,1.5,"What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?
+A) volume
+B) weight
+C) spaecific gravity
+D) density",What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?,A) volume,B) weight,C) spaecific gravity,D) density,C) spaecific gravity,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,A,5,D,1.5,"At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?
+A) 5 m
+B) 15 m
+C) 20 m
+D) 10 m",At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?,A) 5 m,B) 15 m,C) 20 m,D) 10 m,D) 10 m,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,A,6,A,1.5,"Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:
+A) 50 g
+B) 500 g
+C) 5 g
+D) 1000 g","Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:",A) 50 g,B) 500 g,C) 5 g,D) 1000 g,A) 50 g,Buoyancy
+Q2_MON1_PHYS.101_F26-27,A,7,A,1.5,"Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?
+A) 5.55
+B) 0.738
+C) 2.08
+D) 0.49",Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?,A) 5.55,B) 0.738,C) 2.08,D) 0.49,A) 5.55,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,A,8,C,1.5,"Hydraulic car jacks operate as a direct application of which physical principle?
+A) Bernoulli
+B) Continuity eq.
+C) Pascal
+D) Archimedes",Hydraulic car jacks operate as a direct application of which physical principle?,A) Bernoulli,B) Continuity eq.,C) Pascal,D) Archimedes,C) Pascal,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,A,9,A,1.5,"Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.
+A) 0.401
+B) 0.294
+C) 0.321
+D) 0.200","Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.",A) 0.401,B) 0.294,C) 0.321,D) 0.200,A) 0.401,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,A,10,B,1.5,"Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation
+A) ΔP = 8π η (AL/v)
+B) ΔP = 8π η (vL/A)
+C) ΔP = 8π η (vA/L)
+D) ΔP = 8π η (ALv)",Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation,A) ΔP = 8π η (AL/v),B) ΔP = 8π η (vL/A),C) ΔP = 8π η (vA/L),D) ΔP = 8π η (ALv),B) ΔP = 8π η (vL/A),Viscosity
+Q2_MON1_PHYS.101_F26-27,B,1,B,1.5,"Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.
+A) less than
+B) equal to
+C) greater than
+D) none of these","Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.",A) less than,B) equal to,C) greater than,D) none of these,B) equal to,Buoyancy
+Q2_MON1_PHYS.101_F26-27,B,2,B,1.5,"Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:
+A) 5 g
+B) 50 g
+C) 1000 g
+D) 500 g","Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:",A) 5 g,B) 50 g,C) 1000 g,D) 500 g,B) 50 g,Buoyancy
+Q2_MON1_PHYS.101_F26-27,B,3,D,1.5,"Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation
+A) ΔP = 8π η (ALv)
+B) ΔP = 8π η (vA/L)
+C) ΔP = 8π η (AL/v)
+D) ΔP = 8π η (vL/A)",Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation,A) ΔP = 8π η (ALv),B) ΔP = 8π η (vA/L),C) ΔP = 8π η (AL/v),D) ΔP = 8π η (vL/A),D) ΔP = 8π η (vL/A),Viscosity
+Q2_MON1_PHYS.101_F26-27,B,4,A,1.5,"At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?
+A) 10 m
+B) 20 m
+C) 15 m
+D) 5 m",At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?,A) 10 m,B) 20 m,C) 15 m,D) 5 m,A) 10 m,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,B,5,C,1.5,"Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?
+A) 2.08
+B) 0.49
+C) 5.55
+D) 0.738",Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?,A) 2.08,B) 0.49,C) 5.55,D) 0.738,C) 5.55,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,B,6,A,1.5,"According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:
+A) low
+B) high
+C) unchnged
+D) doubled","According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:",A) low,B) high,C) unchnged,D) doubled,A) low,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,B,7,C,1.5,"Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?
+A) decreases
+B) stays the same
+C) increases
+D) More input is needed","Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?",A) decreases,B) stays the same,C) increases,D) More input is needed,C) increases,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,B,8,A,1.5,"What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?
+A) spaecific gravity
+B) volume
+C) density
+D) weight",What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?,A) spaecific gravity,B) volume,C) density,D) weight,A) spaecific gravity,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,B,9,A,1.5,"Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.
+A) 0.401
+B) 0.200
+C) 0.321
+D) 0.294","Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.",A) 0.401,B) 0.200,C) 0.321,D) 0.294,A) 0.401,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,B,10,A,1.5,"Hydraulic car jacks operate as a direct application of which physical principle?
+A) Pascal
+B) Continuity eq.
+C) Bernoulli
+D) Archimedes",Hydraulic car jacks operate as a direct application of which physical principle?,A) Pascal,B) Continuity eq.,C) Bernoulli,D) Archimedes,A) Pascal,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,C,1,C,1.5,"Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:
+A) 5 g
+B) 500 g
+C) 50 g
+D) 1000 g","Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:",A) 5 g,B) 500 g,C) 50 g,D) 1000 g,C) 50 g,Buoyancy
+Q2_MON1_PHYS.101_F26-27,C,2,A,1.5,"Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.
+A) equal to
+B) less than
+C) greater than
+D) none of these","Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.",A) equal to,B) less than,C) greater than,D) none of these,A) equal to,Buoyancy
+Q2_MON1_PHYS.101_F26-27,C,3,D,1.5,"Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.
+A) 0.321
+B) 0.294
+C) 0.200
+D) 0.401","Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.",A) 0.321,B) 0.294,C) 0.200,D) 0.401,D) 0.401,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,C,4,A,1.5,"According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:
+A) low
+B) high
+C) unchnged
+D) doubled","According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:",A) low,B) high,C) unchnged,D) doubled,A) low,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,C,5,C,1.5,"At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?
+A) 15 m
+B) 5 m
+C) 10 m
+D) 20 m",At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?,A) 15 m,B) 5 m,C) 10 m,D) 20 m,C) 10 m,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,C,6,A,1.5,"Hydraulic car jacks operate as a direct application of which physical principle?
+A) Pascal
+B) Bernoulli
+C) Continuity eq.
+D) Archimedes",Hydraulic car jacks operate as a direct application of which physical principle?,A) Pascal,B) Bernoulli,C) Continuity eq.,D) Archimedes,A) Pascal,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,C,7,B,1.5,"Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation
+A) ΔP = 8π η (AL/v)
+B) ΔP = 8π η (vL/A)
+C) ΔP = 8π η (ALv)
+D) ΔP = 8π η (vA/L)",Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation,A) ΔP = 8π η (AL/v),B) ΔP = 8π η (vL/A),C) ΔP = 8π η (ALv),D) ΔP = 8π η (vA/L),B) ΔP = 8π η (vL/A),Viscosity
+Q2_MON1_PHYS.101_F26-27,C,8,A,1.5,"Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?
+A) increases
+B) stays the same
+C) decreases
+D) More input is needed","Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?",A) increases,B) stays the same,C) decreases,D) More input is needed,A) increases,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,C,9,D,1.5,"Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?
+A) 0.738
+B) 2.08
+C) 0.49
+D) 5.55",Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?,A) 0.738,B) 2.08,C) 0.49,D) 5.55,D) 5.55,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,C,10,A,1.5,"What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?
+A) spaecific gravity
+B) volume
+C) weight
+D) density",What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?,A) spaecific gravity,B) volume,C) weight,D) density,A) spaecific gravity,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,D,1,D,1.5,"Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?
+A) 0.738
+B) 0.49
+C) 2.08
+D) 5.55",Water flows horizontally through a 1.6 cm diameter garden hose at a speed of 0.78 m/s and exits through a nozzle with a diameter of 0.6 cm. What is the speed of the water (in m/s) as it leaves the nozzle?,A) 0.738,B) 0.49,C) 2.08,D) 5.55,D) 5.55,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,D,2,B,1.5,"Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?
+A) decreases
+B) increases
+C) stays the same
+D) More input is needed","Based on the equation of continuity, how does the flow speed of blood change when plaque accumulates along the inner walls of an artery?",A) decreases,B) increases,C) stays the same,D) More input is needed,B) increases,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,D,3,C,1.5,"At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?
+A) 5 m
+B) 20 m
+C) 10 m
+D) 15 m",At what depth beneath the surface of the ocean does the total (absolute) pressure reach 2 atm?,A) 5 m,B) 20 m,C) 10 m,D) 15 m,C) 10 m,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,D,4,D,1.5,"What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?
+A) weight
+B) density
+C) volume
+D) spaecific gravity",What term describes the ratio of a substance's mass to the mass of an equal volume of pure water at 4 °C?,A) weight,B) density,C) volume,D) spaecific gravity,D) spaecific gravity,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,D,5,B,1.5,"According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:
+A) high
+B) low
+C) unchnged
+D) doubled","According to Bernoulli's principle, if the speed of a fluid increases within a specific region of a pipe, the fluid pressure in that region will be:",A) high,B) low,C) unchnged,D) doubled,B) low,Fluid Dynamics
+Q2_MON1_PHYS.101_F26-27,D,6,B,1.5,"Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.
+A) greater than
+B) equal to
+C) less than
+D) none of these","Lead has a higher density than aluminum. If a solid lead sphere and a solid aluminum sphere of identical diameter are completely submerged in the same liquid, the buoyant force on the lead sphere is ........ that on the aluminum sphere.",A) greater than,B) equal to,C) less than,D) none of these,B) equal to,Buoyancy
+Q2_MON1_PHYS.101_F26-27,D,7,B,1.5,"Hydraulic car jacks operate as a direct application of which physical principle?
+A) Continuity eq.
+B) Pascal
+C) Bernoulli
+D) Archimedes",Hydraulic car jacks operate as a direct application of which physical principle?,A) Continuity eq.,B) Pascal,C) Bernoulli,D) Archimedes,B) Pascal,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,D,8,A,1.5,"Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.
+A) 0.401
+B) 0.321
+C) 0.294
+D) 0.200","Using Siri's equation, determine the fractional body fat of an individual whose average body density is 1010 kg/m³.",A) 0.401,B) 0.321,C) 0.294,D) 0.200,A) 0.401,Fluid Statics
+Q2_MON1_PHYS.101_F26-27,D,9,A,1.5,"Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:
+A) 50 g
+B) 500 g
+C) 1000 g
+D) 5 g","Cerebrospinal fluid (CSF) provides buoyancy that allows the brain to ""float"" within the skull, reducing its effective (apparent) weight from an actual mass of 1500 g to approximately:",A) 50 g,B) 500 g,C) 1000 g,D) 5 g,A) 50 g,Buoyancy
+Q2_MON1_PHYS.101_F26-27,D,10,A,1.5,"Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation
+A) ΔP = 8π η (vL/A)
+B) ΔP = 8π η (AL/v)
+C) ΔP = 8π η (ALv)
+D) ΔP = 8π η (vA/L)",Both stenosis and high hematocrit values can cause heart diseases. This could be informed from the Poiseuille's equation,A) ΔP = 8π η (vL/A),B) ΔP = 8π η (AL/v),C) ΔP = 8π η (ALv),D) ΔP = 8π η (vA/L),A) ΔP = 8π η (vL/A),Viscosity
+Q2_TUE1_PHYS.101_F26-27,A,1,A,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 16
+B) Increase by a factor of 2
+C) Decrease by a factor of 8
+D) Increase by a factor of 4","According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 16,B) Increase by a factor of 2,C) Decrease by a factor of 8,D) Increase by a factor of 4,A) Increase by a factor of 16,Viscosity
+Q2_TUE1_PHYS.101_F26-27,A,2,B,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 0.49
+B) 7.77
+C) 1.09
+D) 2.91",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 0.49,B) 7.77,C) 1.09,D) 2.91,B) 7.77,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,A,3,C,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 92 %
+B) 80 %
+C) 8 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 92 %,B) 80 %,C) 8 %,D) 2 %,C) 8 %,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,A,4,D,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 27 N
+B) 12 N
+C) 15 N
+D) 3 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 27 N,B) 12 N,C) 15 N,D) 3 N,D) 3 N,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,A,5,C,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Archimedes
+B) Continuity eq.
+C) Pascal
+D) Bernoulli","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Archimedes,B) Continuity eq.,C) Pascal,D) Bernoulli,C) Pascal,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,A,6,D,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 2.48 × 10⁶ Pa
+B) 1.01 × 10⁶ Pa
+C) 1.47 × 10⁶ Pa
+D) 1.57 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 2.48 × 10⁶ Pa,B) 1.01 × 10⁶ Pa,C) 1.47 × 10⁶ Pa,D) 1.57 × 10⁶ Pa,D) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,A,7,B,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/2
+B) 1
+C) 1/4
+D) 1/16",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/2,B) 1,C) 1/4,D) 1/16,B) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE1_PHYS.101_F26-27,A,8,C,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1042.1
+B) 1076.1
+C) 1053.2
+D) 1064.5",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1042.1,B) 1076.1,C) 1053.2,D) 1064.5,C) 1053.2,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,A,9,C,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow downward
+B) More input is needed
+C) bow upward
+D) remain flat","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow downward,B) More input is needed,C) bow upward,D) remain flat,C) bow upward,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,A,10,D,1.5,"If the specific gravity of a material is 2.7 then its density is
+A) 0.27 kg/m³
+B) 270 kg/m³
+C) 2.7 kg/m³
+D) 2700 kg/m³",If the specific gravity of a material is 2.7 then its density is,A) 0.27 kg/m³,B) 270 kg/m³,C) 2.7 kg/m³,D) 2700 kg/m³,D) 2700 kg/m³,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,B,1,A,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1053.2
+B) 1076.1
+C) 1042.1
+D) 1064.5",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1053.2,B) 1076.1,C) 1042.1,D) 1064.5,A) 1053.2,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,B,2,C,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 2.48 × 10⁶ Pa
+B) 1.01 × 10⁶ Pa
+C) 1.57 × 10⁶ Pa
+D) 1.47 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 2.48 × 10⁶ Pa,B) 1.01 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,D) 1.47 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,B,3,D,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow downward
+B) remain flat
+C) More input is needed
+D) bow upward","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow downward,B) remain flat,C) More input is needed,D) bow upward,D) bow upward,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,B,4,C,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 1.09
+B) 2.91
+C) 7.77
+D) 0.49",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 1.09,B) 2.91,C) 7.77,D) 0.49,C) 7.77,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,B,5,A,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 16
+B) Decrease by a factor of 8
+C) Increase by a factor of 2
+D) Increase by a factor of 4","According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 16,B) Decrease by a factor of 8,C) Increase by a factor of 2,D) Increase by a factor of 4,A) Increase by a factor of 16,Viscosity
+Q2_TUE1_PHYS.101_F26-27,B,6,B,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/2
+B) 1
+C) 1/16
+D) 1/4",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/2,B) 1,C) 1/16,D) 1/4,B) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE1_PHYS.101_F26-27,B,7,B,1.5,"If the specific gravity of a material is 2.7 then its density is
+A) 0.27 kg/m³
+B) 2700 kg/m³
+C) 270 kg/m³
+D) 2.7 kg/m³",If the specific gravity of a material is 2.7 then its density is,A) 0.27 kg/m³,B) 2700 kg/m³,C) 270 kg/m³,D) 2.7 kg/m³,B) 2700 kg/m³,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,B,8,A,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 8 %
+B) 92 %
+C) 80 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 8 %,B) 92 %,C) 80 %,D) 2 %,A) 8 %,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,B,9,D,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Continuity eq.
+B) Bernoulli
+C) Archimedes
+D) Pascal","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Continuity eq.,B) Bernoulli,C) Archimedes,D) Pascal,D) Pascal,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,B,10,C,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 15 N
+B) 27 N
+C) 3 N
+D) 12 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 15 N,B) 27 N,C) 3 N,D) 12 N,C) 3 N,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,C,1,D,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/2
+B) 1/4
+C) 1/16
+D) 1",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/2,B) 1/4,C) 1/16,D) 1,D) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE1_PHYS.101_F26-27,C,2,C,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 92 %
+B) 80 %
+C) 8 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 92 %,B) 80 %,C) 8 %,D) 2 %,C) 8 %,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,C,3,C,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1064.5
+B) 1042.1
+C) 1053.2
+D) 1076.1",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1064.5,B) 1042.1,C) 1053.2,D) 1076.1,C) 1053.2,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,C,4,D,1.5,"If the specific gravity of a material is 2.7 then its density is
+A) 0.27 kg/m³
+B) 270 kg/m³
+C) 2.7 kg/m³
+D) 2700 kg/m³",If the specific gravity of a material is 2.7 then its density is,A) 0.27 kg/m³,B) 270 kg/m³,C) 2.7 kg/m³,D) 2700 kg/m³,D) 2700 kg/m³,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,C,5,C,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 4
+B) Increase by a factor of 2
+C) Increase by a factor of 16
+D) Decrease by a factor of 8","According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 4,B) Increase by a factor of 2,C) Increase by a factor of 16,D) Decrease by a factor of 8,C) Increase by a factor of 16,Viscosity
+Q2_TUE1_PHYS.101_F26-27,C,6,C,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 2.91
+B) 1.09
+C) 7.77
+D) 0.49",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 2.91,B) 1.09,C) 7.77,D) 0.49,C) 7.77,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,C,7,A,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 1.57 × 10⁶ Pa
+B) 2.48 × 10⁶ Pa
+C) 1.01 × 10⁶ Pa
+D) 1.47 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 1.57 × 10⁶ Pa,B) 2.48 × 10⁶ Pa,C) 1.01 × 10⁶ Pa,D) 1.47 × 10⁶ Pa,A) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,C,8,D,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Continuity eq.
+B) Bernoulli
+C) Archimedes
+D) Pascal","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Continuity eq.,B) Bernoulli,C) Archimedes,D) Pascal,D) Pascal,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,C,9,B,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 12 N
+B) 3 N
+C) 27 N
+D) 15 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 12 N,B) 3 N,C) 27 N,D) 15 N,B) 3 N,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,C,10,A,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow upward
+B) bow downward
+C) remain flat
+D) More input is needed","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow upward,B) bow downward,C) remain flat,D) More input is needed,A) bow upward,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,D,1,B,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Continuity eq.
+B) Pascal
+C) Archimedes
+D) Bernoulli","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Continuity eq.,B) Pascal,C) Archimedes,D) Bernoulli,B) Pascal,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,D,2,B,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1042.1
+B) 1053.2
+C) 1064.5
+D) 1076.1",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1042.1,B) 1053.2,C) 1064.5,D) 1076.1,B) 1053.2,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,D,3,D,1.5,"If the specific gravity of a material is 2.7 then its density is
+A) 270 kg/m³
+B) 0.27 kg/m³
+C) 2.7 kg/m³
+D) 2700 kg/m³",If the specific gravity of a material is 2.7 then its density is,A) 270 kg/m³,B) 0.27 kg/m³,C) 2.7 kg/m³,D) 2700 kg/m³,D) 2700 kg/m³,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,D,4,D,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 1.09
+B) 2.91
+C) 0.49
+D) 7.77",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 1.09,B) 2.91,C) 0.49,D) 7.77,D) 7.77,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,D,5,A,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 3 N
+B) 12 N
+C) 15 N
+D) 27 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 3 N,B) 12 N,C) 15 N,D) 27 N,A) 3 N,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,D,6,C,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/4
+B) 1/16
+C) 1
+D) 1/2",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/4,B) 1/16,C) 1,D) 1/2,C) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE1_PHYS.101_F26-27,D,7,B,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 92 %
+B) 8 %
+C) 80 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 92 %,B) 8 %,C) 80 %,D) 2 %,B) 8 %,Buoyancy
+Q2_TUE1_PHYS.101_F26-27,D,8,C,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 2.48 × 10⁶ Pa
+B) 1.01 × 10⁶ Pa
+C) 1.57 × 10⁶ Pa
+D) 1.47 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 2.48 × 10⁶ Pa,B) 1.01 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,D) 1.47 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE1_PHYS.101_F26-27,D,9,D,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) remain flat
+B) More input is needed
+C) bow downward
+D) bow upward","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) remain flat,B) More input is needed,C) bow downward,D) bow upward,D) bow upward,Fluid Dynamics
+Q2_TUE1_PHYS.101_F26-27,D,10,C,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 2
+B) Decrease by a factor of 8
+C) Increase by a factor of 16
+D) Increase by a factor of 4","According to Poiseuille's equation, if the radius r of an artery is reduced to r/2, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 2,B) Decrease by a factor of 8,C) Increase by a factor of 16,D) Increase by a factor of 4,C) Increase by a factor of 16,Viscosity
+Q2_TUE2_PHYS.101_F26-27,A,1,B,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 0.49
+B) 7.77
+C) 1.09
+D) 2.91",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 0.49,B) 7.77,C) 1.09,D) 2.91,B) 7.77,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,A,2,C,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 92 %
+B) 80 %
+C) 8 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 92 %,B) 80 %,C) 8 %,D) 2 %,C) 8 %,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,A,3,D,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 27 N
+B) 12 N
+C) 15 N
+D) 3 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 27 N,B) 12 N,C) 15 N,D) 3 N,D) 3 N,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,A,4,C,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Archimedes
+B) Continuity eq.
+C) Pascal
+D) Bernoulli","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Archimedes,B) Continuity eq.,C) Pascal,D) Bernoulli,C) Pascal,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,A,5,D,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 2.48 × 10⁶ Pa
+B) 1.01 × 10⁶ Pa
+C) 1.47 × 10⁶ Pa
+D) 1.57 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 2.48 × 10⁶ Pa,B) 1.01 × 10⁶ Pa,C) 1.47 × 10⁶ Pa,D) 1.57 × 10⁶ Pa,D) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,A,6,B,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/2
+B) 1
+C) 1/4
+D) 1/16",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/2,B) 1,C) 1/4,D) 1/16,B) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE2_PHYS.101_F26-27,A,7,C,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1042.1
+B) 1076.1
+C) 1053.2
+D) 1064.5",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1042.1,B) 1076.1,C) 1053.2,D) 1064.5,C) 1053.2,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,A,8,C,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow downward
+B) More input is needed
+C) bow upward
+D) remain flat","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow downward,B) More input is needed,C) bow upward,D) remain flat,C) bow upward,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,A,9,D,1.5,"An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.
+A) 3/4 ρ₀
+B) 3 ρ₀
+C) 1/3 ρ₀
+D) 4/3 ρ₀",An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.,A) 3/4 ρ₀,B) 3 ρ₀,C) 1/3 ρ₀,D) 4/3 ρ₀,D) 4/3 ρ₀,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,A,10,D,1.5,"An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 2 atm
+B) 3 atm
+C) 4 atm
+D) 5 atm",An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 2 atm,B) 3 atm,C) 4 atm,D) 5 atm,D) 5 atm,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,B,1,D,1.5,"An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.
+A) 3/4 ρ₀
+B) 3 ρ₀
+C) 1/3 ρ₀
+D) 4/3 ρ₀",An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.,A) 3/4 ρ₀,B) 3 ρ₀,C) 1/3 ρ₀,D) 4/3 ρ₀,D) 4/3 ρ₀,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,B,2,B,1.5,"An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 4 atm
+B) 5 atm
+C) 3 atm
+D) 2 atm",An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 4 atm,B) 5 atm,C) 3 atm,D) 2 atm,B) 5 atm,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,B,3,A,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 8 %
+B) 80 %
+C) 92 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 8 %,B) 80 %,C) 92 %,D) 2 %,A) 8 %,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,B,4,A,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1053.2
+B) 1076.1
+C) 1042.1
+D) 1064.5",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1053.2,B) 1076.1,C) 1042.1,D) 1064.5,A) 1053.2,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,B,5,C,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/4
+B) 1/2
+C) 1
+D) 1/16",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/4,B) 1/2,C) 1,D) 1/16,C) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE2_PHYS.101_F26-27,B,6,B,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 12 N
+B) 3 N
+C) 15 N
+D) 27 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 12 N,B) 3 N,C) 15 N,D) 27 N,B) 3 N,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,B,7,A,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Pascal
+B) Archimedes
+C) Continuity eq.
+D) Bernoulli","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Pascal,B) Archimedes,C) Continuity eq.,D) Bernoulli,A) Pascal,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,B,8,A,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 7.77
+B) 0.49
+C) 1.09
+D) 2.91",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 7.77,B) 0.49,C) 1.09,D) 2.91,A) 7.77,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,B,9,C,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 1.47 × 10⁶ Pa
+B) 1.01 × 10⁶ Pa
+C) 1.57 × 10⁶ Pa
+D) 2.48 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 1.47 × 10⁶ Pa,B) 1.01 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,D) 2.48 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,B,10,C,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) remain flat
+B) bow downward
+C) bow upward
+D) More input is needed","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) remain flat,B) bow downward,C) bow upward,D) More input is needed,C) bow upward,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,C,1,D,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1076.1
+B) 1064.5
+C) 1042.1
+D) 1053.2",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1076.1,B) 1064.5,C) 1042.1,D) 1053.2,D) 1053.2,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,C,2,D,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow downward
+B) remain flat
+C) More input is needed
+D) bow upward","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow downward,B) remain flat,C) More input is needed,D) bow upward,D) bow upward,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,C,3,C,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 27 N
+B) 12 N
+C) 3 N
+D) 15 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 27 N,B) 12 N,C) 3 N,D) 15 N,C) 3 N,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,C,4,B,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 2.48 × 10⁶ Pa
+B) 1.57 × 10⁶ Pa
+C) 1.47 × 10⁶ Pa
+D) 1.01 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 2.48 × 10⁶ Pa,B) 1.57 × 10⁶ Pa,C) 1.47 × 10⁶ Pa,D) 1.01 × 10⁶ Pa,B) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,C,5,C,1.5,"An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 3 atm
+B) 4 atm
+C) 5 atm
+D) 2 atm",An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 3 atm,B) 4 atm,C) 5 atm,D) 2 atm,C) 5 atm,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,C,6,B,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Archimedes
+B) Pascal
+C) Continuity eq.
+D) Bernoulli","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Archimedes,B) Pascal,C) Continuity eq.,D) Bernoulli,B) Pascal,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,C,7,C,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 92 %
+B) 80 %
+C) 8 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 92 %,B) 80 %,C) 8 %,D) 2 %,C) 8 %,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,C,8,C,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 2.91
+B) 0.49
+C) 7.77
+D) 1.09",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 2.91,B) 0.49,C) 7.77,D) 1.09,C) 7.77,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,C,9,D,1.5,"An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.
+A) 1/3 ρ₀
+B) 3 ρ₀
+C) 3/4 ρ₀
+D) 4/3 ρ₀",An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.,A) 1/3 ρ₀,B) 3 ρ₀,C) 3/4 ρ₀,D) 4/3 ρ₀,D) 4/3 ρ₀,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,C,10,D,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/4
+B) 1/2
+C) 1/16
+D) 1",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/4,B) 1/2,C) 1/16,D) 1,D) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE2_PHYS.101_F26-27,D,1,D,1.5,"A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?
+A) 27 N
+B) 15 N
+C) 12 N
+D) 3 N",A dental alloy sample weighs 15 n in air and 12 N when completely immersed in water. What is the magnitude of the buoyant force acting on the sample?,A) 27 N,B) 15 N,C) 12 N,D) 3 N,D) 3 N,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,D,2,C,1.5,"Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa
+A) 1.01 × 10⁶ Pa
+B) 1.47 × 10⁶ Pa
+C) 1.57 × 10⁶ Pa
+D) 2.48 × 10⁶ Pa",Water in the lake behind the High Dam is 150 m deep. What is the water pressure at the base of the dam? P₀=1.01 × 10⁵ Pa,A) 1.01 × 10⁶ Pa,B) 1.47 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,D) 2.48 × 10⁶ Pa,C) 1.57 × 10⁶ Pa,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,D,3,B,1.5,"A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?
+A) 80 %
+B) 8 %
+C) 92 %
+D) 2 %",A chunk of ice (ρ = 920 kg/m³) is floating in water. What percentage of the ice's volume remains visible above the water surface?,A) 80 %,B) 8 %,C) 92 %,D) 2 %,B) 8 %,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,D,4,D,1.5,"A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?
+A) 1064.5
+B) 1042.1
+C) 1076.1
+D) 1053.2",A person has a body fat fraction of 0.2 What is his body density (in units of kg/m³)?,A) 1064.5,B) 1042.1,C) 1076.1,D) 1053.2,D) 1053.2,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,D,5,A,1.5,"A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.
+A) Pascal
+B) Bernoulli
+C) Archimedes
+D) Continuity eq.","A hydraulic dentist's chair lifts a patient by transmitting pressure undiminished throughout an enclosed fluid, which is an application of ______ principle.",A) Pascal,B) Bernoulli,C) Archimedes,D) Continuity eq.,A) Pascal,Fluid Statics
+Q2_TUE2_PHYS.101_F26-27,D,6,D,1.5,"An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.
+A) 1/3 ρ₀
+B) 3 ρ₀
+C) 3/4 ρ₀
+D) 4/3 ρ₀",An object of a known density ρ₀ floats three-fourths immersed in a liquid of unknown density ρf. Find the density of the liquid.,A) 1/3 ρ₀,B) 3 ρ₀,C) 3/4 ρ₀,D) 4/3 ρ₀,D) 4/3 ρ₀,Buoyancy
+Q2_TUE2_PHYS.101_F26-27,D,7,D,1.5,"A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec
+A) 1.09
+B) 2.91
+C) 0.49
+D) 7.77",A garden hose with a diameter of 2.24 cm has water flowing horizontally in it with a speed of 1.09 m/s and a pressure of 169 kPa. At the end of the hose is a nozzle with a diameter of 0.84 cm. Find the speed of water in the nozzle in m/sec,A) 1.09,B) 2.91,C) 0.49,D) 7.77,D) 7.77,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,D,8,A,1.5,"A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof
+A) bow upward
+B) More input is needed
+C) remain flat
+D) bow downward","A car has a soft roof. When the car is speeding at highway with its windows closed, does the roof",A) bow upward,B) More input is needed,C) remain flat,D) bow downward,A) bow upward,Fluid Dynamics
+Q2_TUE2_PHYS.101_F26-27,D,9,B,1.5,"Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is
+A) 1/16
+B) 1
+C) 1/2
+D) 1/4",Long garden hose has a narrow neck so that the area at the neck is only one quarter (1/4) the area of the rest of the hose. The ratio of the flow rate Q of the water through the neck area to the flow rate of the water in the rest of the hose is,A) 1/16,B) 1,C) 1/2,D) 1/4,B) 1,Fluid Dynamics (DIF: Easy)
+Q2_TUE2_PHYS.101_F26-27,D,10,B,1.5,"An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 2 atm
+B) 5 atm
+C) 3 atm
+D) 4 atm",An inflated basketball has a gauge pressure of 4 atm. What is the actual (absolute) pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 2 atm,B) 5 atm,C) 3 atm,D) 4 atm,B) 5 atm,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,A,1,A,1.5,"A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula)
+A) 0.343
+B) 0.172
+C) 0.275
+D) 0.291",A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula),A) 0.343,B) 0.172,C) 0.275,D) 0.291,A) 0.343,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,A,2,D,1.5,"The buoyant force affecting an immersed object depends on…
+A) The fluid density
+B) The volume of the object
+C) acceleration g
+D) All of these",The buoyant force affecting an immersed object depends on…,A) The fluid density,B) The volume of the object,C) acceleration g,D) All of these,D) All of these,Buoyancy
+Q2_WED1_PHYS.101_F26-27,A,3,C,1.5,"Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator)
+A) 16π
+B) 32π
+C) 2π
+D) 8π",Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator),A) 16π,B) 32π,C) 2π,D) 8π,C) 2π,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,A,4,A,1.5,"An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 2 atm
+B) 3 atm
+C) 4 atm
+D) 5 atm",An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 2 atm,B) 3 atm,C) 4 atm,D) 5 atm,A) 2 atm,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,A,5,D,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 6
+B) Decrease by a factor of 9
+C) Increase by a factor of 3
+D) Increase by a factor of 81","According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 6,B) Decrease by a factor of 9,C) Increase by a factor of 3,D) Increase by a factor of 81,D) Increase by a factor of 81,Viscosity
+Q2_WED1_PHYS.101_F26-27,A,6,A,1.5,"A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.
+A) 9.43
+B) 0.49
+C) 3.54
+D) 1.33",A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.,A) 9.43,B) 0.49,C) 3.54,D) 1.33,A) 9.43,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,A,7,A,1.5,"According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:
+A) low
+B) high
+C) equal
+D) doubled","According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:",A) low,B) high,C) equal,D) doubled,A) low,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,A,8,B,1.5,"In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is
+A) 20 N
+B) 120 N
+C) 240 N
+D) 1 N","In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is",A) 20 N,B) 120 N,C) 240 N,D) 1 N,B) 120 N,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,A,9,B,1.5,"A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?
+A) 8 %
+B) 82 %
+C) 18 %
+D) 2 %",A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?,A) 8 %,B) 82 %,C) 18 %,D) 2 %,B) 82 %,Buoyancy
+Q2_WED1_PHYS.101_F26-27,A,10,A,1.5,"Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)
+A) 341
+B) 264
+C) 34
+D) 124","Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)",A) 341,B) 264,C) 34,D) 124,A) 341,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,B,1,A,1.5,"A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.
+A) 9.43
+B) 0.49
+C) 3.54
+D) 1.33",A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.,A) 9.43,B) 0.49,C) 3.54,D) 1.33,A) 9.43,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,B,2,A,1.5,"In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is
+A) 120 N
+B) 240 N
+C) 1 N
+D) 20 N","In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is",A) 120 N,B) 240 N,C) 1 N,D) 20 N,A) 120 N,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,B,3,D,1.5,"Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)
+A) 124
+B) 34
+C) 264
+D) 341","Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)",A) 124,B) 34,C) 264,D) 341,D) 341,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,B,4,A,1.5,"A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula)
+A) 0.343
+B) 0.275
+C) 0.291
+D) 0.172",A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula),A) 0.343,B) 0.275,C) 0.291,D) 0.172,A) 0.343,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,B,5,D,1.5,"The buoyant force affecting an immersed object depends on…
+A) The volume of the object
+B) The fluid density
+C) acceleration g
+D) All of these",The buoyant force affecting an immersed object depends on…,A) The volume of the object,B) The fluid density,C) acceleration g,D) All of these,D) All of these,Buoyancy
+Q2_WED1_PHYS.101_F26-27,B,6,A,1.5,"An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 2 atm
+B) 3 atm
+C) 4 atm
+D) 5 atm",An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 2 atm,B) 3 atm,C) 4 atm,D) 5 atm,A) 2 atm,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,B,7,A,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 81
+B) Increase by a factor of 6
+C) Decrease by a factor of 9
+D) Increase by a factor of 3","According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 81,B) Increase by a factor of 6,C) Decrease by a factor of 9,D) Increase by a factor of 3,A) Increase by a factor of 81,Viscosity
+Q2_WED1_PHYS.101_F26-27,B,8,A,1.5,"A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?
+A) 82 %
+B) 8 %
+C) 18 %
+D) 2 %",A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?,A) 82 %,B) 8 %,C) 18 %,D) 2 %,A) 82 %,Buoyancy
+Q2_WED1_PHYS.101_F26-27,B,9,B,1.5,"Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator)
+A) 16π
+B) 2π
+C) 32π
+D) 8π",Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator),A) 16π,B) 2π,C) 32π,D) 8π,B) 2π,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,B,10,A,1.5,"According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:
+A) low
+B) high
+C) equal
+D) doubled","According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:",A) low,B) high,C) equal,D) doubled,A) low,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,C,1,C,1.5,"An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 4 atm
+B) 5 atm
+C) 2 atm
+D) 3 atm",An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 4 atm,B) 5 atm,C) 2 atm,D) 3 atm,C) 2 atm,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,C,2,B,1.5,"A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.
+A) 3.54
+B) 9.43
+C) 0.49
+D) 1.33",A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.,A) 3.54,B) 9.43,C) 0.49,D) 1.33,B) 9.43,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,C,3,A,1.5,"Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)
+A) 341
+B) 264
+C) 124
+D) 34","Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)",A) 341,B) 264,C) 124,D) 34,A) 341,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,C,4,C,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 3
+B) Increase by a factor of 6
+C) Increase by a factor of 81
+D) Decrease by a factor of 9","According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 3,B) Increase by a factor of 6,C) Increase by a factor of 81,D) Decrease by a factor of 9,C) Increase by a factor of 81,Viscosity
+Q2_WED1_PHYS.101_F26-27,C,5,B,1.5,"According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:
+A) high
+B) low
+C) equal
+D) doubled","According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:",A) high,B) low,C) equal,D) doubled,B) low,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,C,6,A,1.5,"In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is
+A) 120 N
+B) 240 N
+C) 1 N
+D) 20 N","In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is",A) 120 N,B) 240 N,C) 1 N,D) 20 N,A) 120 N,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,C,7,C,1.5,"A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?
+A) 18 %
+B) 8 %
+C) 82 %
+D) 2 %",A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?,A) 18 %,B) 8 %,C) 82 %,D) 2 %,C) 82 %,Buoyancy
+Q2_WED1_PHYS.101_F26-27,C,8,D,1.5,"The buoyant force affecting an immersed object depends on…
+A) The volume of the object
+B) The fluid density
+C) acceleration g
+D) All of these",The buoyant force affecting an immersed object depends on…,A) The volume of the object,B) The fluid density,C) acceleration g,D) All of these,D) All of these,Buoyancy
+Q2_WED1_PHYS.101_F26-27,C,9,C,1.5,"Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator)
+A) 32π
+B) 16π
+C) 2π
+D) 8π",Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator),A) 32π,B) 16π,C) 2π,D) 8π,C) 2π,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,C,10,A,1.5,"A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula)
+A) 0.343
+B) 0.172
+C) 0.275
+D) 0.291",A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula),A) 0.343,B) 0.172,C) 0.275,D) 0.291,A) 0.343,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,D,1,C,1.5,"Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator)
+A) 16π
+B) 32π
+C) 2π
+D) 8π",Water flows through a large pipe with a speed of 2 m/s. Find the flow rate in m³/s if the diameter of the pipe is 2 m. (You may not need the calculator),A) 16π,B) 32π,C) 2π,D) 8π,C) 2π,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,D,2,A,1.5,"According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?
+A) Increase by a factor of 81
+B) Increase by a factor of 6
+C) Increase by a factor of 3
+D) Decrease by a factor of 9","According to Poiseuille's equation, if the radius r of an artery is reduced to r/3, then the ΔP generated by the heart must _________ to maintain the same blood flow rate?",A) Increase by a factor of 81,B) Increase by a factor of 6,C) Increase by a factor of 3,D) Decrease by a factor of 9,A) Increase by a factor of 81,Viscosity
+Q2_WED1_PHYS.101_F26-27,D,3,C,1.5,"Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)
+A) 264
+B) 34
+C) 341
+D) 124","Estimate the mass of the air (in units of kg) in your physics classroom. Assume the classroom is 12 m long, 8 m width and 2.75 m height. (The air density is 1.29 kg/m³)",A) 264,B) 34,C) 341,D) 124,C) 341,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,D,4,B,1.5,"According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:
+A) high
+B) low
+C) equal
+D) doubled","According to Bernoulli's equation, when the fluid speed is high in a certain area, the pressure in that area will be:",A) high,B) low,C) equal,D) doubled,B) low,Fluid Dynamics
+Q2_WED1_PHYS.101_F26-27,D,5,B,1.5,"A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?
+A) 8 %
+B) 82 %
+C) 18 %
+D) 2 %",A chunk of wood (ρ = 820 kg/m³) is floating in water. What percentage of the chunk's volume is below the water surface?,A) 8 %,B) 82 %,C) 18 %,D) 2 %,B) 82 %,Buoyancy
+Q2_WED1_PHYS.101_F26-27,D,6,A,1.5,"In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is
+A) 120 N
+B) 20 N
+C) 1 N
+D) 240 N","In a hydraulic lift, one area is 6× the other. A 20 N force is applied on the smaller area. The force on the larger area is",A) 120 N,B) 20 N,C) 1 N,D) 240 N,A) 120 N,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,D,7,A,1.5,"A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula)
+A) 0.343
+B) 0.172
+C) 0.275
+D) 0.291",A person has body density 1022 kg/m³ . What is his Percent body fat (use Siri's formula),A) 0.343,B) 0.172,C) 0.275,D) 0.291,A) 0.343,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,D,8,C,1.5,"An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure)
+A) 3 atm
+B) 4 atm
+C) 2 atm
+D) 5 atm",An inflated basketball has absolute pressure of 3 atm. What is the gauge pressure inside the ball? (1 atm = 1 atmospheric pressure),A) 3 atm,B) 4 atm,C) 2 atm,D) 5 atm,C) 2 atm,Fluid Statics
+Q2_WED1_PHYS.101_F26-27,D,9,D,1.5,"The buoyant force affecting an immersed object depends on…
+A) The volume of the object
+B) The fluid density
+C) acceleration g
+D) All of these",The buoyant force affecting an immersed object depends on…,A) The volume of the object,B) The fluid density,C) acceleration g,D) All of these,D) All of these,Buoyancy
+Q2_WED1_PHYS.101_F26-27,D,10,C,1.5,"A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.
+A) 1.33
+B) 0.49
+C) 9.43
+D) 3.54",A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.,A) 1.33,B) 0.49,C) 9.43,D) 3.54,C) 9.43,Fluid Dynamics

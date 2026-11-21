@@ -1,3 +1,5 @@
 Exam_ID,Course_ID,Course_Name,Exam_Title,Instructor,Num_Questions,Max_Score,Is_Published,Release_Answers,Adjustment_Reason,Watermark_Enabled
-Q2_PHYS101,PHYS.101,General Physics & Biophysics,Quiz 2 - Elasticity & Fluid Mechanics,Dr. Mohamed Ali,10,10,TRUE,TRUE,,TRUE
-Q1_AHST302,AHST.302,Applied Health Physics,Quiz 1 - Biomechanics & Dimensions,Dr. Mohamed Ali,10,10,TRUE,TRUE,Question 4 awarded full credit across all models,TRUE
+Q2_MON1_PHYS.101_F26-27,DENT_PHYS.101_F26_27,Dentistry Physics 101 (PHYS.101),Quiz 2 - Dentistry PHYS.101 (Group MON-1),Dr. M. Ali,10,15,TRUE,TRUE,,TRUE
+Q2_TUE1_PHYS.101_F26-27,DENT_PHYS.101_F26_27,Dentistry Physics 101 (PHYS.101),Quiz 2 - Dentistry PHYS.101 (Group TUE-1),Dr. M. Ali,10,15,TRUE,TRUE,,TRUE
+Q2_TUE2_PHYS.101_F26-27,DENT_PHYS.101_F26_27,Dentistry Physics 101 (PHYS.101),Quiz 2 - Dentistry PHYS.101 (Group TUE-2),Dr. M. Ali,10,15,TRUE,TRUE,,TRUE
+Q2_WED1_PHYS.101_F26-27,DENT_PHYS.101_F26_27,Dentistry Physics 101 (PHYS.101),Quiz 2 - Dentistry PHYS.101 (Group WED-1),Dr. M. Ali,10,15,TRUE,TRUE,,TRUE
