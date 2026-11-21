@@ -462,8 +462,10 @@ export function buildExamHubStateFromCSVs({ settingsCsv, questionsCsv, responses
   return { exams };
 }
 
+const DEFAULT_GOOGLE_SHEET_ID = '13dlchvvBJeut4e7o1edXVy7rjrTiMoX93yCUzbE4RCQ';
+
 async function loadExamHubData(customSheetId = null) {
-  const rawSheetRef = customSheetId || process.env.GOOGLE_SHEET_ID || process.env.GOOGLE_SHEET_URL || '';
+  const rawSheetRef = customSheetId || process.env.GOOGLE_SHEET_ID || process.env.GOOGLE_SHEET_URL || DEFAULT_GOOGLE_SHEET_ID;
   const sheetId = extractGoogleSheetId(rawSheetRef);
 
   if (!sheetId) {
@@ -487,24 +489,41 @@ async function loadExamHubData(customSheetId = null) {
   const questionsTab = process.env.GOOGLE_SHEET_QUESTIONS_TAB || 'Models_Questions';
   const responsesTab = process.env.GOOGLE_SHEET_RESPONSES_TAB || 'Student_Responses';
 
-  const [settingsCsv, questionsCsv, responsesCsv] = await Promise.all([
-    fetchSheetTabCSV(sheetId, settingsTab).catch(() => ''),
-    fetchSheetTabCSV(sheetId, questionsTab).catch(() => ''),
-    fetchSheetTabCSV(sheetId, responsesTab)
-  ]);
+  try {
+    const [settingsCsv, questionsCsv, responsesCsv] = await Promise.all([
+      fetchSheetTabCSV(sheetId, settingsTab).catch(() => ''),
+      fetchSheetTabCSV(sheetId, questionsTab).catch(() => ''),
+      fetchSheetTabCSV(sheetId, responsesTab)
+    ]);
 
-  const state = {
-    source: 'google_sheet',
-    sheet_id: sheetId,
-    ...buildExamHubStateFromCSVs({
-      settingsCsv,
-      questionsCsv,
-      responsesCsv
-    })
-  };
+    const state = {
+      source: 'google_sheet',
+      sheet_id: sheetId,
+      ...buildExamHubStateFromCSVs({
+        settingsCsv,
+        questionsCsv,
+        responsesCsv
+      })
+    };
 
-  sheetCache.set(sheetId, { fetchedAt: Date.now(), data: state });
-  return state;
+    sheetCache.set(sheetId, { fetchedAt: Date.now(), data: state });
+    return state;
+  } catch (err) {
+    // Graceful fallback to built-in sample if sheet isn't shared yet or offline during local tests
+    if (!customSheetId && !process.env.GOOGLE_SHEET_ID && !process.env.GOOGLE_SHEET_URL) {
+      return {
+        source: 'builtin_sample',
+        sheet_id: sheetId,
+        sheet_notice: err.message,
+        ...buildExamHubStateFromCSVs({
+          settingsCsv: BUILTIN_SAMPLE_SETTINGS_CSV,
+          questionsCsv: BUILTIN_SAMPLE_QUESTIONS_CSV,
+          responsesCsv: BUILTIN_SAMPLE_RESPONSES_CSV
+        })
+      };
+    }
+    throw err;
+  }
 }
 
 // ----------------------------------------------------------------------------

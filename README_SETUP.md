@@ -21,16 +21,18 @@ This package separates the **Exams Hub, Digital Bubble Sheet Viewer, Question Ba
 
 ---
 
-## 2. How to Set Up Your Google Sheet (2 Minutes)
+## 2. Live Google Sheet Created for Your Account (`mali63@gmail.com`)
 
-1. Create a new Google Sheet with **3 bottom tabs** named exactly:
-   - **`Settings`** — Import [`google-sheet-templates/Settings.csv`](file:///C:/Newton/NEWTON_STANDALONE_EXAM_HUB/google-sheet-templates/Settings.csv). Controls `Exam_ID`, `Exam_Title`, `Course_ID`, `Is_Published` (`TRUE/FALSE`), `Release_Answers` (`TRUE/FALSE`), and `Adjustment_Reason`.
-   - **`Models_Questions`** — Import [`google-sheet-templates/Models_Questions.csv`](file:///C:/Newton/NEWTON_STANDALONE_EXAM_HUB/google-sheet-templates/Models_Questions.csv). Holds the official answer keys (`Correct_Key`) and question statements (`Question_Text` with LaTeX `\( ... \)` or `$ ... $`) for Models `A`, `B`, `C`, `D`.
-   - **`Student_Responses`** — Import [`google-sheet-templates/Student_Responses.csv`](file:///C:/Newton/NEWTON_STANDALONE_EXAM_HUB/google-sheet-templates/Student_Responses.csv) **or** paste your raw ZipGrade CSV export directly! The universal parser automatically detects `Student_ID`, `Student_Name`, `Model` (`Key Version`), `Earned_Points`, `Possible_Points`, and `Q1..QN` / `Stu1..StuN` / `PriKey1..N`.
-2. Click **Share** (top right in Google Sheets) → Under **General access**, choose **"Anyone with the link" → "Viewer"**.
-   *(Students never receive the Google Sheet URL; only your Vercel backend `api/exam-hub.js` reads it using `GOOGLE_SHEET_ID` and returns only the requesting student's single row.)*
-3. Copy the Sheet ID from the URL:
-   `https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_HERE/edit`
+- **Title:** `NEWTON Standalone Exam Hub (Bubble Sheets & Question Bank)`
+- **Spreadsheet ID:** `13dlchvvBJeut4e7o1edXVy7rjrTiMoX93yCUzbE4RCQ`
+- **Google Sheet URL:** https://docs.google.com/spreadsheets/d/13dlchvvBJeut4e7o1edXVy7rjrTiMoX93yCUzbE4RCQ/edit
+- **Configured Tabs:**
+  1. **`Settings`** — Controls `Exam_ID`, `Exam_Title`, `Course_ID`, `Is_Published` (`TRUE/FALSE`), `Release_Answers` (`TRUE/FALSE`), and `Adjustment_Reason`.
+  2. **`Models_Questions`** — Holds the official answer keys (`Correct_Key`) and question statements (`Question_Text` with LaTeX `\( ... \)` or `$ ... $`) for Models `A`, `B`, `C`, `D`.
+  3. **`Student_Responses`** — Holds the student responses (you can paste any raw ZipGrade CSV directly into this tab).
+
+### One Quick Step in Google Sheets
+Open https://docs.google.com/spreadsheets/d/13dlchvvBJeut4e7o1edXVy7rjrTiMoX93yCUzbE4RCQ/edit → Click **Share** (top right) → Under **General access**, select **"Anyone with the link" → "Viewer"** so your Vercel serverless endpoint (`api/exam-hub.js`) can read the tabs via `GOOGLE_SHEET_ID`. *(Students never see the Google Sheet link; `api/exam-hub.js` reads it server-side and returns only the requesting student's single row.)*
 
 ---
 
