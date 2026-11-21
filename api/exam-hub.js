@@ -806,7 +806,6 @@ export default async function handler(req, res) {
   try {
     const body = req.method === 'GET' ? (req.query || {}) : (req.body || {});
     const action = String(body.action || 'list-exams').trim();
-    const customSheetId = body.sheet_id || null;
 
     // ACTION 1: Verify Practice MCQ answer token (no sheet lookup needed)
     if (action === 'verify-mcq') {
@@ -823,8 +822,8 @@ export default async function handler(req, res) {
       });
     }
 
-    // Load cached Google Sheet state (or built-in sample if no GOOGLE_SHEET_ID set)
-    const hubState = await loadExamHubData(customSheetId);
+    // Strictly use server-configured Google Sheet ID (never allow client-side sheet_id override)
+    const hubState = await loadExamHubData(null);
     const allExams = hubState.exams || {};
 
     // ACTION 2: List Published Exams for the Dropdown
@@ -952,10 +951,10 @@ export default async function handler(req, res) {
         ? String(body.difficulty).toLowerCase()
         : 'medium';
 
-      const apiKey = (process.env.GEMINI_API_KEY || body.gemini_api_key || '').trim();
+      const apiKey = (process.env.GEMINI_API_KEY || '').trim();
       if (!apiKey) {
         return res.status(500).json({
-          error: 'GEMINI_API_KEY is not configured on the server (or provide a Gemini API key in Settings).'
+          error: 'GEMINI_API_KEY is not configured on the server.'
         });
       }
 

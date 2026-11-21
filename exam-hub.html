@@ -879,12 +879,11 @@
       <span style="font-size: 28px;">📋</span>
       <div>
         <h1>NEWTON Exam Hub &amp; AI Tutor</h1>
-        <div class="brand-sub">Digital Bubble Sheet • Question Review • Gemini Step-by-Step Tutor (Zero-DB Load)</div>
+        <div class="brand-sub">Official Digital Bubble Sheet • Question Review • Step-by-Step AI Tutor</div>
       </div>
     </div>
     <div class="brand-badges">
       <span class="mastery-pill" id="student-mastery-points-badge">⭐ 0 Mastery Pts</span>
-      <button type="button" class="config-toggle-btn" onclick="toggleConfigDrawer()">⚙️ Sheet / CSV Settings</button>
     </div>
   </header>
 
@@ -907,7 +906,7 @@
           type="text"
           id="studentIdInput"
           class="field-input"
-          placeholder="Enter Student ID (e.g. 200046095 or 46095)"
+          placeholder="Enter Student ID (e.g. 200035074 or 35074)"
           autocomplete="off"
           onkeypress="if(event.key==='Enter') lookupStudentSheet()"
         />
@@ -916,40 +915,6 @@
         <button type="button" id="btnLookupSheet" class="btn-primary" onclick="lookupStudentSheet()">
           <span>🔍</span> View Bubble Sheet
         </button>
-      </div>
-    </div>
-
-    <!-- Collapsible Google Sheet / CSV / Local Gemini Key Drawer -->
-    <div id="configDrawer" class="config-drawer">
-      <div class="config-grid">
-        <div>
-          <label class="field-label" for="customSheetIdInput">Google Sheet URL or Sheet ID (Optional Override)</label>
-          <input
-            type="text"
-            id="customSheetIdInput"
-            class="field-input"
-            style="height:38px; font-size:12.5px;"
-            placeholder="Uses server GOOGLE_SHEET_ID by default, or paste Sheet link/ID..."
-          />
-        </div>
-        <div>
-          <label class="field-label" for="customGeminiKeyInput">Gemini API Key (Optional if configured on Vercel)</label>
-          <input
-            type="password"
-            id="customGeminiKeyInput"
-            class="field-input"
-            style="height:38px; font-size:12.5px;"
-            placeholder="Uses Vercel GEMINI_API_KEY automatically..."
-          />
-        </div>
-      </div>
-
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:#f8fafc; padding:10px 14px; border-radius:10px; border:1px solid #e2e8f0;">
-        <div>
-          <strong>📁 Local CSV / TSV Instant Preview (ZipGrade Responses, Answer Keys, or QText):</strong>
-          <div style="color:#64748b; font-size:11.5px;">Load CSV files directly in the browser to preview sheets or test Item Analysis before pasting into Google Sheets.</div>
-        </div>
-        <input type="file" id="csvFileInput" accept=".csv,.tsv,.txt" multiple style="font-size:12px;" />
       </div>
     </div>
 
