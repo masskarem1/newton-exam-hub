@@ -703,7 +703,80 @@
       border-radius: 10px;
       border: 1px solid #e2e8f0;
       margin-bottom: 12px;
+      overflow-x: hidden;
+      white-space: normal;
     }
+
+    .q-statement {
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.65;
+      color: #0f172a;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    .q-options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .q-opt-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13.5px;
+      color: #1e293b;
+      line-height: 1.45;
+      min-width: 0;
+    }
+    .q-opt-row.is-key-choice {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+    .q-opt-row.is-wrong-choice {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+    .q-opt-row.is-correct-choice {
+      background: #ecfdf5;
+      border-color: #34d399;
+    }
+
+    .q-opt-letter {
+      font-weight: 800;
+      color: #0284c7;
+      min-width: 24px;
+      font-size: 13.5px;
+      flex-shrink: 0;
+    }
+    .q-opt-text {
+      flex: 1;
+      font-size: 13.5px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .q-opt-text::-webkit-scrollbar { display: none; }
+
+    .q-opt-badge {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .badge-key { background: #dcfce7; color: #15803d; }
+    .badge-wrong { background: #fee2e2; color: #b91c1c; }
+    .badge-correct { background: #d1fae5; color: #065f46; }
 
     .q-ai-actions {
       display: flex;
@@ -987,6 +1060,326 @@
     .exam-workspace input {
       -webkit-user-select: text;
       user-select: text;
+    }
+
+    /* 📱 Mobile & Small Screen Responsive Optimization (Margins, Padding & Typography) */
+    @media (max-width: 600px) {
+      body {
+        padding: 8px 6px 24px;
+      }
+      .brand-bar {
+        padding: 11px 13px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        gap: 8px;
+      }
+      .brand-title {
+        gap: 8px;
+      }
+      .brand-title > span {
+        font-size: 22px !important;
+      }
+      .brand-title h1 {
+        font-size: 15px;
+      }
+      .brand-sub {
+        font-size: 10.5px;
+      }
+      .mastery-pill {
+        font-size: 11px;
+        padding: 4px 9px;
+      }
+      .control-panel {
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+      .lookup-grid {
+        gap: 8px;
+      }
+      .field-label {
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+      .field-input, .field-select, .btn-primary {
+        height: 40px;
+        font-size: 13.5px;
+        width: 100%;
+      }
+      .found-exams-section {
+        margin-top: 12px;
+        padding-top: 10px;
+      }
+      .found-exams-header {
+        margin-bottom: 8px;
+        gap: 6px;
+      }
+      .found-exams-title {
+        font-size: 12.5px;
+      }
+      .found-count-badge {
+        font-size: 10.5px;
+        padding: 2px 8px;
+      }
+      .found-exams-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .found-exam-card {
+        padding: 10px 12px;
+        border-radius: 10px;
+        gap: 7px;
+      }
+      .found-card-title {
+        font-size: 13px;
+      }
+      .found-card-course {
+        font-size: 11px;
+      }
+      .found-card-score-box {
+        padding: 4px 8px;
+        border-radius: 8px;
+      }
+      .found-card-score-val {
+        font-size: 13.5px;
+      }
+      .found-card-score-pct {
+        font-size: 10px;
+      }
+      .found-card-bottom {
+        padding-top: 6px;
+        font-size: 10.5px;
+      }
+      .exam-workspace {
+        border-radius: 12px;
+      }
+      .mode-tabs-bar {
+        padding: 6px 6px 0;
+        gap: 4px;
+      }
+      .mode-tab-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 6px;
+        font-size: 11.5px;
+        border-radius: 8px 8px 0 0;
+        gap: 4px;
+      }
+      .sheet-body-inner {
+        padding: 7px !important;
+      }
+      .optical-sheet-frame {
+        padding: 12px 9px !important;
+        border-width: 1.5px;
+        border-radius: 10px;
+      }
+      .corner-mark {
+        width: 8px;
+        height: 8px;
+      }
+      .tl { top: 4px; left: 4px; }
+      .tr { top: 4px; right: 4px; }
+      .bl { bottom: 4px; left: 4px; }
+      .br { bottom: 4px; right: 4px; }
+      .sheet-header-grid {
+        gap: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+      .student-meta-list p {
+        font-size: 12px;
+        margin: 3px 0;
+      }
+      .score-card-box {
+        padding: 8px 12px;
+        border-radius: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .score-card-box .big-score {
+        font-size: 19px;
+        margin: 0;
+      }
+      .score-card-box .score-pct {
+        font-size: 12px;
+      }
+      .bubble-legend {
+        padding: 7px 9px;
+        gap: 6px 10px;
+        font-size: 11px;
+        margin-bottom: 10px;
+      }
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+      }
+      .bubble-grid {
+        gap: 6px;
+      }
+      .question-row {
+        padding: 6px 9px;
+      }
+      .q-num {
+        width: 28px;
+        font-size: 12.5px;
+      }
+      .bubbles {
+        gap: 7px;
+      }
+      .bubble {
+        width: 28px;
+        height: 28px;
+        font-size: 11.5px;
+      }
+      .questions-list-view {
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .q-card {
+        border-radius: 10px;
+      }
+      .q-header {
+        padding: 9px 10px;
+        gap: 6px;
+      }
+      .q-header-left {
+        font-size: 13px;
+        gap: 6px;
+      }
+      .q-header-right {
+        font-size: 11.5px;
+        gap: 6px;
+      }
+      .q-ans-badge {
+        padding: 2px 7px;
+        font-size: 11px;
+      }
+      .q-body {
+        padding: 9px 7px;
+      }
+      .q-text-content {
+        padding: 9px 9px;
+        font-size: 12.5px;
+        margin-bottom: 9px;
+        border-radius: 8px;
+      }
+      .q-statement {
+        font-size: 13px;
+        margin-bottom: 8px;
+        line-height: 1.55;
+      }
+      .q-options-container {
+        gap: 5px;
+        margin-top: 6px;
+      }
+      .q-opt-row {
+        flex-wrap: wrap;
+        gap: 4px 7px;
+        padding: 6px 9px;
+        font-size: 12.5px;
+      }
+      .q-opt-letter {
+        min-width: 19px;
+        font-size: 12.5px;
+      }
+      .q-opt-text {
+        font-size: 12.5px;
+      }
+      .q-opt-badge {
+        font-size: 10px;
+        padding: 2px 6px;
+      }
+      .q-ai-actions {
+        gap: 6px;
+        margin-bottom: 9px;
+      }
+      .btn-ai-explain {
+        flex: 1;
+        justify-content: center;
+        padding: 7px 8px;
+        font-size: 11.5px;
+        min-width: 115px;
+      }
+      .ai-explanation-box {
+        padding: 9px 10px;
+        margin-bottom: 9px;
+      }
+      .ai-content {
+        font-size: 12.5px;
+        line-height: 1.65;
+      }
+      .mistake-trainer-box {
+        padding: 9px;
+        margin-top: 8px;
+      }
+      .trainer-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+      }
+      .trainer-action-btns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+      }
+      .btn-train-mode {
+        padding: 6px 4px;
+        font-size: 11px;
+        text-align: center;
+        justify-content: center;
+      }
+      .train-mcq-card {
+        padding: 9px;
+        margin-top: 8px;
+      }
+      .train-opt-btn {
+        padding: 7px 9px;
+        font-size: 12px;
+        gap: 7px;
+        margin-bottom: 5px;
+      }
+      .train-flashcard-face {
+        padding: 11px;
+      }
+      .anki-modal-overlay {
+        padding: 6px;
+      }
+      .anki-deck-container {
+        width: 100%;
+        max-height: 94vh;
+        border-radius: 12px;
+      }
+      .anki-deck-header {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .anki-card-body {
+        padding: 12px 10px;
+      }
+      .anki-deck-footer {
+        padding: 10px 10px;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding: 5px 4px 18px;
+      }
+      .sheet-body-inner {
+        padding: 4px !important;
+      }
+      .optical-sheet-frame {
+        padding: 9px 6px !important;
+      }
+      .q-body {
+        padding: 7px 5px;
+      }
+      .q-text-content {
+        padding: 7px 7px;
+      }
     }
 
     @media print {
@@ -1541,7 +1934,7 @@
               : '<span style="color:var(--wrong); font-weight:900;">✖</span>');
 
         const displayTextHtml = rawQText.trim()
-          ? formatMathQuestionText(rawQText)
+          ? formatMathQuestionText(rawQText, stuAns, correctAns, hasKey)
           : `<div style="color:#64748b; font-size:13px;"><em>Question statement not uploaded for this item.</em> You selected <strong>${safeEscapeHtml(stuAns || '—')}</strong>${hasKey ? ` and the official key is <strong>${safeEscapeHtml(correctAns)}</strong>` : ''}.</div>`;
 
         cardDiv.innerHTML = `
@@ -1707,8 +2100,67 @@
     return res;
   };
 
-  function formatMathQuestionText(rawText) {
-    return window.fixArabicMath(rawText);
+  function formatMathQuestionText(rawText, stuAns, correctAns, hasKey) {
+    if (!rawText || typeof rawText !== 'string') return '';
+    let text = rawText.trim();
+
+    // 1. Separate question statement and options (A) ... B) ... C) ... D) ...)
+    const optStartMatch = text.match(/(?:^|[\s?.!:])([A-E][).:\-])\s+/);
+    let statement = text;
+    let optionsText = '';
+    if (optStartMatch && optStartMatch.index !== undefined) {
+      const splitAt = optStartMatch.index + (optStartMatch[0].match(/^[?.!:]/) ? 1 : 0);
+      statement = text.substring(0, splitAt).trim();
+      optionsText = text.substring(splitAt).trim();
+    }
+
+    const formattedStatement = window.fixArabicMath(statement);
+    if (!optionsText) {
+      return `<div class="q-statement">${formattedStatement}</div>`;
+    }
+
+    const rawOptions = optionsText.split(/(?=\b[A-E][).:\-]\s+)/g).filter(Boolean);
+    if (!rawOptions.length) {
+      return `<div class="q-statement">${window.fixArabicMath(text)}</div>`;
+    }
+
+    const safeStu = String(stuAns || '').toUpperCase().trim();
+    const safeKey = hasKey ? String(correctAns || '').toUpperCase().trim() : '';
+
+    const optItems = rawOptions.map(optStr => {
+      const m = optStr.trim().match(/^([A-E])[).:\-]\s*(.*)$/is);
+      if (!m) return `<div class="q-opt-row">${window.fixArabicMath(optStr.trim())}</div>`;
+      const letter = m[1].toUpperCase();
+      const content = window.fixArabicMath(m[2].trim());
+      const isThisKey = hasKey && letter === safeKey;
+      const isThisStudent = letter === safeStu;
+
+      let rowClass = 'q-opt-row';
+      let badge = '';
+      if (isThisKey && isThisStudent) {
+        rowClass += ' is-correct-choice';
+        badge = `<span class="q-opt-badge badge-correct">✔ Your Choice (Correct)</span>`;
+      } else if (isThisKey) {
+        rowClass += ' is-key-choice';
+        badge = `<span class="q-opt-badge badge-key">✔ Correct Key</span>`;
+      } else if (isThisStudent) {
+        rowClass += hasKey ? ' is-wrong-choice' : '';
+        badge = `<span class="q-opt-badge ${hasKey ? 'badge-wrong' : 'badge-key'}">${hasKey ? '✖ Your Choice' : '● Your Choice'}</span>`;
+      }
+
+      return `
+        <div class="${rowClass}">
+          <span class="q-opt-letter">${letter})</span>
+          <span class="q-opt-text">${content}</span>
+          ${badge}
+        </div>
+      `;
+    });
+
+    return `
+      <div class="q-statement">${formattedStatement}</div>
+      <div class="q-options-container">${optItems.join('')}</div>
+    `;
   }
 
   // =========================================================================
