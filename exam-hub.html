@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEWTON Exam Hub — Digital Bubble Sheet & Gemini AI Tutor</title>
+  <!-- MathJax 3 for LaTeX Physics & Biostatistics Equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --navy: #0f172a;
+      --correct: #16a34a;
+      --correct-bg: #dcfce7;
+      --wrong: #dc2626;
+      --wrong-bg: #fee2e2;
+      --neutral: #2563eb;
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --line: #e2e8f0;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      margin: 0;
+      padding: 20px 14px 48px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Top Brand Bar */
+    .brand-bar {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      padding: 16px 22px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title h1 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: #93c5fd;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .brand-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mastery-pill {
+      background: rgba(245, 158, 11, 0.18);
+      border: 1.5px solid #fbbf24;
+      color: #fef08a;
+      font-size: 12.5px;
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .config-toggle-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .config-toggle-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+    /* Control / Search Panel */
+    .control-panel {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .lookup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    @media (max-width: 680px) {
+      .lookup-grid { grid-template-columns: 1fr; }
+    }
+
+    .field-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #334155;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .field-input, .field-select {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field-input:focus, .field-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+    }
+
+    .btn-primary {
+      height: 44px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Optional Instructor / Google Sheet Config Drawer */
+    .config-drawer {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1.5px dashed var(--line);
+      font-size: 12.5px;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 640px) {
+      .config-grid { grid-template-columns: 1fr; }
+    }
+
+    .status-banner {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      display: none;
+    }
+    .status-banner.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+    .status-banner.info {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0369a1;
+    }
+
+    /* Main Exam Workspace Card */
+    .exam-workspace {
+      display: none;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1.5px solid #cbd5e1;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Mode Switch Tabs (Digital Bubble Sheet vs Questions & AI Review vs Item Analysis) */
+    .mode-tabs-bar {
+      display: flex;
+      background: #0f172a;
+      padding: 10px 16px 0;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #1e293b;
+    }
+
+    .mode-tab-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 10px 10px 0 0;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: 0.15s;
+    }
+    .mode-tab-btn:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+    .mode-tab-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    /* Dynamic Anti-Leak Watermark Overlay */
+    .watermark-layer {
+      position: absolute;
+      inset: 52px 0 0 0;
+      pointer-events: none;
+      z-index: 30;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-around;
+      justify-content: space-around;
+      opacity: 0.065;
+      user-select: none;
+    }
+    .watermark-token {
+      transform: rotate(-24deg);
+      font-size: 12px;
+      font-weight: 900;
+      color: #0f172a;
+      white-space: nowrap;
+      padding: 18px 26px;
+    }
+
+    /* Security Focus-Loss Blur Overlay */
+    .security-blur-overlay {
+      position: absolute;
+      inset: 52px 0 0 0;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(18px);
+      z-index: 60;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .sheet-body-inner {
+      padding: 24px;
+      position: relative;
+    }
+    .sheet-body-inner.security-blurred {
+      filter: blur(26px) grayscale(100%) !important;
+      opacity: 0.08 !important;
+      pointer-events: none !important;
+    }
+
+    /* Optical Sheet Header & Score Card */
+    .optical-sheet-frame {
+      border: 2px solid #1e293b;
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+      background: #fff;
+    }
+
+    .corner-mark {
+      width: 13px;
+      height: 13px;
+      background: #0f172a;
+      position: absolute;
+    }
+    .tl { top: 8px; left: 8px; }
+    .tr { top: 8px; right: 8px; }
+    .bl { bottom: 8px; left: 8px; }
+    .br { bottom: 8px; right: 8px; }
+
+    .sheet-header-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 16px;
+      align-items: center;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 620px) {
+      .sheet-header-grid { grid-template-columns: 1fr; }
+    }
+
+    .student-meta-list p {
+      margin: 5px 0;
+      font-size: 13.5px;
+      color: #334155;
+    }
+    .student-meta-list strong { color: #0f172a; }
+
+    .model-pill {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 2px 9px;
+      border-radius: 6px;
+    }
+
+    .score-card-box {
+      background: #f0fdf4;
+      border: 2px solid var(--correct);
+      color: #15803d;
+      padding: 14px 18px;
+      border-radius: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-card-box .score-label {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .score-card-box .big-score {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin: 2px 0;
+    }
+    .score-card-box .score-pct {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* Legend */
+    .bubble-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* 2-Column OMR Bubble Grid */
+    .bubble-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 28px;
+    }
+    @media (max-width: 580px) {
+      .bubble-grid { grid-template-columns: 1fr; }
+    }
+
+    .question-row {
+      display: flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .question-row:hover {
+      background: #f0f9ff;
+      border-color: #7dd3fc;
+    }
+
+    .q-num {
+      width: 34px;
+      font-weight: 900;
+      font-size: 13.5px;
+      color: #0f172a;
+    }
+
+    .bubbles {
+      display: flex;
+      gap: 9px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .bubble {
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      border: 2px solid #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 12.5px;
+      color: #334155;
+      background: #fff;
+      user-select: none;
+    }
+    .bubble.correct-marked {
+      background: var(--correct);
+      border-color: var(--correct);
+      color: #fff;
+    }
+    .bubble.wrong-marked {
+      background: var(--wrong);
+      border-color: var(--wrong);
+      color: #fff;
+    }
+    .bubble.neutral-marked {
+      background: var(--neutral);
+      border-color: var(--neutral);
+      color: #fff;
+    }
+    .bubble.correct-key-hint {
+      border: 2.5px dashed var(--correct);
+      color: var(--correct);
+      background: var(--correct-bg);
+    }
+
+    .status-icon {
+      font-size: 15px;
+      font-weight: 900;
+      margin-left: 8px;
+    }
+
+    /* Tab 2: Interactive Question Cards & Gemini AI Tutor */
+    .questions-list-view {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .q-card {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .q-card.correct { border-left: 5px solid var(--correct); }
+    .q-card.wrong { border-left: 5px solid var(--wrong); }
+
+    .q-header {
+      padding: 12px 16px;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .q-header:hover { background: #f1f5f9; }
+
+    .q-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .q-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+    }
+    .q-ans-badge {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .q-chevron {
+      font-size: 11px;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+    .q-chevron.open { transform: rotate(180deg); }
+
+    .q-body {
+      display: none;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .q-body.open { display: block; }
+
+    .q-text-content {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1e293b;
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .q-ai-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .btn-ai-explain {
+      border: 1.5px solid #0284c7;
+      background: #f0f9ff;
+      color: #0369a1;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-ai-explain:hover, .btn-ai-explain.active {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .ai-explanation-box {
+      display: none;
+      border: 1.5px solid #bae6fd;
+      background: #f0f9ff;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .ai-explanation-box.ar-mode {
+      direction: rtl;
+      text-align: right;
+    }
+    .ai-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 900;
+      font-size: 13px;
+      color: #0369a1;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #bae6fd;
+    }
+    .ai-close-btn {
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .ai-content {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #0f172a;
+    }
+
+    /* Adaptive Mistake Trainer Box */
+    .mistake-trainer-box {
+      background: #f8fafc;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+    .trainer-controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .trainer-diff-group, .trainer-lang-group {
+      display: inline-flex;
+      background: #e2e8f0;
+      padding: 2px;
+      border-radius: 8px;
+      gap: 2px;
+    }
+    .trainer-diff-btn {
+      border: none;
+      background: transparent;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #475569;
+    }
+    .trainer-diff-btn.active {
+      background: #fff;
+      color: #0f172a;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    .trainer-action-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .btn-train-mode {
+      border: 1px solid #3b82f6;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn-train-mode.flashcard-mode {
+      border-color: #8b5cf6;
+      background: #f5f3ff;
+      color: #6d28d9;
+    }
+    .btn-train-mode.anki-mode {
+      border-color: #0284c7;
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .train-mcq-card {
+      margin-top: 12px;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .train-opt-btn {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      margin-bottom: 7px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .train-opt-btn:hover:not(:disabled) {
+      background: #f0f9ff;
+      border-color: #38bdf8;
+    }
+    .train-opt-btn.correct-choice {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+    }
+    .train-opt-btn.wrong-choice {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #7f1d1d !important;
+    }
+
+    /* Interactive Flip Flashcard */
+    .train-flashcard-scene {
+      margin-top: 12px;
+      cursor: pointer;
+    }
+    .train-flashcard-face {
+      background: #fff;
+      border: 2px solid #ddd6fe;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .train-flashcard-back {
+      display: none;
+      background: #f5f3ff;
+      border-color: #8b5cf6;
+    }
+    .train-flashcard-scene.is-flipped .train-flashcard-front { display: none; }
+    .train-flashcard-scene.is-flipped .train-flashcard-back { display: block; }
+
+    /* Anki Modal */
+    .anki-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.72);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .anki-deck-container {
+      background: #fff;
+      width: min(640px, 96vw);
+      max-height: 90vh;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    .anki-deck-header {
+      background: #0f172a;
+      color: #fff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .anki-counter-bar { display: flex; gap: 6px; }
+    .anki-count-pill {
+      padding: 3px 9px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .anki-count-pill.new-queue { background: #dbeafe; color: #1d4ed8; }
+    .anki-count-pill.learning-queue { background: #fef3c7; color: #b45309; }
+    .anki-count-pill.review-queue { background: #dcfce7; color: #15803d; }
+    .anki-card-body {
+      padding: 22px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .anki-deck-footer {
+      padding: 14px 18px;
+      background: #f8fafc;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Item Analysis View */
+    .analytics-view {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .item-analysis-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+    .item-q-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .item-bar-track {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .item-bar-fill { height: 100%; border-radius: 4px; }
+
+    /* Prevent selection & printing on protected sheet */
+    .exam-workspace, .exam-workspace * {
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .exam-workspace input {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    @media print {
+      html, body, .container, .exam-workspace {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      body::before {
+        content: "⚠️ PRINTING DISABLED: Academic assessment materials are strictly confidential." !important;
+        display: block !important;
+        visibility: visible !important;
+        font-size: 22px !important;
+        font-weight: bold !important;
+        color: #dc2626 !important;
+        text-align: center !important;
+        padding: 80px 20px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Brand Header -->
+  <header class="brand-bar">
+    <div class="brand-title">
+      <span style="font-size: 28px;">📋</span>
+      <div>
+        <h1>NEWTON Exam Hub &amp; AI Tutor</h1>
+        <div class="brand-sub">Digital Bubble Sheet • Question Review • Gemini Step-by-Step Tutor (Zero-DB Load)</div>
+      </div>
+    </div>
+    <div class="brand-badges">
+      <span class="mastery-pill" id="student-mastery-points-badge">⭐ 0 Mastery Pts</span>
+      <button type="button" class="config-toggle-btn" onclick="toggleConfigDrawer()">⚙️ Sheet / CSV Settings</button>
+    </div>
+  </header>
+
+  <!-- Student ID Lookup Panel -->
+  <section class="control-panel">
+    <div class="lookup-grid">
+      <div>
+        <label class="field-label" for="examSelector">1. Select Assessment</label>
+        <select id="examSelector" class="field-select" onchange="onExamSelectionChanged()">
+          <option value="Q2_PHYS101">Quiz 2 - Elasticity &amp; Fluid Mechanics (PHYS.101)</option>
+          <option value="Q1_AHST302">Quiz 1 - Biomechanics &amp; Dimensions (AHST.302)</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="studentIdInput">2. Student University ID</label>
+        <input
+          type="text"
+          id="studentIdInput"
+          class="field-input"
+          placeholder="Enter Student ID (e.g. 200046095 or 46095)"
+          autocomplete="off"
+          onkeypress="if(event.key==='Enter') lookupStudentSheet()"
+        />
+      </div>
+      <div>
+        <button type="button" id="btnLookupSheet" class="btn-primary" onclick="lookupStudentSheet()">
+          <span>🔍</span> View Bubble Sheet
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapsible Google Sheet / CSV / Local Gemini Key Drawer -->
+    <div id="configDrawer" class="config-drawer">
+      <div class="config-grid">
+        <div>
+          <label class="field-label" for="customSheetIdInput">Google Sheet URL or Sheet ID (Optional Override)</label>
+          <input
+            type="text"
+            id="customSheetIdInput"
+            class="field-input"
+            style="height:38px; font-size:12.5px;"
+            placeholder="Uses server GOOGLE_SHEET_ID by default, or paste Sheet link/ID..."
+          />
+        </div>
+        <div>
+          <label class="field-label" for="customGeminiKeyInput">Gemini API Key (Optional if configured on Vercel)</label>
+          <input
+            type="password"
+            id="customGeminiKeyInput"
+            class="field-input"
+            style="height:38px; font-size:12.5px;"
+            placeholder="Uses Vercel GEMINI_API_KEY automatically..."
+          />
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:#f8fafc; padding:10px 14px; border-radius:10px; border:1px solid #e2e8f0;">
+        <div>
+          <strong>📁 Local CSV / TSV Instant Preview (ZipGrade Responses, Answer Keys, or QText):</strong>
+          <div style="color:#64748b; font-size:11.5px;">Load CSV files directly in the browser to preview sheets or test Item Analysis before pasting into Google Sheets.</div>
+        </div>
+        <input type="file" id="csvFileInput" accept=".csv,.tsv,.txt" multiple style="font-size:12px;" />
+      </div>
+    </div>
+
+    <div id="statusBanner" class="status-banner"></div>
+  </section>
+
+  <!-- Main Exam Workspace -->
+  <main id="examWorkspace" class="exam-workspace">
+    <!-- Top Mode Tabs -->
+    <div class="mode-tabs-bar">
+      <button type="button" id="tabBtnGrid" class="mode-tab-btn active" onclick="switchBubbleView('grid')">
+        📄 Digital Bubble Sheet
+      </button>
+      <button type="button" id="tabBtnQuestions" class="mode-tab-btn" onclick="switchBubbleView('questions')">
+        📋 Questions &amp; AI Review
+      </button>
+      <button type="button" id="tabBtnAnalytics" class="mode-tab-btn" style="display:none;" onclick="switchBubbleView('analytics')">
+        📊 Item Analysis (% Correct)
+      </button>
+    </div>
+
+    <!-- Anti-Leak Watermark Overlay -->
+    <div id="securityWatermarkLayer" class="watermark-layer"></div>
+
+    <!-- Focus-Loss Security Blur Overlay -->
+    <div id="securityFocusBlurOverlay" class="security-blur-overlay">
+      <div style="font-size: 38px; margin-bottom: 10px;">🔒</div>
+      <div style="font-size: 18px; font-weight: 900; margin-bottom: 6px;">Protected Academic Assessment</div>
+      <div style="font-size: 13px; color: #cbd5e1; max-width: 420px;">
+        Screen capture and background window viewing are restricted. Click back inside the Exam Hub window to resume reviewing your bubble sheet.
+      </div>
+    </div>
+
+    <div id="studentBubbleSheetWrapper" class="sheet-body-inner">
+      <div class="optical-sheet-frame">
+        <div class="corner-mark tl"></div>
+        <div class="corner-mark tr"></div>
+        <div class="corner-mark bl"></div>
+        <div class="corner-mark br"></div>
+
+        <!-- Sheet Header & Score Card -->
+        <div class="sheet-header-grid">
+          <div class="student-meta-list">
+            <p><strong>Assessment:</strong> <span id="bubbleExamName">—</span> (<span id="bubbleCourseName">—</span>)</p>
+            <p><strong>Instructor:</strong> <span id="bubbleInstructorName">—</span></p>
+            <p><strong>Student Name:</strong> <span id="bubbleStudentName">—</span></p>
+            <p><strong>Student ID:</strong> <span id="bubbleStudentId" style="font-family:monospace; font-weight:900; color:#0284c7;">—</span> • <strong>Section:</strong> <span id="bubbleStudentSection">—</span></p>
+            <p><strong>Exam Model:</strong> <span id="bubbleModelKeyBadge" class="model-pill">Model A</span></p>
+          </div>
+          <div class="score-card-box">
+            <span class="score-label">Official Score</span>
+            <span class="big-score" id="bubbleScore">0 / 10</span>
+            <span class="score-pct" id="bubbleScorePct">0%</span>
+          </div>
+        </div>
+
+        <!-- Instructor Adjustment Banner (if configured) -->
+        <div id="examAdjustmentBanner" style="display:none; background:#eff6ff; border:1.5px solid #bfdbfe; color:#1e40af; border-radius:10px; padding:10px 14px; margin-bottom:14px; font-size:12.5px; font-weight:800;"></div>
+
+        <!-- Bubble Legend -->
+        <div id="bubbleLegend" class="bubble-legend">
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--correct);"></span> Correct Student Answer
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--wrong);"></span> Wrong Student Answer
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="border: 2.5px dashed var(--correct); background: var(--correct-bg);"></span> Correct Model Key
+          </div>
+          <div class="legend-item" style="margin-left:auto; color:#0284c7;">
+            💡 Click any question row for AI Explanation &amp; Practice
+          </div>
+        </div>
+
+        <!-- Tab 1: 2-Column Digital OMR Bubble Grid -->
+        <div id="bubbleSheetGrid" class="bubble-grid"></div>
+
+        <!-- Tab 2: Interactive Question Cards & Gemini AI Review -->
+        <div id="bubbleQuestionsList" class="questions-list-view"></div>
+
+        <!-- Tab 3: Cohort Item Analysis (Shown when local CSV cohort is loaded) -->
+        <div id="bubbleAnalyticsList" class="analytics-view"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  // =========================================================================
+  // 1. STATE & INITIALIZATION
+  // =========================================================================
+  window.currentActiveSheetExam = null;
+  window.currentActiveSheetQuestions = [];
+  window.mistakeTrainerState = {};
+  window._preferredQuestionLang = localStorage.getItem('newton_question_lang') || 'en';
+  window.localCsvStudentDB = null; // Optional local CSV override for instructor preview
+  window.localModelKeys = {
+    A: ['D', 'B', 'A', 'C', 'B', 'A', 'C', 'D', 'B', 'A'],
+    B: ['B', 'D', 'C', 'A', 'A', 'B', 'D', 'C', 'A', 'B']
+  };
+  window.localQuestionBank = {};
+
+  function getMasteryPoints() {
+    return parseInt(localStorage.getItem('newton_exam_hub_mastery_pts') || '0', 10) || 0;
+  }
+
+  function addMasteryPoints(pts, awardKey) {
+    const awardedSet = JSON.parse(localStorage.getItem('newton_exam_hub_awarded_keys') || '{}');
+    if (awardKey && awardedSet[awardKey]) {
+      return { awarded: false, already_awarded: true, total: getMasteryPoints() };
+    }
+    if (awardKey) {
+      awardedSet[awardKey] = Date.now();
+      localStorage.setItem('newton_exam_hub_awarded_keys', JSON.stringify(awardedSet));
+    }
+    const next = getMasteryPoints() + (parseInt(pts, 10) || 1);
+    localStorage.setItem('newton_exam_hub_mastery_pts', String(next));
+    updateMasteryBadge();
+    return { awarded: true, already_awarded: false, total: next };
+  }
+
+  function updateMasteryBadge() {
+    const el = document.getElementById('student-mastery-points-badge');
+    if (el) el.textContent = `⭐ ${getMasteryPoints()} Mastery Pts`;
+  }
+
+  function safeEscapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function showStatus(msg, type = 'error') {
+    const el = document.getElementById('statusBanner');
+    if (!el) return;
+    if (!msg) {
+      el.style.display = 'none';
+      return;
+    }
+    el.className = `status-banner ${type}`;
+    el.innerHTML = msg;
+    el.style.display = 'block';
+  }
+
+  function toggleConfigDrawer() {
+    const dr = document.getElementById('configDrawer');
+    if (!dr) return;
+    dr.style.display = dr.style.display === 'block' ? 'none' : 'block';
+  }
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    updateMasteryBadge();
+    const params = new URLSearchParams(window.location.search);
+    const urlSheet = params.get('sheet') || params.get('sheet_id');
+    const urlExam = params.get('exam') || params.get('exam_id');
+    const urlId = params.get('id') || params.get('student_id');
+
+    if (urlSheet) {
+      const sheetInput = document.getElementById('customSheetIdInput');
+      if (sheetInput) sheetInput.value = urlSheet;
+    }
+
+    await loadPublishedExamsList(urlExam);
+
+    if (urlId) {
+      const idInput = document.getElementById('studentIdInput');
+      if (idInput) idInput.value = urlId;
+      lookupStudentSheet();
+    }
+  });
+
+  async function loadPublishedExamsList(preferredExamId = null) {
+    try {
+      const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || '';
+      const qs = sheetId ? `&sheet_id=${encodeURIComponent(sheetId)}` : '';
+      const res = await fetch(`/api/exam-hub?action=list-exams${qs}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data.success && Array.isArray(data.exams) && data.exams.length > 0) {
+        const sel = document.getElementById('examSelector');
+        if (sel) {
+          sel.innerHTML = data.exams.map(ex =>
+            `<option value="${safeEscapeHtml(ex.exam_id)}">${safeEscapeHtml(ex.exam_title)} (${safeEscapeHtml(ex.course_id)})</option>`
+          ).join('');
+          if (preferredExamId && data.exams.some(e => e.exam_id === preferredExamId)) {
+            sel.value = preferredExamId;
+          }
+        }
+      }
+    } catch (e) {
+      // Offline or opened as file:// — keep default dropdown options
+    }
+  }
+
+  function onExamSelectionChanged() {
+    const sid = document.getElementById('studentIdInput')?.value.trim();
+    if (sid) lookupStudentSheet();
+  }
+
+  // =========================================================================
+  // 2. LOOKUP STUDENT SHEET (From /api/exam-hub or Local CSV Override)
+  // =========================================================================
+  async function lookupStudentSheet() {
+    const rawId = document.getElementById('studentIdInput')?.value.trim() || '';
+    const examId = document.getElementById('examSelector')?.value || 'Q2_PHYS101';
+    const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || '';
+
+    if (!rawId) {
+      showStatus('⚠️ Please enter your Student University ID.', 'error');
+      return;
+    }
+
+    // Check if local CSV override was loaded in the browser
+    if (window.localCsvStudentDB && Object.keys(window.localCsvStudentDB).length > 0) {
+      const found = findInLocalCsvDB(rawId);
+      if (!found) {
+        showStatus(`❌ Student ID <strong>${safeEscapeHtml(rawId)}</strong> not found in the loaded CSV file.`, 'error');
+        document.getElementById('examWorkspace').style.display = 'none';
+        return;
+      }
+      showStatus('', 'info');
+      renderStudentSheetPayload(found);
+      return;
+    }
+
+    const btn = document.getElementById('btnLookupSheet');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span>⏳</span> Loading...';
+    }
+    showStatus('', 'info');
+
+    try {
+      const res = await fetch('/api/exam-hub', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'get-student-sheet',
+          exam_id: examId,
+          student_id: rawId,
+          sheet_id: sheetId || undefined
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) {
+        showStatus(`⚠️ ${safeEscapeHtml(data.error || 'Could not find student record for this assessment.')}`, 'error');
+        document.getElementById('examWorkspace').style.display = 'none';
+        return;
+      }
+
+      renderStudentSheetPayload(data);
+    } catch (err) {
+      showStatus(`⚠️ Network error connecting to Exam Hub API: ${safeEscapeHtml(err.message)}`, 'error');
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🔍</span> View Bubble Sheet';
+      }
+    }
+  }
+
+  // =========================================================================
+  // 3. RENDER DIGITAL BUBBLE SHEET & INTERACTIVE QUESTION CARDS
+  // =========================================================================
+  function renderStudentSheetPayload(payload) {
+    const st = payload.student;
+    if (!st) return;
+
+    const examId = payload.exam_id || 'Q2_PHYS101';
+    const examTitle = payload.exam_title || 'Assessment';
+    const courseId = payload.course_id || 'PHYS.101';
+    const courseName = payload.course_name ? `${courseId} - ${payload.course_name}` : courseId;
+    const instructor = payload.instructor || 'Course Instructor';
+    const modelKey = st.model || 'A';
+    const earned = st.earned_points ?? 0;
+    const possible = st.possible_points ?? (st.questions?.length || 10);
+    const pct = possible > 0 ? Math.round((earned / possible) * 100) : 0;
+    const releaseAnswers = payload.release_answers !== false;
+    const adjReason = payload.adjustment_reason || '';
+
+    const setTxt = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+
+    setTxt('bubbleExamName', examTitle);
+    setTxt('bubbleCourseName', courseName);
+    setTxt('bubbleInstructorName', instructor);
+    setTxt('bubbleStudentName', st.name || `Student ${st.student_id}`);
+    setTxt('bubbleStudentId', st.student_id);
+    setTxt('bubbleStudentSection', st.section || '—');
+    setTxt('bubbleModelKeyBadge', `Model ${modelKey}`);
+    setTxt('bubbleScore', `${earned} / ${possible}`);
+    setTxt('bubbleScorePct', `${pct}%`);
+
+    const adjBanner = document.getElementById('examAdjustmentBanner');
+    if (adjBanner) {
+      if (adjReason) {
+        adjBanner.style.display = 'block';
+        adjBanner.textContent = `ℹ️ Official Instructor Note: ${adjReason}`;
+      } else {
+        adjBanner.style.display = 'none';
+      }
+    }
+
+    // Dynamic Anti-Leak Watermark
+    const wmLayer = document.getElementById('securityWatermarkLayer');
+    if (wmLayer) {
+      wmLayer.innerHTML = '';
+      if (payload.watermark_enabled !== false) {
+        const wmText = `${st.student_id} • ${st.name} • MUST UNIVERSITY`;
+        for (let i = 0; i < 48; i++) {
+          const tok = document.createElement('div');
+          tok.className = 'watermark-token';
+          tok.textContent = wmText;
+          wmLayer.appendChild(tok);
+        }
+        wmLayer.style.display = 'flex';
+      } else {
+        wmLayer.style.display = 'none';
+      }
+    }
+
+    window.currentActiveSheetExam = {
+      exam_id: examId,
+      exam_title: examTitle,
+      course_id: courseId,
+      model: modelKey,
+      student_id: st.student_id,
+      release_answers: releaseAnswers,
+      review_reason: adjReason
+    };
+    window.currentActiveSheetQuestions = [];
+
+    const gridEl = document.getElementById('bubbleSheetGrid');
+    const questionsListEl = document.getElementById('bubbleQuestionsList');
+    if (gridEl) gridEl.innerHTML = '';
+    if (questionsListEl) questionsListEl.innerHTML = '';
+
+    const questions = st.questions || [];
+    const options = ['A', 'B', 'C', 'D'];
+    questions.forEach(q => {
+      if (String(q.student_ans || '').toUpperCase() === 'E' || String(q.correct_ans || '').toUpperCase() === 'E') {
+        if (!options.includes('E')) options.push('E');
+      }
+    });
+
+    const loadedQCount = questions.filter(q => q.question_text && q.question_text.trim()).length;
+    const tabQuestionsBtn = document.getElementById('tabBtnQuestions');
+    if (tabQuestionsBtn) {
+      tabQuestionsBtn.innerHTML = loadedQCount > 0
+        ? `📋 Questions &amp; AI Review <span style="background:#dcfce7; color:#15803d; font-size:11px; padding:2px 7px; border-radius:10px; font-weight:900;">${loadedQCount} Qs</span>`
+        : `📋 Questions &amp; AI Review`;
+    }
+
+    const missedQuestions = questions.filter(q => releaseAnswers && q.is_correct === false);
+
+    // Anki Spaced-Repetition Banner at top of Questions Tab
+    if (questionsListEl && releaseAnswers && missedQuestions.length > 0) {
+      const bannerDiv = document.createElement('div');
+      bannerDiv.style.cssText = 'background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%); border: 2px solid #c7d2fe; border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;';
+      bannerDiv.innerHTML = `
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:24px;">⚡</span>
+          <div>
+            <div style="font-size:14px; font-weight:900; color:#1e1b4b;">Newton Anki Spaced-Repetition Deck</div>
+            <div style="font-size:12px; color:#475569; font-weight:700;">You have <strong>${missedQuestions.length} missed question${missedQuestions.length > 1 ? 's' : ''}</strong> queued for active recall training.</div>
+          </div>
+        </div>
+        <button type="button" class="btn-train-mode anki-mode" style="padding:9px 16px; font-size:13px;" onclick="window.openNewtonAnkiDeckModal()">
+          ⚡ Launch Anki Trainer
+        </button>
+      `;
+      questionsListEl.appendChild(bannerDiv);
+    }
+
+    questions.forEach((q, idx) => {
+      const qNum = q.q_num || (idx + 1);
+      const stuAns = String(q.student_ans || '').toUpperCase();
+      const correctAns = String(q.correct_ans || '').toUpperCase();
+      const hasKey = releaseAnswers && Boolean(q.has_key || correctAns !== '');
+      const isCorrect = hasKey ? (q.is_correct !== undefined && q.is_correct !== null ? Boolean(q.is_correct) : (stuAns !== '' && stuAns === correctAns)) : false;
+      const rawQText = q.question_text || '';
+
+      const qObj = {
+        index: idx,
+        q_num: qNum,
+        student_ans: stuAns,
+        correct_ans: correctAns,
+        is_correct: isCorrect,
+        has_key: hasKey,
+        review_reason: q.review_reason || adjReason,
+        question_text: rawQText
+      };
+      window.currentActiveSheetQuestions.push(qObj);
+
+      // A. OMR Bubble Grid Row
+      if (gridEl) {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'question-row';
+        rowDiv.title = 'Click to view question statement & Gemini AI explanation';
+        rowDiv.onclick = () => window.switchBubbleView('questions', idx);
+
+        let bubblesHtml = '';
+        options.forEach(opt => {
+          let cls = 'bubble';
+          if (!hasKey && opt === stuAns) {
+            cls += ' neutral-marked';
+          } else if (opt === stuAns && isCorrect) {
+            cls += ' correct-marked';
+          } else if (opt === stuAns && !isCorrect) {
+            cls += ' wrong-marked';
+          } else if (hasKey && opt === correctAns && !isCorrect) {
+            cls += ' correct-key-hint';
+          }
+          bubblesHtml += `<div class="${cls}">${opt}</div>`;
+        });
+
+        let statusHtml = '';
+        if (hasKey) {
+          statusHtml = isCorrect
+            ? `<span class="status-icon" style="color: var(--correct);" title="Correct">&#10004;</span>`
+            : `<span class="status-icon" style="color: var(--wrong);" title="Incorrect">&#10008;</span>`;
+        }
+
+        rowDiv.innerHTML = `
+          <div class="q-num">${qNum}.</div>
+          <div class="bubbles">${bubblesHtml}</div>
+          ${statusHtml}
+        `;
+        gridEl.appendChild(rowDiv);
+      }
+
+      // B. Interactive Question Card
+      if (questionsListEl) {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = `q-card ${hasKey ? (isCorrect ? 'correct' : 'wrong') : ''}`;
+        cardDiv.id = `qCard_${idx}`;
+
+        const statusIcon = !hasKey
+          ? '<span style="color:#2563eb; font-weight:900;">●</span>'
+          : (isCorrect
+              ? '<span style="color:var(--correct); font-weight:900;">✔</span>'
+              : '<span style="color:var(--wrong); font-weight:900;">✖</span>');
+
+        const displayTextHtml = rawQText.trim()
+          ? formatMathQuestionText(rawQText)
+          : `<div style="color:#64748b; font-size:13px;"><em>Question statement not uploaded for this item.</em> You selected <strong>${safeEscapeHtml(stuAns || '—')}</strong>${hasKey ? ` and the official key is <strong>${safeEscapeHtml(correctAns)}</strong>` : ''}.</div>`;
+
+        cardDiv.innerHTML = `
+          <div class="q-header" onclick="window.toggleQuestionCard(${idx})">
+            <div class="q-header-left">
+              ${statusIcon}
+              <span>Question ${qNum}</span>
+            </div>
+            <div class="q-header-right">
+              <span class="q-ans-badge">
+                You: <strong>${safeEscapeHtml(stuAns || '—')}</strong>
+                ${hasKey ? `<span style="color:#cbd5e1; margin:0 4px;">|</span> Key: <strong>${safeEscapeHtml(correctAns || '—')}</strong>` : ''}
+              </span>
+              <span class="q-chevron" id="qChevron_${idx}">▼</span>
+            </div>
+          </div>
+          <div class="q-body" id="qBody_${idx}">
+            <div class="q-text-content" id="qText_${idx}">${displayTextHtml}</div>
+            ${hasKey ? `
+              <div class="q-ai-actions">
+                <button type="button" class="btn-ai-explain" id="btn_ai_en_${idx}" onclick="window.askQuestionAI(${idx}, 'en')">
+                  <span>🤖</span> Explain (EN)
+                </button>
+                <button type="button" class="btn-ai-explain" id="btn_ai_ar_${idx}" onclick="window.askQuestionAI(${idx}, 'ar')">
+                  <span>🤖</span> اشرح بالعربي (AR)
+                </button>
+              </div>
+              <div class="ai-explanation-box" id="aiBox_${idx}">
+                <div class="ai-box-header">
+                  <span id="aiBoxTitle_${idx}">🤖 Newton Gemini AI Explanation</span>
+                  <button type="button" class="ai-close-btn" onclick="document.getElementById('aiBox_${idx}').style.display='none'">✕ Hide</button>
+                </div>
+                <div class="ai-content" id="aiContent_${idx}"></div>
+              </div>
+              <div id="trainerMount_${idx}">
+                ${renderMistakeTrainerUI(qNum, isCorrect)}
+              </div>
+            ` : `
+              <div style="color:#64748b; font-size:12.5px; font-weight:700;">
+                🔒 Answer key and AI explanations will unlock once your instructor releases answer review for this exam.
+              </div>
+            `}
+          </div>
+        `;
+        questionsListEl.appendChild(cardDiv);
+      }
+    });
+
+    document.getElementById('examWorkspace').style.display = 'block';
+    switchBubbleView('grid');
+  }
+
+  // =========================================================================
+  // 4. VIEW SWITCHING & ARABIC/LATEX MATHJAX FILTER
+  // =========================================================================
+  window.switchBubbleView = function(mode, targetIndex) {
+    const gridEl = document.getElementById('bubbleSheetGrid');
+    const legendEl = document.getElementById('bubbleLegend');
+    const questionsEl = document.getElementById('bubbleQuestionsList');
+    const analyticsEl = document.getElementById('bubbleAnalyticsList');
+    const tabGrid = document.getElementById('tabBtnGrid');
+    const tabQuestions = document.getElementById('tabBtnQuestions');
+    const tabAnalytics = document.getElementById('tabBtnAnalytics');
+
+    if (tabGrid) tabGrid.classList.toggle('active', mode === 'grid');
+    if (tabQuestions) tabQuestions.classList.toggle('active', mode === 'questions');
+    if (tabAnalytics) tabAnalytics.classList.toggle('active', mode === 'analytics');
+
+    if (gridEl) gridEl.style.display = mode === 'grid' ? 'grid' : 'none';
+    if (legendEl) legendEl.style.display = mode === 'grid' ? 'flex' : 'none';
+    if (questionsEl) questionsEl.style.display = mode === 'questions' ? 'flex' : 'none';
+    if (analyticsEl) analyticsEl.style.display = mode === 'analytics' ? 'flex' : 'none';
+
+    if (mode === 'questions') {
+      if (targetIndex !== undefined) {
+        window.toggleQuestionCard(targetIndex, true);
+        setTimeout(() => {
+          document.getElementById(`qCard_${targetIndex}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      }
+      if (window.MathJax && questionsEl) {
+        window.MathJax.typesetPromise?.([questionsEl]).catch(() => {});
+      }
+    }
+  };
+
+  window.toggleQuestionCard = function(idx, forceOpen) {
+    const body = document.getElementById(`qBody_${idx}`);
+    const chevron = document.getElementById(`qChevron_${idx}`);
+    if (!body) return;
+    const willOpen = forceOpen !== undefined ? forceOpen : !body.classList.contains('open');
+    body.classList.toggle('open', willOpen);
+    if (chevron) chevron.classList.toggle('open', willOpen);
+    if (willOpen && window.MathJax) {
+      const textEl = document.getElementById(`qText_${idx}`);
+      if (textEl) window.MathJax.typesetPromise?.([textEl]).catch(() => {});
+    }
+  };
+
+  function cleanLatexTextFromArabic(str) {
+    if (!str) return str;
+    let s = str;
+    while (/\\(?:text|mathrm|mathbf|textit)\{([^}]*)\}/.test(s)) {
+      s = s.replace(/\\(?:text|mathrm|mathbf|textit)\{([^}]*)\}/g, '$1');
+    }
+    return s.replace(/\\(?:quad|qquad|[;,!])/g, ' ').replace(/[{}]/g, '').trim();
+  }
+
+  window.fixArabicMath = function(text) {
+    if (!text) return '';
+    let res = safeEscapeHtml(text);
+    res = res.replace(/\\\((.*?)\\\)/gs, '$ $1 $');
+    res = res.replace(/\\\[(.*?)\\\]/gs, '$$ $1 $$');
+    res = res.replace(/\\(?:text|mathrm|mathbf|textit)\{([\u0600-\u06FF\s0-9()\-+/*=.,]+)\}/g, '$1');
+
+    res = res.replace(/\$\$(.*?)\$\$/gs, (fullMatch, content) => {
+      if (!/[\u0600-\u06FF]/.test(content)) return `$$ ${content.trim()} $$`;
+      const firstAr = content.match(/[\u0600-\u06FF]/);
+      if (firstAr) {
+        const beforeAr = content.substring(0, firstAr.index).trim();
+        const afterAr = cleanLatexTextFromArabic(content.substring(firstAr.index));
+        if (beforeAr && /[=><+\-\\/_^]/.test(beforeAr)) {
+          return `\n$$ ${beforeAr} $$\n<div style="margin:4px 0; text-align:right;">${afterAr}</div>\n`;
+        }
+        return `\n<div style="margin:4px 0; text-align:right;">${afterAr}</div>\n`;
+      }
+      return fullMatch;
+    });
+
+    const displayBlocks = [];
+    res = res.replace(/\$\$(.*?)\$\$/gs, (m) => {
+      displayBlocks.push(m);
+      return `@@DISP_MATH_${displayBlocks.length - 1}@@`;
+    });
+
+    res = res.replace(/(^|[^\$])\$([^\$\n]+?)\$(?!\$)/g, (match, prefix, inner) => {
+      if (/[\u0600-\u06FF]/.test(inner)) {
+        return `${prefix}${cleanLatexTextFromArabic(inner)}`;
+      }
+      return `${prefix}$${inner}$`;
+    });
+
+    res = res.replace(/@@DISP_MATH_(\d+)@@/g, (m, i) => displayBlocks[Number(i)] || m);
+    res = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    res = res.replace(/\n\n+/g, '<br><br>').replace(/\n/g, '<br>');
+    return res;
+  };
+
+  function formatMathQuestionText(rawText) {
+    return window.fixArabicMath(rawText);
+  }
+
+  // =========================================================================
+  // 5. GEMINI AI EXPLAIN (EN / AR)
+  // =========================================================================
+  window.askQuestionAI = async function(idx, lang) {
+    const qData = window.currentActiveSheetQuestions?.[idx];
+    const exMeta = window.currentActiveSheetExam;
+    if (!qData || !exMeta) return;
+
+    const resolvedLang = lang === 'ar' ? 'ar' : 'en';
+    window._preferredQuestionLang = resolvedLang;
+    try { localStorage.setItem('newton_question_lang', resolvedLang); } catch (e) {}
+
+    const btnEn = document.getElementById(`btn_ai_en_${idx}`);
+    const btnAr = document.getElementById(`btn_ai_ar_${idx}`);
+    if (btnEn) btnEn.classList.toggle('active', resolvedLang === 'en');
+    if (btnAr) btnAr.classList.toggle('active', resolvedLang === 'ar');
+
+    const aiBox = document.getElementById(`aiBox_${idx}`);
+    const aiTitle = document.getElementById(`aiBoxTitle_${idx}`);
+    const aiContent = document.getElementById(`aiContent_${idx}`);
+    if (!aiBox || !aiContent) return;
+
+    aiBox.style.display = 'block';
+    aiBox.className = `ai-explanation-box ${resolvedLang === 'ar' ? 'ar-mode' : 'en-mode'}`;
+    if (aiTitle) {
+      aiTitle.textContent = resolvedLang === 'ar' ? '🤖 شرح المساعد الذكي "نيوتن" (Gemini)' : '🤖 Newton Gemini AI Explanation';
+    }
+
+    const cacheKey = `EH_EXPL_${exMeta.exam_id}_${exMeta.model}_Q${qData.q_num}_S${qData.student_ans}_K${qData.correct_ans}_${resolvedLang}`;
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+      aiContent.innerHTML = window.fixArabicMath(cached);
+      if (window.MathJax) window.MathJax.typesetPromise?.([aiContent]).catch(() => {});
+      return;
+    }
+
+    aiContent.innerHTML = resolvedLang === 'ar'
+      ? '<span style="color:#0284c7; font-weight:700;">⏳ جاري تحليل السؤال وحساب خطوات الحل عبر Gemini AI...</span>'
+      : '<span style="color:#0284c7; font-weight:700;">⏳ Analyzing question &amp; calculating step-by-step solution via Gemini AI...</span>';
+
+    try {
+      const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || undefined;
+      const customGemKey = document.getElementById('customGeminiKeyInput')?.value.trim() || undefined;
+
+      const res = await fetch('/api/exam-hub', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'explain',
+          exam_id: exMeta.exam_id,
+          student_id: exMeta.student_id,
+          q_num: qData.q_num,
+          question_text: qData.question_text,
+          lang: resolvedLang,
+          sheet_id: sheetId,
+          gemini_api_key: customGemKey
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.explanation) {
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+
+      try { sessionStorage.setItem(cacheKey, data.explanation); } catch (e) {}
+      aiContent.innerHTML = window.fixArabicMath(data.explanation);
+      if (window.MathJax) window.MathJax.typesetPromise?.([aiContent]).catch(() => {});
+    } catch (err) {
+      aiContent.innerHTML = `<div style="color:#dc2626; font-weight:700;">⚠️ ${safeEscapeHtml(err.message)}</div>`;
+    }
+  };
+
+  // =========================================================================
+  // 6. ADAPTIVE MISTAKE TRAINER (Practice MCQ & 3D Flip Flashcard)
+  // =========================================================================
+  function renderMistakeTrainerUI(qNum, isCorrect = false) {
+    const key = `Q_${qNum}`;
+    const initLang = window._preferredQuestionLang === 'ar' ? 'ar' : 'en';
+    if (!window.mistakeTrainerState[key]) {
+      window.mistakeTrainerState[key] = { difficulty: 'medium', lang: initLang, history: [] };
+    }
+    const st = window.mistakeTrainerState[key];
+    const title = isCorrect ? '🌟 Reinforce &amp; Master Concept:' : '🎯 Train Me on This Concept:';
+
+    return `
+      <div class="mistake-trainer-box" id="trainer_box_${qNum}">
+        <div class="trainer-controls-row">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:12px; font-weight:900;">${title}</span>
+            <div class="trainer-diff-group" id="trainer_diff_${qNum}">
+              <button type="button" class="trainer-diff-btn ${st.difficulty === 'easy' ? 'active' : ''}" data-diff="easy" onclick="window.setTrainerDifficulty(${qNum}, 'easy')">🟢 Easy</button>
+              <button type="button" class="trainer-diff-btn ${st.difficulty === 'medium' ? 'active' : ''}" data-diff="medium" onclick="window.setTrainerDifficulty(${qNum}, 'medium')">🟡 Medium</button>
+              <button type="button" class="trainer-diff-btn ${st.difficulty === 'hard' ? 'active' : ''}" data-diff="hard" onclick="window.setTrainerDifficulty(${qNum}, 'hard')">🔴 Hard</button>
+            </div>
+            <div class="trainer-lang-group" id="trainer_lang_${qNum}">
+              <button type="button" class="trainer-diff-btn ${st.lang !== 'ar' ? 'active' : ''}" data-lang="en" onclick="window.setTrainerLanguage(${qNum}, 'en')">🇬🇧 EN</button>
+              <button type="button" class="trainer-diff-btn ${st.lang === 'ar' ? 'active' : ''}" data-lang="ar" onclick="window.setTrainerLanguage(${qNum}, 'ar')">🇪🇬 AR</button>
+            </div>
+          </div>
+          <div class="trainer-action-btns">
+            <button type="button" class="btn-train-mode" onclick="window.generateMistakeTraining(${qNum}, 'train_mcq')">📝 Practice MCQ</button>
+            <button type="button" class="btn-train-mode flashcard-mode" onclick="window.generateMistakeTraining(${qNum}, 'train_flashcard')">🃏 Flashcard</button>
+            <button type="button" class="btn-train-mode anki-mode" onclick="window.openNewtonAnkiDeckModal(${qNum})">⚡ Anki Review</button>
+          </div>
+        </div>
+        <div id="trainer_output_${qNum}"></div>
+      </div>
+    `;
+  }
+
+  window.setTrainerDifficulty = function(qNum, diff) {
+    const key = `Q_${qNum}`;
+    if (!window.mistakeTrainerState[key]) window.mistakeTrainerState[key] = { difficulty: 'medium', lang: 'en', history: [] };
+    window.mistakeTrainerState[key].difficulty = diff;
+    document.querySelectorAll(`#trainer_diff_${qNum} .trainer-diff-btn`).forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-diff') === diff);
+    });
+  };
+
+  window.setTrainerLanguage = function(qNum, lang) {
+    const key = `Q_${qNum}`;
+    const norm = lang === 'ar' ? 'ar' : 'en';
+    if (!window.mistakeTrainerState[key]) window.mistakeTrainerState[key] = { difficulty: 'medium', lang: norm, history: [] };
+    window.mistakeTrainerState[key].lang = norm;
+    window._preferredQuestionLang = norm;
+    document.querySelectorAll(`#trainer_lang_${qNum} .trainer-diff-btn`).forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-lang') === norm);
+    });
+  };
+
+  window.generateMistakeTraining = async function(qNum, mode) {
+    const exMeta = window.currentActiveSheetExam;
+    if (!exMeta) return;
+    const key = `Q_${qNum}`;
+    const st = window.mistakeTrainerState[key] || { difficulty: 'medium', lang: 'en', history: [] };
+    const outEl = document.getElementById(`trainer_output_${qNum}`);
+    if (!outEl) return;
+
+    const qObj = (window.currentActiveSheetQuestions || []).find(q => Number(q.q_num) === Number(qNum));
+    outEl.innerHTML = `<div style="padding:14px; text-align:center; font-size:13px; font-weight:800; color:#0284c7;">⚡ Gemini AI is crafting a ${st.difficulty.toUpperCase()} ${mode === 'train_mcq' ? 'Practice MCQ' : 'Flashcard'}...</div>`;
+
+    try {
+      const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || undefined;
+      const customGemKey = document.getElementById('customGeminiKeyInput')?.value.trim() || undefined;
+
+      const res = await fetch('/api/exam-hub', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: mode,
+          exam_id: exMeta.exam_id,
+          student_id: exMeta.student_id,
+          q_num: qNum,
+          difficulty: st.difficulty,
+          lang: st.lang,
+          question_text: qObj?.question_text || '',
+          previous_questions: st.history,
+          sheet_id: sheetId,
+          gemini_api_key: customGemKey
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+      const tr = data.training;
+      if (!res.ok || !tr) throw new Error(data.error || 'Failed to generate training item.');
+
+      if (tr.question) st.history.push(tr.question);
+      if (tr.front_question) st.history.push(tr.front_question);
+
+      if (mode === 'train_mcq') {
+        st.lastMcq = tr;
+        const opts = tr.options || {};
+        outEl.innerHTML = `
+          <div class="train-mcq-card" dir="auto">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:11px; font-weight:800; background:#dbeafe; color:#1e40af; padding:3px 9px; border-radius:20px;">🎯 ${safeEscapeHtml(tr.concept_badge || 'Concept Drill')} (${safeEscapeHtml(st.difficulty.toUpperCase())})</span>
+              ${tr.hint ? `<button type="button" onclick="document.getElementById('train_hint_${qNum}').style.display='block'" style="background:none; border:none; color:#d97706; font-size:11.5px; font-weight:800; cursor:pointer;">💡 Show Hint</button>` : ''}
+            </div>
+            <div style="font-size:14px; font-weight:800; margin-bottom:10px; line-height:1.55;">${window.fixArabicMath(tr.question)}</div>
+            <div id="train_hint_${qNum}" style="display:none; background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:8px 12px; border-radius:8px; font-size:12px; margin-bottom:8px;">💡 ${window.fixArabicMath(tr.hint || '')}</div>
+            <div id="train_opts_${qNum}">
+              ${['A', 'B', 'C', 'D'].map(letter => opts[letter] ? `
+                <button type="button" class="train-opt-btn" data-opt="${letter}" onclick="window.verifyPracticeMcqChoice(${qNum}, '${letter}')">
+                  <span style="width:24px; height:24px; border-radius:50%; background:#e2e8f0; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:900;">${letter}</span>
+                  <span style="flex:1;">${window.fixArabicMath(opts[letter])}</span>
+                </button>
+              ` : '').join('')}
+            </div>
+            <div id="train_feedback_${qNum}" style="display:none; margin-top:10px; padding:12px; border-radius:10px; font-size:13px; line-height:1.6;"></div>
+          </div>
+        `;
+      } else {
+        outEl.innerHTML = `
+          <div class="train-flashcard-scene" dir="auto" onclick="this.classList.toggle('is-flipped')">
+            <div class="train-flashcard-face train-flashcard-front">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11px; font-weight:800; background:#ede9fe; color:#6d28d9; padding:3px 9px; border-radius:20px;">🃏 ${safeEscapeHtml(tr.concept_badge || 'Flashcard')}</span>
+                <span style="font-size:11px; color:#64748b; font-weight:700;">🔄 Click card to flip</span>
+              </div>
+              <div style="font-size:14.5px; font-weight:800; margin:14px 0; line-height:1.55;">${window.fixArabicMath(tr.front_question)}</div>
+              <div style="font-size:12px; color:#7c3aed; font-weight:700;">💡 Clue: ${window.fixArabicMath(tr.front_hint || '')}</div>
+            </div>
+            <div class="train-flashcard-face train-flashcard-back">
+              <div style="font-size:11px; font-weight:900; color:#6d28d9; text-transform:uppercase;">✅ Answer &amp; Golden Rule</div>
+              <div style="font-size:13.5px; font-weight:700; margin-top:6px; line-height:1.55;">${window.fixArabicMath(tr.back_answer)}</div>
+              ${tr.golden_rule ? `<div style="margin-top:10px; padding:8px 10px; background:#fff; border-left:4px solid #7c3aed; border-radius:6px; font-size:12px; font-weight:800; color:#4c1d95;">⭐ ${window.fixArabicMath(tr.golden_rule)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      if (window.MathJax) window.MathJax.typesetPromise?.([outEl]).catch(() => {});
+    } catch (err) {
+      outEl.innerHTML = `<div style="padding:10px; color:#dc2626; font-size:12.5px; font-weight:700;">⚠️ ${safeEscapeHtml(err.message)}</div>`;
+    }
+  };
+
+  window.verifyPracticeMcqChoice = async function(qNum, chosenLetter) {
+    const key = `Q_${qNum}`;
+    const lastMcq = window.mistakeTrainerState[key]?.lastMcq;
+    if (!lastMcq) return;
+
+    const optsBox = document.getElementById(`train_opts_${qNum}`);
+    const fbEl = document.getElementById(`train_feedback_${qNum}`);
+    if (optsBox) {
+      optsBox.querySelectorAll('.train-opt-btn').forEach(b => { b.disabled = true; });
+    }
+
+    try {
+      const res = await fetch('/api/exam-hub', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'verify-mcq',
+          challenge_token: lastMcq.challenge_token,
+          chosen_option: chosenLetter
+        })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error || 'Verification failed');
+
+      const correctOpt = data.correct_option;
+      const isCorrect = data.is_correct;
+
+      if (optsBox) {
+        optsBox.querySelectorAll('.train-opt-btn').forEach(btn => {
+          const opt = btn.getAttribute('data-opt');
+          if (opt === correctOpt) btn.classList.add('correct-choice');
+          else if (opt === chosenLetter && !isCorrect) btn.classList.add('wrong-choice');
+        });
+      }
+
+      let awardMsg = '';
+      if (isCorrect) {
+        const exId = window.currentActiveSheetExam?.exam_id || 'exam';
+        const award = addMasteryPoints(1, `${exId}_Q${qNum}`);
+        awardMsg = award.awarded
+          ? '🎉 Excellent! Concept Mastered (+1 Mastery Point)!'
+          : '✅ Correct Answer! (Mastery point already earned for this question)';
+      } else {
+        awardMsg = `❌ Not quite — The correct option is (${safeEscapeHtml(correctOpt)}).`;
+      }
+
+      if (fbEl) {
+        fbEl.style.display = 'block';
+        fbEl.style.background = isCorrect ? '#f0fdf4' : '#fef2f2';
+        fbEl.style.border = `1px solid ${isCorrect ? '#86efac' : '#fecaca'}`;
+        fbEl.style.color = isCorrect ? '#14532d' : '#7f1d1d';
+        fbEl.innerHTML = `
+          <div style="font-weight:900; margin-bottom:4px;">${awardMsg}</div>
+          <div>${window.fixArabicMath(data.explanation || '')}</div>
+        `;
+        if (window.MathJax) window.MathJax.typesetPromise?.([fbEl]).catch(() => {});
+      }
+    } catch (err) {
+      if (fbEl) {
+        fbEl.style.display = 'block';
+        fbEl.innerHTML = `<div style="color:#dc2626; font-weight:700;">⚠️ ${safeEscapeHtml(err.message)}</div>`;
+      }
+    }
+  };
+
+  // =========================================================================
+  // 7. ANKI SPACED-REPETITION DECK ENGINE (LocalStorage Backed — 0 DB Stress)
+  // =========================================================================
+  function ensureAnkiModal() {
+    if (document.getElementById('newton-anki-modal')) return;
+    const modal = document.createElement('div');
+    modal.id = 'newton-anki-modal';
+    modal.className = 'anki-modal-overlay';
+    modal.innerHTML = `
+      <div class="anki-deck-container" dir="auto">
+        <div class="anki-deck-header">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:20px;">⚡</span>
+            <strong>Newton Anki Active-Recall Deck</strong>
+            <div class="anki-counter-bar">
+              <span class="anki-count-pill new-queue" id="anki-cnt-new">0 New</span>
+              <span class="anki-count-pill learning-queue" id="anki-cnt-learning">0 Learn</span>
+              <span class="anki-count-pill review-queue" id="anki-cnt-review">0 Review</span>
+            </div>
+          </div>
+          <button type="button" onclick="document.getElementById('newton-anki-modal').style.display='none'" style="background:none; border:none; color:#cbd5e1; font-size:20px; cursor:pointer;">✕</button>
+        </div>
+        <div class="anki-card-body" id="anki-card-content"></div>
+        <div class="anki-deck-footer" id="anki-footer-actions"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  window.openNewtonAnkiDeckModal = async function(targetQNum = null) {
+    ensureAnkiModal();
+    const modal = document.getElementById('newton-anki-modal');
+    const contentEl = document.getElementById('anki-card-content');
+    const footerEl = document.getElementById('anki-footer-actions');
+    if (!modal || !contentEl || !footerEl) return;
+
+    modal.style.display = 'flex';
+    const exMeta = window.currentActiveSheetExam;
+    const questions = window.currentActiveSheetQuestions || [];
+    const missed = questions.filter(q => !q.is_correct);
+    const targetQ = targetQNum
+      ? questions.find(q => Number(q.q_num) === Number(targetQNum))
+      : (missed[0] || questions[0]);
+
+    document.getElementById('anki-cnt-new').textContent = `${missed.length} Missed`;
+    document.getElementById('anki-cnt-learning').textContent = `1 Active`;
+    document.getElementById('anki-cnt-review').textContent = `${questions.length - missed.length} Mastered`;
+
+    if (!targetQ || !exMeta) {
+      contentEl.innerHTML = `<div style="text-align:center; padding:30px;">🎉 All questions mastered!</div>`;
+      footerEl.innerHTML = '';
+      return;
+    }
+
+    contentEl.innerHTML = `<div style="text-align:center; padding:30px; color:#0284c7; font-weight:800;">⚡ Generating 4-Mode Anki Spaced-Repetition Cards for Question ${targetQ.q_num}...</div>`;
+    footerEl.innerHTML = '';
+
+    try {
+      const sheetId = document.getElementById('customSheetIdInput')?.value.trim() || undefined;
+      const customGemKey = document.getElementById('customGeminiKeyInput')?.value.trim() || undefined;
+      const res = await fetch('/api/exam-hub', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'generate_anki_cards',
+          exam_id: exMeta.exam_id,
+          student_id: exMeta.student_id,
+          q_num: targetQ.q_num,
+          lang: window._preferredQuestionLang || 'en',
+          question_text: targetQ.question_text,
+          sheet_id: sheetId,
+          gemini_api_key: customGemKey
+        })
+      });
+      const data = await res.json();
+      const bundle = data.anki_bundle;
+      if (!res.ok || !bundle) throw new Error(data.error || 'Could not generate Anki deck.');
+
+      window._activeAnkiBundle = { qNum: targetQ.q_num, bundle, modeIdx: 0 };
+      renderActiveAnkiBundleCard();
+    } catch (err) {
+      contentEl.innerHTML = `<div style="color:#dc2626; font-weight:700; text-align:center; padding:20px;">⚠️ ${safeEscapeHtml(err.message)}</div>`;
+    }
+  };
+
+  window.renderActiveAnkiBundleCard = function(reveal = false) {
+    const state = window._activeAnkiBundle;
+    if (!state) return;
+    const contentEl = document.getElementById('anki-card-content');
+    const footerEl = document.getElementById('anki-footer-actions');
+    const cards = state.bundle.cards || {};
+    const modes = ['forward', 'reverse', 'cloze'];
+    const currentMode = modes[state.modeIdx % modes.length];
+    const card = cards[currentMode] || cards.forward || {};
+
+    let bodyHtml = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <span style="background:#ede9fe; color:#6d28d9; font-size:11.5px; font-weight:900; padding:4px 10px; border-radius:20px;">
+          Q${state.qNum} • ${safeEscapeHtml(state.bundle.concept_badge || 'Concept')} (${currentMode.toUpperCase()})
+        </span>
+        <div style="display:flex; gap:6px;">
+          ${modes.map((m, i) => `<button type="button" onclick="window._activeAnkiBundle.modeIdx=${i}; window.renderActiveAnkiBundleCard(false);" class="trainer-diff-btn ${i === (state.modeIdx % modes.length) ? 'active' : ''}" style="border:1px solid #cbd5e1;">${m}</button>`).join('')}
+        </div>
+      </div>
+    `;
+
+    if (currentMode === 'cloze') {
+      bodyHtml += `
+        <div style="font-size:15px; font-weight:800; line-height:1.6; margin-bottom:14px;">${window.fixArabicMath(card.sentence_with_blank || '')}</div>
+        <div style="font-size:12px; color:#64748b; margin-bottom:10px;">💡 Hint: ${safeEscapeHtml(card.hint || '')}</div>
+        ${reveal ? `
+          <div style="margin-top:14px; padding:14px; background:#f0fdf4; border:1.5px solid #86efac; border-radius:10px;">
+            <div style="font-size:12px; font-weight:900; color:#15803d;">✅ Target Term: ${safeEscapeHtml(card.target_answer || '')}</div>
+            <div style="font-size:13.5px; margin-top:6px;">${window.fixArabicMath(card.back_explanation || '')}</div>
+          </div>
+        ` : ''}
+      `;
+    } else {
+      bodyHtml += `
+        <div style="font-size:15.5px; font-weight:800; line-height:1.6; margin-bottom:16px;">${window.fixArabicMath(card.front || '')}</div>
+        ${reveal ? `
+          <div style="margin-top:14px; padding:14px; background:#f5f3ff; border:1.5px solid #c4b5fd; border-radius:10px;">
+            <div style="font-size:14px; font-weight:700; line-height:1.6;">${window.fixArabicMath(card.back || '')}</div>
+            ${card.golden_rule ? `<div style="margin-top:10px; font-size:12.5px; font-weight:800; color:#5b21b6;">⭐ Golden Rule: ${window.fixArabicMath(card.golden_rule)}</div>` : ''}
+          </div>
+        ` : ''}
+      `;
+    }
+
+    contentEl.innerHTML = bodyHtml;
+    if (window.MathJax) window.MathJax.typesetPromise?.([contentEl]).catch(() => {});
+
+    if (!reveal) {
+      footerEl.innerHTML = `<button type="button" class="btn-primary" onclick="window.renderActiveAnkiBundleCard(true)">👁️ Show Answer</button>`;
+    } else {
+      footerEl.innerHTML = `
+        <button type="button" class="btn-train-mode" style="border-color:#dc2626; color:#dc2626; background:#fef2f2;" onclick="window._activeAnkiBundle.modeIdx++; window.renderActiveAnkiBundleCard(false);">Again (1m)</button>
+        <button type="button" class="btn-train-mode" style="border-color:#d97706; color:#b45309; background:#fffbeb;" onclick="window._activeAnkiBundle.modeIdx++; window.renderActiveAnkiBundleCard(false);">Hard (6m)</button>
+        <button type="button" class="btn-train-mode" style="border-color:#16a34a; color:#15803d; background:#f0fdf4;" onclick="window._activeAnkiBundle.modeIdx++; window.renderActiveAnkiBundleCard(false);">Good (1d)</button>
+        <button type="button" class="btn-train-mode anki-mode" onclick="document.getElementById('newton-anki-modal').style.display='none'">Easy (4d) • Done</button>
+      `;
+    }
+  };
+
+  // =========================================================================
+  // 8. LOCAL CSV UPLOAD & COHORT ITEM ANALYSIS (Instructor Preview Mode)
+  // =========================================================================
+  document.getElementById('csvFileInput')?.addEventListener('change', function(e) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = (evt) => parseLocalExamCSV(evt.target.result, file.name);
+      reader.readAsText(file);
+    });
+  });
+
+  function detectDelimLocal(line) {
+    const cand = [',', '\t', ';'];
+    let best = ',', max = 0;
+    cand.forEach(d => {
+      const c = (line || '').split(d).length;
+      if (c > max) { max = c; best = d; }
+    });
+    return best;
+  }
+
+  function splitCsvLineLocal(line, delim) {
+    const out = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') inQ = !inQ;
+      else if (ch === delim && !inQ) { out.push(cur.trim()); cur = ''; }
+      else cur += ch;
+    }
+    out.push(cur.trim());
+    return out;
+  }
+
+  function parseLocalExamCSV(csvText, fileName) {
+    const lines = (csvText || '').trim().split(/\r?\n/).filter(l => l.trim());
+    if (lines.length < 2) return;
+    const delim = detectDelimLocal(lines[0]);
+    const headers = splitCsvLineLocal(lines[0], delim);
+    const rows = lines.slice(1).map(l => splitCsvLineLocal(l, delim));
+
+    // Check if Answer Key or Models_Questions file
+    const keyCol = headers.findIndex(h => /^(Key\s*Letter|Model|Key\s*Version|Form)$/i.test(h));
+    const qNumCol = headers.findIndex(h => /^(Q_Num|Question\s*Number|Q\s*Num|Question|Item)$/i.test(h));
+    const ansCol = headers.findIndex(h => /^(Correct_Key|Response\/Mapping|Response|Correct\s*Answer|Answer|Key)$/i.test(h));
+    const textCol = headers.findIndex(h => /^(Question_Text|Question\s*Statement|Text)$/i.test(h));
+
+    if (keyCol !== -1 && qNumCol !== -1 && (ansCol !== -1 || textCol !== -1)) {
+      rows.forEach(r => {
+        const m = (r[keyCol] || 'A').trim().toUpperCase();
+        const q = parseInt(r[qNumCol], 10);
+        if (!isNaN(q) && q > 0) {
+          if (ansCol !== -1 && r[ansCol]) {
+            if (!window.localModelKeys[m]) window.localModelKeys[m] = [];
+            window.localModelKeys[m][q - 1] = r[ansCol].trim().toUpperCase();
+          }
+          if (textCol !== -1 && r[textCol]) {
+            if (!window.localQuestionBank[m]) window.localQuestionBank[m] = {};
+            window.localQuestionBank[m][q] = r[textCol].replace(/\\n/g, '\n');
+          }
+        }
+      });
+      showStatus(`✅ Loaded Model Keys / Question Bank from <strong>${safeEscapeHtml(fileName)}</strong>.`, 'info');
+      return;
+    }
+
+    // Student Responses CSV
+    let idIdx = headers.findIndex(h => /^(Student_ID|Student\s*ID|ZipGrade\s*ID|External\s*ID|ID|Code)$/i.test(h));
+    if (idIdx === -1) idIdx = 0;
+    const nameIdx = headers.findIndex(h => /^(Student_Name|Student\s*Name|First\s*Name|Full\s*Name|Name)$/i.test(h));
+    const secIdx = headers.findIndex(h => /^(Section|Sec|Group)$/i.test(h));
+    const modIdx = headers.findIndex(h => /^(Model|Key\s*Version|Key\s*Letter|CustomKey)$/i.test(h));
+    const earnIdx = headers.findIndex(h => /^(Earned_Points|Earned\s*Points|Num\s*PointsEarned|Score)$/i.test(h));
+    const possIdx = headers.findIndex(h => /^(Possible_Points|Possible\s*Points|Out\s*Of)$/i.test(h));
+
+    const used = new Set([idIdx, nameIdx, secIdx, modIdx, earnIdx, possIdx]);
+    const qCols = [];
+    headers.forEach((h, idx) => {
+      if (used.has(idx)) return;
+      const m = h.match(/^(?:Stu|Q|Question|Item|Resp)\s*[._#-]*\s*(\d+)$/i) || h.match(/^(\d+)$/);
+      if (m) {
+        const qNum = parseInt(m[1], 10);
+        const priKeyIdx = headers.findIndex(col => new RegExp(`^(PriKey|Key|Correct)[._\\s#-]*${qNum}$`, 'i').test(col));
+        qCols.push({ qNum, stuCol: idx, keyCol: priKeyIdx });
+      }
+    });
+    qCols.sort((a, b) => a.qNum - b.qNum);
+
+    const db = window.localCsvStudentDB || {};
+    let count = 0;
+    rows.forEach(r => {
+      const sid = (r[idIdx] || '').trim();
+      if (!sid || /^(KEY|ANSWER)$/i.test(sid)) return;
+      const model = (modIdx !== -1 && r[modIdx]) ? r[modIdx].trim().toUpperCase() : 'A';
+      const fallbackKeys = window.localModelKeys[model] || window.localModelKeys.A || [];
+      const mBank = window.localQuestionBank[model] || window.localQuestionBank.A || {};
+
+      let calcScore = 0;
+      const qList = qCols.map((qc, i) => {
+        const stuAns = (r[qc.stuCol] || '').trim().toUpperCase();
+        const keyAns = (qc.keyCol !== -1 && r[qc.keyCol]) ? r[qc.keyCol].trim().toUpperCase() : (fallbackKeys[i] || '');
+        const isCorr = Boolean(keyAns && stuAns === keyAns);
+        if (isCorr) calcScore++;
+        return {
+          q_num: qc.qNum,
+          student_ans: stuAns,
+          correct_ans: keyAns,
+          has_key: Boolean(keyAns),
+          is_correct: isCorr,
+          question_text: mBank[qc.qNum] || ''
+        };
+      });
+
+      const earned = (earnIdx !== -1 && r[earnIdx] !== '' && !isNaN(parseFloat(r[earnIdx]))) ? parseFloat(r[earnIdx]) : calcScore;
+      const possible = (possIdx !== -1 && r[possIdx] !== '' && !isNaN(parseFloat(r[possIdx]))) ? parseFloat(r[possIdx]) : qList.length;
+
+      db[sid] = {
+        exam_id: fileName.replace(/\.[^.]+$/, ''),
+        course_id: 'LOCAL_CSV',
+        course_name: 'Local CSV Preview',
+        exam_title: fileName.replace(/\.[^.]+$/, ''),
+        instructor: 'Course Instructor',
+        release_answers: true,
+        watermark_enabled: true,
+        student: {
+          student_id: sid,
+          name: (nameIdx !== -1 && r[nameIdx]) ? r[nameIdx] : `Student ${sid}`,
+          section: (secIdx !== -1 && r[secIdx]) ? r[secIdx] : '—',
+          model,
+          earned_points: earned,
+          possible_points: possible,
+          questions: qList
+        }
+      };
+      count++;
+    });
+
+    window.localCsvStudentDB = db;
+    renderLocalItemAnalysis(Object.values(db));
+    document.getElementById('tabBtnAnalytics').style.display = 'inline-flex';
+    showStatus(`✅ Loaded <strong>${count} students</strong> from <strong>${safeEscapeHtml(fileName)}</strong> (Item Analysis tab enabled).`, 'info');
+  }
+
+  function findInLocalCsvDB(query) {
+    const db = window.localCsvStudentDB || {};
+    const q = String(query || '').trim().toLowerCase();
+    if (db[query]) return db[query];
+    return Object.values(db).find(entry => {
+      const sid = String(entry.student.student_id).toLowerCase();
+      const sname = String(entry.student.name).toLowerCase();
+      return sid === q || sid.endsWith(q) || sname.includes(q);
+    }) || null;
+  }
+
+  function renderLocalItemAnalysis(entries) {
+    const container = document.getElementById('bubbleAnalyticsList');
+    if (!container || !entries.length) return;
+    const total = entries.length;
+    const numQ = entries[0]?.student?.questions?.length || 10;
+    let html = '';
+
+    for (let q = 1; q <= numQ; q++) {
+      let correctCount = 0;
+      entries.forEach(e => {
+        const qObj = e.student.questions.find(item => item.q_num === q);
+        if (qObj && qObj.is_correct) correctCount++;
+      });
+      const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+      const color = pct < 50 ? '#dc2626' : (pct < 75 ? '#d97706' : '#16a34a');
+      const label = pct < 50 ? 'Challenging Item' : (pct < 75 ? 'Moderate' : 'High Mastery');
+
+      html += `
+        <div class="item-analysis-card">
+          <div class="item-q-badge">Q${q}</div>
+          <div style="flex:1;">
+            <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:800; margin-bottom:6px;">
+              <span>Question ${q} (${label})</span>
+              <span>${correctCount} / ${total} Correct (${pct}%)</span>
+            </div>
+            <div class="item-bar-track">
+              <div class="item-bar-fill" style="width:${pct}%; background:${color};"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    container.innerHTML = html;
+  }
+
+  // =========================================================================
+  // 9. ANTI-PRINT & ANTI-SCREENSHOT SECURITY ENGINE
+  // =========================================================================
+  window.print = function() {
+    alert('⚠️ Printing of academic assessment materials is strictly disabled.');
+    return false;
+  };
+
+  window.addEventListener('blur', function() {
+    const ws = document.getElementById('examWorkspace');
+    if (ws && ws.style.display !== 'none') {
+      document.getElementById('studentBubbleSheetWrapper')?.classList.add('security-blurred');
+      const ov = document.getElementById('securityFocusBlurOverlay');
+      if (ov) ov.style.display = 'flex';
+    }
+  });
+
+  window.addEventListener('focus', function() {
+    document.getElementById('studentBubbleSheetWrapper')?.classList.remove('security-blurred');
+    const ov = document.getElementById('securityFocusBlurOverlay');
+    if (ov) ov.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && ['p', 's', 'u'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.key === 'PrintScreen' || e.keyCode === 44) {
+      try { navigator.clipboard?.writeText?.(''); } catch (err) {}
+      document.getElementById('studentBubbleSheetWrapper')?.classList.add('security-blurred');
+      const ov = document.getElementById('securityFocusBlurOverlay');
+      if (ov) ov.style.display = 'flex';
+    }
+  });
+
+  document.addEventListener('contextmenu', function(e) {
+    const ws = document.getElementById('examWorkspace');
+    if (ws && ws.style.display !== 'none' && ws.contains(e.target)) {
+      e.preventDefault();
+      return false;
+    }
+  });
+</script>
+
+</body>
+</html>

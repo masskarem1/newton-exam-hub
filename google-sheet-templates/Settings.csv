@@ -1,0 +1,3 @@
+Exam_ID,Course_ID,Course_Name,Exam_Title,Instructor,Num_Questions,Max_Score,Is_Published,Release_Answers,Adjustment_Reason,Watermark_Enabled
+Q2_PHYS101,PHYS.101,General Physics & Biophysics,Quiz 2 - Elasticity & Fluid Mechanics,Dr. Mohamed Ali,10,10,TRUE,TRUE,,TRUE
+Q1_AHST302,AHST.302,Applied Health Physics,Quiz 1 - Biomechanics & Dimensions,Dr. Mohamed Ali,10,10,TRUE,TRUE,Question 4 awarded full credit across all models,TRUE

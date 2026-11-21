@@ -1,0 +1,10 @@
+{
+  "name": "newton-standalone-exam-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone Zero-Supabase Exam Hub, Digital Bubble Sheet & Gemini AI Tutor backed by Google Sheets",
+  "scripts": {
+    "test": "node --test tests/exam-hub.test.cjs"
+  }
+}
