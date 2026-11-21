@@ -2192,7 +2192,8 @@
     }
 
     const cacheKey = `EH_EXPL_${exMeta.exam_id}_${exMeta.model}_Q${qData.q_num}_S${qData.student_ans}_K${qData.correct_ans}_${resolvedLang}`;
-    const cached = sessionStorage.getItem(cacheKey);
+    let cached = null;
+    try { cached = sessionStorage.getItem(cacheKey) || localStorage.getItem(cacheKey); } catch (e) {}
     if (cached) {
       aiContent.innerHTML = window.fixArabicMath(cached);
       if (window.MathJax) window.MathJax.typesetPromise?.([aiContent]).catch(() => {});
@@ -2227,7 +2228,10 @@
         throw new Error(data.error || `HTTP ${res.status}`);
       }
 
-      try { sessionStorage.setItem(cacheKey, data.explanation); } catch (e) {}
+      try {
+        sessionStorage.setItem(cacheKey, data.explanation);
+        localStorage.setItem(cacheKey, data.explanation);
+      } catch (e) {}
       aiContent.innerHTML = window.fixArabicMath(data.explanation);
       if (window.MathJax) window.MathJax.typesetPromise?.([aiContent]).catch(() => {});
     } catch (err) {

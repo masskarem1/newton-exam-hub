@@ -22,18 +22,143 @@ function readBundledTemplateCsv(fileName, fallbackStr) {
 // ============================================================================
 
 const SHEET_CACHE_TTL_MS = Number(process.env.EXAM_HUB_CACHE_TTL_MS) || 60 * 1000; // 60s in-memory cache
-const AI_CACHE_MAX_ENTRIES = 1000;
+const AI_CACHE_MAX_ENTRIES = 5000;
 
-// Module-scoped caches (shared across requests in a warm Vercel serverless instance)
+// Module-scoped caches & quota-saving logs (shared across requests in a warm Vercel serverless instance)
 const sheetCache = new Map(); // key: sheetId -> { fetchedAt, data }
 const aiResponseCache = new Map(); // key: deterministic cache key -> response payload
+const aiLogEntries = new Map(); // key: primary cache key -> full log row object
+const inflightAiRequests = new Map(); // key: deterministic cache key -> in-flight Promise
+export const aiQuotaStats = {
+  hits_memory: 0,
+  hits_sheet_log: 0,
+  hits_inflight_coalesced: 0,
+  gemini_api_calls: 0
+};
 
-function setAiCache(key, value) {
+function setAiCache(key, value, meta = null) {
+  if (!key || value === undefined || value === null) return;
   if (aiResponseCache.size >= AI_CACHE_MAX_ENTRIES) {
     const oldestKey = aiResponseCache.keys().next().value;
     if (oldestKey) aiResponseCache.delete(oldestKey);
   }
   aiResponseCache.set(key, value);
+  if (meta && typeof meta === 'object') {
+    if (aiLogEntries.size >= AI_CACHE_MAX_ENTRIES) {
+      const oldestLogKey = aiLogEntries.keys().next().value;
+      if (oldestLogKey) aiLogEntries.delete(oldestLogKey);
+    }
+    aiLogEntries.set(key, {
+      cache_key: key,
+      exam_id: meta.exam_id || '',
+      model: meta.model || '',
+      q_num: meta.q_num || '',
+      action: meta.action || '',
+      lang: meta.lang || 'en',
+      difficulty: meta.difficulty || '',
+      student_ans: meta.student_ans || '',
+      correct_ans: meta.correct_ans || '',
+      stem_hash: meta.stem_hash || '',
+      response_payload: typeof value === 'string' ? value : JSON.stringify(value),
+      created_at: meta.created_at || new Date().toISOString()
+    });
+  }
+}
+
+export function computeQuestionStemAndChoiceHashes(qText, stuAns, correctAns) {
+  const raw = String(qText || '').trim();
+  const optStartMatch = raw.match(/(?:^|[\s?.!:])([A-E][).:\-])\s+/);
+  let stem = raw;
+  let optionsText = '';
+  if (optStartMatch && optStartMatch.index !== undefined) {
+    const splitAt = optStartMatch.index + (optStartMatch[0].match(/^[?.!:]/) ? 1 : 0);
+    stem = raw.substring(0, splitAt).trim();
+    optionsText = raw.substring(splitAt).trim();
+  }
+  const normStem = stem.toLowerCase().replace(/\s+/g, ' ').trim();
+  const stemHash = crypto.createHash('sha1').update(normStem || 'empty_stem').digest('hex').slice(0, 12);
+
+  const optionMap = {};
+  if (optionsText) {
+    const parts = optionsText.split(/(?=\b[A-E][).:\-]\s+)/g).filter(Boolean);
+    for (const p of parts) {
+      const m = p.trim().match(/^([A-E])[).:\-]\s*(.*)$/is);
+      if (m) {
+        optionMap[m[1].toUpperCase()] = m[2].toLowerCase().replace(/\s+/g, ' ').trim();
+      }
+    }
+  }
+  const cleanStu = String(stuAns || '').trim().toUpperCase();
+  const cleanKey = String(correctAns || '').trim().toUpperCase();
+  const stuText = optionMap[cleanStu] || cleanStu || 'BLANK';
+  const keyText = optionMap[cleanKey] || cleanKey || 'NONE';
+  const stuChoiceHash = crypto.createHash('sha1').update(stuText).digest('hex').slice(0, 8);
+  const keyChoiceHash = crypto.createHash('sha1').update(keyText).digest('hex').slice(0, 8);
+
+  return { stemHash, stuChoiceHash, keyChoiceHash };
+}
+
+function hydrateAiLogsFromCSV(aiLogsCsv) {
+  if (!aiLogsCsv || typeof aiLogsCsv !== 'string') return 0;
+  const { headers, rows } = parseCSVTable(aiLogsCsv);
+  if (!headers.length || !rows.length) return 0;
+  const cKey = findColumnIndex(headers, [/^cache[_\s-]*key$/i, /^key$/i]);
+  const cAction = findColumnIndex(headers, [/^action$/i, /^mode$/i]);
+  const cStem = findColumnIndex(headers, [/^stem[_\s-]*hash$/i]);
+  const cLang = findColumnIndex(headers, [/^lang$/i, /^language$/i]);
+  const cDiff = findColumnIndex(headers, [/^difficulty$/i]);
+  const cPayload = findColumnIndex(headers, [/^response[_\s-]*payload$/i, /^payload$/i, /^response$/i]);
+  if (cKey === -1 || cPayload === -1) return 0;
+
+  let count = 0;
+  for (const r of rows) {
+    const key = (r[cKey] || '').trim();
+    const rawPayload = (r[cPayload] || '').trim();
+    if (!key || !rawPayload) continue;
+    const action = cAction !== -1 ? (r[cAction] || '').trim() : '';
+    let parsedValue = rawPayload;
+    if (rawPayload.startsWith('{') || action.startsWith('train_') || action.startsWith('ANKI')) {
+      try { parsedValue = JSON.parse(rawPayload); } catch (e) {}
+    }
+    setAiCache(key, parsedValue);
+    const stemHash = cStem !== -1 ? (r[cStem] || '').trim() : '';
+    const lang = cLang !== -1 ? ((r[cLang] || '').trim().toLowerCase() || 'en') : 'en';
+    const diff = cDiff !== -1 ? ((r[cDiff] || '').trim().toLowerCase() || 'medium') : 'medium';
+    if (stemHash && typeof parsedValue === 'object' && parsedValue !== null) {
+      setAiCache(`ANKI_STEM_${stemHash}_${diff}_${lang}`, parsedValue);
+    }
+    count++;
+  }
+  return count;
+}
+
+async function persistAiLogEntryAsync(meta, value) {
+  const webhookUrl = (process.env.GOOGLE_SHEET_LOG_WEBHOOK_URL || '').trim();
+  if (!webhookUrl) return;
+  try {
+    const payloadStr = typeof value === 'string' ? value : JSON.stringify(value);
+    await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        cache_key: meta.cache_key,
+        exam_id: meta.exam_id || '',
+        model: meta.model || '',
+        q_num: meta.q_num || '',
+        action: meta.action || '',
+        lang: meta.lang || 'en',
+        difficulty: meta.difficulty || '',
+        student_ans: meta.student_ans || '',
+        correct_ans: meta.correct_ans || '',
+        stem_hash: meta.stem_hash || '',
+        response_payload: payloadStr,
+        created_at: new Date().toISOString()
+      }),
+      signal: AbortSignal.timeout ? AbortSignal.timeout(4000) : undefined
+    });
+  } catch (e) {
+    // Non-blocking background log write
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -491,6 +616,8 @@ function loadBundledFallbackState(sheetId = null, sheetNotice = null) {
   const settingsCsv = readBundledTemplateCsv('Settings.csv', BUILTIN_SAMPLE_SETTINGS_CSV);
   const questionsCsv = readBundledTemplateCsv('Models_Questions.csv', BUILTIN_SAMPLE_QUESTIONS_CSV);
   const responsesCsv = readBundledTemplateCsv('Student_Responses.csv', BUILTIN_SAMPLE_RESPONSES_CSV);
+  const aiLogsCsv = readBundledTemplateCsv('AI_Logs.csv', '');
+  if (aiLogsCsv) hydrateAiLogsFromCSV(aiLogsCsv);
   return {
     source: 'bundled_dent101_quiz2',
     sheet_id: sheetId,
@@ -520,13 +647,22 @@ async function loadExamHubData(customSheetId = null) {
   const settingsTab = process.env.GOOGLE_SHEET_SETTINGS_TAB || 'Settings';
   const questionsTab = process.env.GOOGLE_SHEET_QUESTIONS_TAB || 'Models_Questions';
   const responsesTab = process.env.GOOGLE_SHEET_RESPONSES_TAB || 'Student_Responses';
+  const aiLogsTab = process.env.GOOGLE_SHEET_AI_LOGS_TAB || 'AI_Logs';
 
   try {
-    const [settingsCsv, questionsCsv, responsesCsv] = await Promise.all([
+    const bundledAiLogsCsv = readBundledTemplateCsv('AI_Logs.csv', '');
+    if (bundledAiLogsCsv) hydrateAiLogsFromCSV(bundledAiLogsCsv);
+
+    const [settingsCsv, questionsCsv, responsesCsv, aiLogsCsv] = await Promise.all([
       fetchSheetTabCSV(sheetId, settingsTab).catch(() => ''),
       fetchSheetTabCSV(sheetId, questionsTab).catch(() => ''),
-      fetchSheetTabCSV(sheetId, responsesTab)
+      fetchSheetTabCSV(sheetId, responsesTab),
+      fetchSheetTabCSV(sheetId, aiLogsTab).catch(() => '')
     ]);
+
+    if (aiLogsCsv) {
+      hydrateAiLogsFromCSV(aiLogsCsv);
+    }
 
     const state = {
       source: 'google_sheet',
@@ -822,6 +958,16 @@ export default async function handler(req, res) {
       });
     }
 
+    // ACTION 1B: Inspect AI Quota-Saving Log & Cache Statistics
+    if (action === 'ai-cache-stats') {
+      return res.status(200).json({
+        success: true,
+        cached_keys_count: aiResponseCache.size,
+        logged_entries_count: aiLogEntries.size,
+        stats: { ...aiQuotaStats }
+      });
+    }
+
     // Strictly use server-configured Google Sheet ID (never allow client-side sheet_id override)
     const hubState = await loadExamHubData(null);
     const allExams = hubState.exams || {};
@@ -1004,23 +1150,34 @@ export default async function handler(req, res) {
         ? String(body.difficulty).toLowerCase()
         : 'medium';
 
-      const apiKey = (process.env.GEMINI_API_KEY || '').trim();
-      if (!apiKey) {
-        return res.status(500).json({
-          error: 'GEMINI_API_KEY is not configured on the server.'
-        });
-      }
-
       const domainKB = getDomainKnowledgeBase(isEn);
+      const { stemHash, stuChoiceHash, keyChoiceHash } = computeQuestionStemAndChoiceHashes(qText, stuAns, correctAns);
 
-      // 4A. Standard Step-by-Step Explanation
+      // 4A. Standard Step-by-Step Explanation (with Cross-Model Stem & Choice Log Deduplication)
       if (action === 'explain') {
         const cacheKey = `EXPL_${exam.exam_id}_M${student.model}_Q${qNum}_S${stuAns}_K${correctAns}_C${isCorrect ? 1 : 0}_${lang}`;
-        if (aiResponseCache.has(cacheKey)) {
+        const stemChoiceKey = `EXPL_STEM_${stemHash}_S${stuAns}_${stuChoiceHash}_K${correctAns}_${keyChoiceHash}_C${isCorrect ? 1 : 0}_${lang}`;
+        const stemGenericKey = `EXPL_STEM_${stemHash}_${lang}`;
+
+        const cachedExpl = aiResponseCache.get(cacheKey) ||
+          aiResponseCache.get(stemChoiceKey) ||
+          aiResponseCache.get(stemGenericKey);
+
+        if (cachedExpl) {
+          aiQuotaStats.hits_memory++;
           return res.status(200).json({
             success: true,
             cached: true,
-            explanation: aiResponseCache.get(cacheKey)
+            cache_key: cacheKey,
+            stem_hash: stemHash,
+            explanation: cachedExpl
+          });
+        }
+
+        const apiKey = (process.env.GEMINI_API_KEY || '').trim();
+        if (!apiKey) {
+          return res.status(500).json({
+            error: 'GEMINI_API_KEY is not configured on the server.'
           });
         }
 
@@ -1044,27 +1201,70 @@ ${isEn
 - ابدأ بـ "${explanationLabel}:" واشرح بالخطوات لماذا الخيار (${correctAns}) هو الصحيح ولماذا (${stuAns || 'عدم الإجابة'}) ${isCorrect ? 'صحيح' : 'خاطئ'}.`}
 - Use standalone $$...$$ on separate lines for equations. NEVER put Arabic characters inside $...$ or $$...$$ math blocks.`;
 
-        const gemRes = await callGeminiAPI({ prompt, apiKey, expectJson: false, temperature: 0.2 });
+        let gemRes;
+        if (inflightAiRequests.has(stemChoiceKey)) {
+          aiQuotaStats.hits_inflight_coalesced++;
+          gemRes = await inflightAiRequests.get(stemChoiceKey);
+        } else {
+          aiQuotaStats.gemini_api_calls++;
+          const p = callGeminiAPI({ prompt, apiKey, expectJson: false, temperature: 0.2 })
+            .finally(() => inflightAiRequests.delete(stemChoiceKey));
+          inflightAiRequests.set(stemChoiceKey, p);
+          gemRes = await p;
+        }
+
         if (!gemRes.ok) {
           return res.status(502).json({ error: 'Failed to generate AI explanation.', details: gemRes.error });
         }
 
-        setAiCache(cacheKey, gemRes.text);
+        const logMeta = {
+          cache_key: cacheKey,
+          exam_id: exam.exam_id,
+          model: student.model,
+          q_num: qNum,
+          action: 'explain',
+          lang,
+          difficulty: '',
+          student_ans: stuAns,
+          correct_ans: correctAns,
+          stem_hash: stemHash
+        };
+        setAiCache(cacheKey, gemRes.text, logMeta);
+        setAiCache(stemChoiceKey, gemRes.text);
+        persistAiLogEntryAsync(logMeta, gemRes.text);
+
         return res.status(200).json({
           success: true,
           cached: false,
+          cache_key: cacheKey,
+          stem_hash: stemHash,
           explanation: gemRes.text
         });
       }
 
-      // 4B. Adaptive Mistake Trainer (Practice MCQ / 3D Flashcard / Anki Bundle)
+      // 4B. Adaptive Mistake Trainer (Practice MCQ / 3D Flashcard / Anki Bundle — Shared Across All 4 Models via Stem Hash)
       const prevList = Array.isArray(body.previous_questions) ? body.previous_questions.slice(-3) : [];
       const cacheKey = `ANKI_${exam.exam_id}_M${student.model}_Q${qNum}_S${stuAns}_K${correctAns}_${difficulty}_${lang}`;
-      let bundle = (prevList.length === 0 && aiResponseCache.has(cacheKey))
-        ? aiResponseCache.get(cacheKey)
-        : null;
+      const stemAnkiKey = `ANKI_STEM_${stemHash}_${difficulty}_${lang}`;
+
+      let bundle = null;
+      let wasCached = false;
+      if (prevList.length === 0) {
+        bundle = aiResponseCache.get(cacheKey) || aiResponseCache.get(stemAnkiKey) || null;
+        if (bundle) {
+          wasCached = true;
+          aiQuotaStats.hits_memory++;
+        }
+      }
 
       if (!bundle) {
+        const apiKey = (process.env.GEMINI_API_KEY || '').trim();
+        if (!apiKey) {
+          return res.status(500).json({
+            error: 'GEMINI_API_KEY is not configured on the server.'
+          });
+        }
+
         const avoidBlock = prevList.length > 0
           ? `\nDO NOT repeat these previous questions:\n- ${prevList.join('\n- ')}\n`
           : '';
@@ -1119,13 +1319,39 @@ Return ONLY valid JSON matching this schema:
   }
 }`;
 
-        const gemRes = await callGeminiAPI({ prompt: ankiPrompt, apiKey, expectJson: true, temperature: 0.5 });
+        let gemRes;
+        if (prevList.length === 0 && inflightAiRequests.has(stemAnkiKey)) {
+          aiQuotaStats.hits_inflight_coalesced++;
+          gemRes = await inflightAiRequests.get(stemAnkiKey);
+          wasCached = true;
+        } else {
+          aiQuotaStats.gemini_api_calls++;
+          const p = callGeminiAPI({ prompt: ankiPrompt, apiKey, expectJson: true, temperature: 0.5 })
+            .finally(() => inflightAiRequests.delete(stemAnkiKey));
+          if (prevList.length === 0) inflightAiRequests.set(stemAnkiKey, p);
+          gemRes = await p;
+        }
+
         if (!gemRes.ok || !gemRes.data) {
           return res.status(502).json({ error: 'Failed to generate AI training cards.', details: gemRes.error });
         }
         bundle = gemRes.data;
         if (prevList.length === 0) {
+          const logMeta = {
+            cache_key: stemAnkiKey,
+            exam_id: exam.exam_id,
+            model: student.model,
+            q_num: qNum,
+            action,
+            lang,
+            difficulty,
+            student_ans: stuAns,
+            correct_ans: correctAns,
+            stem_hash: stemHash
+          };
           setAiCache(cacheKey, bundle);
+          setAiCache(stemAnkiKey, bundle, logMeta);
+          persistAiLogEntryAsync(logMeta, bundle);
         }
       }
 
@@ -1143,6 +1369,8 @@ Return ONLY valid JSON matching this schema:
       if (action === 'train_mcq') {
         return res.status(200).json({
           success: true,
+          cached: wasCached,
+          stem_hash: stemHash,
           difficulty,
           training: {
             card_type: 'mcq',
@@ -1159,6 +1387,8 @@ Return ONLY valid JSON matching this schema:
       if (action === 'train_flashcard') {
         return res.status(200).json({
           success: true,
+          cached: wasCached,
+          stem_hash: stemHash,
           difficulty,
           training: {
             card_type: 'forward',
@@ -1174,6 +1404,8 @@ Return ONLY valid JSON matching this schema:
       // action === 'generate_anki_cards'
       return res.status(200).json({
         success: true,
+        cached: wasCached,
+        stem_hash: stemHash,
         difficulty,
         anki_bundle: {
           ...bundle,

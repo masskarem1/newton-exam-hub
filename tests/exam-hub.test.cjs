@@ -229,4 +229,19 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
   // Verify Arabic MathJax sanitizer never leaves Arabic inside $...$
   const formattedAr = dom.window.fixArabicMath('قانون القوة $$ \\text{التوتر السطحي} = \\frac{F}{L} $$ حيث $F$ هي القوة ($\\text{نيوتن}$)');
   assert.ok(!/\$(?:[^$]*[\u0600-\u06FF][^$]*)\$/.test(formattedAr), 'Arabic characters must be stripped out of inline math delimiters');
+
+  // Verify Cross-Model Stem & Choice Hash Deduplication (Quota-Saving AI Logs)
+  const hModelA = apiMod.computeQuestionStemAndChoiceHashes(
+    'Based on the equation of continuity, how does the flow speed of blood change?\nA) decreases\nB) increases\nC) stays the same\nD) More input is needed',
+    'A',
+    'B'
+  );
+  const hModelB = apiMod.computeQuestionStemAndChoiceHashes(
+    'Based on the equation of continuity, how does the flow speed of blood change?\nA) increases\nB) decreases\nC) stays the same\nD) More input is needed',
+    'B',
+    'A'
+  );
+  assert.equal(hModelA.stemHash, hModelB.stemHash, 'Identical question stem across Models A and B must share the same stemHash');
+  assert.equal(hModelA.stuChoiceHash, hModelB.stuChoiceHash, 'Same chosen option text across shuffled models must share the same stuChoiceHash');
+  assert.equal(hModelA.keyChoiceHash, hModelB.keyChoiceHash, 'Same correct key option text across shuffled models must share the same keyChoiceHash');
 });
