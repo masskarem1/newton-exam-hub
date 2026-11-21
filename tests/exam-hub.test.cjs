@@ -219,6 +219,13 @@ test('5. End-to-End Frontend HTML Bubble Sheet & Arabic MathJax Filter in JSDOM'
   const qCards = doc.querySelectorAll('#bubbleQuestionsList .q-card');
   assert.equal(qCards.length, 10, 'Should render 10 interactive question cards');
 
+  // Verify single-question accordion auto-close behavior
+  dom.window.toggleQuestionCard(0);
+  assert.equal(doc.getElementById('qBody_0').classList.contains('open'), true, 'Q1 should open when clicked');
+  dom.window.toggleQuestionCard(1);
+  assert.equal(doc.getElementById('qBody_0').classList.contains('open'), false, 'Q1 should auto-close when Q2 is clicked');
+  assert.equal(doc.getElementById('qBody_1').classList.contains('open'), true, 'Q2 should open when clicked');
+
   // Verify Arabic MathJax sanitizer never leaves Arabic inside $...$
   const formattedAr = dom.window.fixArabicMath('قانون القوة $$ \\text{التوتر السطحي} = \\frac{F}{L} $$ حيث $F$ هي القوة ($\\text{نيوتن}$)');
   assert.ok(!/\$(?:[^$]*[\u0600-\u06FF][^$]*)\$/.test(formattedAr), 'Arabic characters must be stripped out of inline math delimiters');

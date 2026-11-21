@@ -1631,13 +1631,30 @@
   window.toggleQuestionCard = function(idx, forceOpen) {
     const body = document.getElementById(`qBody_${idx}`);
     const chevron = document.getElementById(`qChevron_${idx}`);
+    const card = document.getElementById(`qCard_${idx}`);
     if (!body) return;
     const willOpen = forceOpen !== undefined ? forceOpen : !body.classList.contains('open');
+
+    if (willOpen) {
+      document.querySelectorAll('.q-card .q-body.open').forEach(b => {
+        if (b.id !== `qBody_${idx}`) b.classList.remove('open');
+      });
+      document.querySelectorAll('.q-card .q-chevron.open').forEach(ch => {
+        if (ch.id !== `qChevron_${idx}`) ch.classList.remove('open');
+      });
+    }
+
     body.classList.toggle('open', willOpen);
     if (chevron) chevron.classList.toggle('open', willOpen);
-    if (willOpen && window.MathJax) {
-      const textEl = document.getElementById(`qText_${idx}`);
-      if (textEl) window.MathJax.typesetPromise?.([textEl]).catch(() => {});
+
+    if (willOpen) {
+      if (window.MathJax) {
+        const textEl = document.getElementById(`qText_${idx}`);
+        if (textEl) window.MathJax.typesetPromise?.([textEl]).catch(() => {});
+      }
+      setTimeout(() => {
+        card?.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' });
+      }, 80);
     }
   };
 
