@@ -829,16 +829,31 @@ export default async function handler(req, res) {
     // ACTION 2: List Published Exams for the Dropdown
     if (action === 'list-exams') {
       const publishedExams = Object.values(allExams).filter(e => e.is_published !== false);
+      const q2Exams = publishedExams.filter(e => /^Q2_/i.test(e.exam_id));
+      const q1Exams = publishedExams.filter(e => /^Q1_/i.test(e.exam_id));
       const examList = [];
-      if (publishedExams.length > 1) {
+
+      if (q2Exams.length > 1) {
         examList.push({
-          exam_id: 'ALL',
-          course_id: publishedExams[0]?.course_id || 'DENT_PHYS.101_F26_27',
-          course_name: publishedExams[0]?.course_name || 'Dentistry Physics 101',
+          exam_id: 'ALL_Q2',
+          course_id: q2Exams[0]?.course_id || 'DENT_PHYS.101_F26_27',
+          course_name: q2Exams[0]?.course_name || 'Dentistry Physics 101',
           exam_title: 'Quiz 2 - All Groups (Auto-Detect MON-1 / TUE-1 / TUE-2 / WED-1 by Student ID)',
-          instructor: publishedExams[0]?.instructor || 'Dr. M. Ali',
-          num_questions: publishedExams[0]?.num_questions || 10,
-          max_score: publishedExams[0]?.max_score || 15,
+          instructor: q2Exams[0]?.instructor || 'Dr. M. Ali',
+          num_questions: 10,
+          max_score: 15,
+          release_answers: true
+        });
+      }
+      if (q1Exams.length > 1) {
+        examList.push({
+          exam_id: 'ALL_Q1',
+          course_id: q1Exams[0]?.course_id || 'DENT_PHYS.101_F26_27',
+          course_name: q1Exams[0]?.course_name || 'Dentistry Physics 101',
+          exam_title: 'Quiz 1 - All Groups (Auto-Detect MON-1 / MON-2 / TUE-1 / TUE-2 / WED-1 / WED-2 by Student ID)',
+          instructor: q1Exams[0]?.instructor || 'Dr. M. Ali',
+          num_questions: 10,
+          max_score: 10,
           release_answers: true
         });
       }
@@ -862,27 +877,36 @@ export default async function handler(req, res) {
       });
     }
 
-    // Resolve target exam & student (with automatic cross-group search across published groups)
+    // Resolve target exam & student (with quiz-scoped automatic cross-group search)
     const requestedExamId = String(body.exam_id || '').trim();
     const publishedExams = Object.values(allExams).filter(e => e.is_published !== false);
 
     if (Object.keys(allExams).length === 0) {
       return res.status(404).json({ error: 'No exams configured in the Google Sheet.' });
     }
-    if (requestedExamId && requestedExamId !== 'ALL' && allExams[requestedExamId] && allExams[requestedExamId].is_published === false) {
+    const isMetaAll = ['ALL', 'ALL_Q2', 'ALL_Q1'].includes(requestedExamId.toUpperCase());
+    if (requestedExamId && !isMetaAll && allExams[requestedExamId] && allExams[requestedExamId].is_published === false) {
       return res.status(403).json({ error: 'This exam is currently hidden by your instructor.' });
     }
 
-    let exam = (requestedExamId && requestedExamId !== 'ALL' && allExams[requestedExamId])
+    const wantQ1Family = requestedExamId.toUpperCase() === 'ALL_Q1' || /^Q1_/i.test(requestedExamId);
+    const wantQ2Family = requestedExamId.toUpperCase() === 'ALL_Q2' || requestedExamId.toUpperCase() === 'ALL' || /^Q2_/i.test(requestedExamId);
+
+    const familyExams = wantQ1Family
+      ? publishedExams.filter(e => /^Q1_/i.test(e.exam_id))
+      : (wantQ2Family ? publishedExams.filter(e => /^Q2_/i.test(e.exam_id)) : publishedExams);
+    const searchPool = familyExams.length > 0 ? familyExams : publishedExams;
+
+    let exam = (requestedExamId && !isMetaAll && allExams[requestedExamId])
       ? allExams[requestedExamId]
-      : publishedExams[0] || Object.values(allExams)[0];
+      : searchPool[0] || publishedExams[0] || Object.values(allExams)[0];
 
     let lookup = findStudentInExam(exam, body.student_id);
 
-    // If student was not found in the selected group (or 'ALL' was selected), search across all published groups
+    // If student was not found in the initial group (or ALL_Q2 / ALL_Q1 was selected), search across the matching quiz family
     if (!lookup.ok && lookup.status === 404) {
       const groupMatches = [];
-      for (const candExam of publishedExams) {
+      for (const candExam of searchPool) {
         const resCand = findStudentInExam(candExam, body.student_id);
         if (resCand.ok) {
           groupMatches.push({ exam: candExam, student: resCand.student });
@@ -894,7 +918,6 @@ export default async function handler(req, res) {
         exam = groupMatches[0].exam;
         lookup = { ok: true, student: groupMatches[0].student };
       } else if (groupMatches.length > 1) {
-        // Student exists in multiple groups; if a specific group was selected use it, else use the first match
         const preferred = groupMatches.find(m => m.exam.exam_id === requestedExamId) || groupMatches[0];
         exam = preferred.exam;
         lookup = { ok: true, student: preferred.student };

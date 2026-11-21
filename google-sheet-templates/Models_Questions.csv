@@ -799,3 +799,1155 @@ A) 1.33
 B) 0.49
 C) 9.43
 D) 3.54",A garden hose with a diameter of 2.72 cm has water flowing horizontally in it with a speed of 1.33 m/s and a pressure of 206 kPa. At the end of the hose is a nozzle with a diameter of 1.02 cm. Find the speed of water in the nozzle in m/sec.,A) 1.33,B) 0.49,C) 9.43,D) 3.54,C) 9.43,Fluid Dynamics
+Q1_MON1_PHYS.101_F26-27,A,1,D,1,"Hooke's Law is expressed as:
+A) F = ma
+B) P = F/A
+C) V = IR
+D) F = kΔL",Hooke's Law is expressed as:,A) F = ma,B) P = F/A,C) V = IR,D) F = kΔL,D) F = kΔL,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,2,C,1,"A material with a high Young's modulus is:
+A) Highly ductile
+B) Easily deformable
+C) Rigid and difficult to deform
+D) Very brittle",A material with a high Young's modulus is:,A) Highly ductile,B) Easily deformable,C) Rigid and difficult to deform,D) Very brittle,C) Rigid and difficult to deform,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,3,A,1,"Why is enamel stiffer than dentin?
+A) Enamel has a higher Young's modulus
+B) Enamel is more brittle
+C) Enamel is softer
+D) Enamel has a higher stress limit",Why is enamel stiffer than dentin?,A) Enamel has a higher Young's modulus,B) Enamel is more brittle,C) Enamel is softer,D) Enamel has a higher stress limit,A) Enamel has a higher Young's modulus,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,4,B,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = Fa - Fw
+C) Fb = Fw - Fa
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = Fa - Fw,C) Fb = Fw - Fa,D) Fb = ρVg,B) Fb = Fa - Fw,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,5,B,1,"Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?
+A) LT⁻²Θ⁻²
+B) LT⁻¹Θ⁻¹
+C) LT⁻¹Θ
+D) LT⁻¹","Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?",A) LT⁻²Θ⁻²,B) LT⁻¹Θ⁻¹,C) LT⁻¹Θ,D) LT⁻¹,B) LT⁻¹Θ⁻¹,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,6,C,1,"Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.
+A) 1
+B) -2
+C) -1
+D) 2","Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.",A) 1,B) -2,C) -1,D) 2,C) -1,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,7,A,1,"Enamel is tough compared to dentin
+A) False
+B) True",Enamel is tough compared to dentin,A) False,B) True,,,A) False,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,8,D,1,"A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.
+A) 1.5 × 10¹¹ Pa
+B) 2.0 × 10¹¹ Pa
+C) 2.4 × 10¹¹ Pa
+D) 1.6 × 10¹⁰ Pa","A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.",A) 1.5 × 10¹¹ Pa,B) 2.0 × 10¹¹ Pa,C) 2.4 × 10¹¹ Pa,D) 1.6 × 10¹⁰ Pa,D) 1.6 × 10¹⁰ Pa,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,9,A,1,"Enamel has a higher wear resistance while dentin has a higher force resistance
+A) True
+B) False",Enamel has a higher wear resistance while dentin has a higher force resistance,A) True,B) False,,,A) True,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,A,10,A,1,"If surface tension is defined as work per unit area, what are its dimensions?
+A) MT⁻²
+B) M²LT⁻²
+C) MLT⁻²
+D) LT⁻²","If surface tension is defined as work per unit area, what are its dimensions?",A) MT⁻²,B) M²LT⁻²,C) MLT⁻²,D) LT⁻²,A) MT⁻²,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,1,B,1,"If surface tension is defined as work per unit area, what are its dimensions?
+A) MLT⁻²
+B) MT⁻²
+C) M²LT⁻²
+D) LT⁻²","If surface tension is defined as work per unit area, what are its dimensions?",A) MLT⁻²,B) MT⁻²,C) M²LT⁻²,D) LT⁻²,B) MT⁻²,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,2,A,1,"Enamel is tough compared to dentin
+A) False
+B) True",Enamel is tough compared to dentin,A) False,B) True,,,A) False,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,3,D,1,"A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.
+A) 2.4 × 10¹¹ Pa
+B) 1.5 × 10¹¹ Pa
+C) 2.0 × 10¹¹ Pa
+D) 1.6 × 10¹⁰ Pa","A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.",A) 2.4 × 10¹¹ Pa,B) 1.5 × 10¹¹ Pa,C) 2.0 × 10¹¹ Pa,D) 1.6 × 10¹⁰ Pa,D) 1.6 × 10¹⁰ Pa,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,4,A,1,"Hooke's Law is expressed as:
+A) F = kΔL
+B) P = F/A
+C) F = ma
+D) V = IR",Hooke's Law is expressed as:,A) F = kΔL,B) P = F/A,C) F = ma,D) V = IR,A) F = kΔL,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,5,C,1,"Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.
+A) -2
+B) 1
+C) -1
+D) 2","Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.",A) -2,B) 1,C) -1,D) 2,C) -1,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,6,D,1,"A material with a high Young's modulus is:
+A) Highly ductile
+B) Easily deformable
+C) Very brittle
+D) Rigid and difficult to deform",A material with a high Young's modulus is:,A) Highly ductile,B) Easily deformable,C) Very brittle,D) Rigid and difficult to deform,D) Rigid and difficult to deform,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,7,A,1,"Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?
+A) LT⁻¹Θ⁻¹
+B) LT⁻¹Θ
+C) LT⁻²Θ⁻²
+D) LT⁻¹","Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?",A) LT⁻¹Θ⁻¹,B) LT⁻¹Θ,C) LT⁻²Θ⁻²,D) LT⁻¹,A) LT⁻¹Θ⁻¹,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,8,A,1,"Enamel has a higher wear resistance while dentin has a higher force resistance
+A) True
+B) False",Enamel has a higher wear resistance while dentin has a higher force resistance,A) True,B) False,,,A) True,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,9,C,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = ρVg
+C) Fb = Fa - Fw
+D) Fb = Fw - Fa",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = ρVg,C) Fb = Fa - Fw,D) Fb = Fw - Fa,C) Fb = Fa - Fw,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,B,10,C,1,"Why is enamel stiffer than dentin?
+A) Enamel is more brittle
+B) Enamel has a higher stress limit
+C) Enamel has a higher Young's modulus
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel is more brittle,B) Enamel has a higher stress limit,C) Enamel has a higher Young's modulus,D) Enamel is softer,C) Enamel has a higher Young's modulus,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,1,D,1,"Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.
+A) 2
+B) -2
+C) 1
+D) -1","Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.",A) 2,B) -2,C) 1,D) -1,D) -1,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,2,A,1,"Enamel is tough compared to dentin
+A) False
+B) True",Enamel is tough compared to dentin,A) False,B) True,,,A) False,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,3,A,1,"If surface tension is defined as work per unit area, what are its dimensions?
+A) MT⁻²
+B) MLT⁻²
+C) M²LT⁻²
+D) LT⁻²","If surface tension is defined as work per unit area, what are its dimensions?",A) MT⁻²,B) MLT⁻²,C) M²LT⁻²,D) LT⁻²,A) MT⁻²,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,4,C,1,"A material with a high Young's modulus is:
+A) Easily deformable
+B) Highly ductile
+C) Rigid and difficult to deform
+D) Very brittle",A material with a high Young's modulus is:,A) Easily deformable,B) Highly ductile,C) Rigid and difficult to deform,D) Very brittle,C) Rigid and difficult to deform,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,5,D,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = ρVg
+C) Fb = Fw - Fa
+D) Fb = Fa - Fw",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = ρVg,C) Fb = Fw - Fa,D) Fb = Fa - Fw,D) Fb = Fa - Fw,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,6,A,1,"Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?
+A) LT⁻¹Θ⁻¹
+B) LT⁻¹
+C) LT⁻²Θ⁻²
+D) LT⁻¹Θ","Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?",A) LT⁻¹Θ⁻¹,B) LT⁻¹,C) LT⁻²Θ⁻²,D) LT⁻¹Θ,A) LT⁻¹Θ⁻¹,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,7,D,1,"A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.
+A) 2.0 × 10¹¹ Pa
+B) 1.5 × 10¹¹ Pa
+C) 2.4 × 10¹¹ Pa
+D) 1.6 × 10¹⁰ Pa","A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.",A) 2.0 × 10¹¹ Pa,B) 1.5 × 10¹¹ Pa,C) 2.4 × 10¹¹ Pa,D) 1.6 × 10¹⁰ Pa,D) 1.6 × 10¹⁰ Pa,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,8,B,1,"Why is enamel stiffer than dentin?
+A) Enamel has a higher stress limit
+B) Enamel has a higher Young's modulus
+C) Enamel is more brittle
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel has a higher stress limit,B) Enamel has a higher Young's modulus,C) Enamel is more brittle,D) Enamel is softer,B) Enamel has a higher Young's modulus,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,9,B,1,"Enamel has a higher wear resistance while dentin has a higher force resistance
+A) False
+B) True",Enamel has a higher wear resistance while dentin has a higher force resistance,A) False,B) True,,,B) True,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,C,10,A,1,"Hooke's Law is expressed as:
+A) F = kΔL
+B) P = F/A
+C) V = IR
+D) F = ma",Hooke's Law is expressed as:,A) F = kΔL,B) P = F/A,C) V = IR,D) F = ma,A) F = kΔL,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,1,D,1,"A material with a high Young's modulus is:
+A) Very brittle
+B) Easily deformable
+C) Highly ductile
+D) Rigid and difficult to deform",A material with a high Young's modulus is:,A) Very brittle,B) Easily deformable,C) Highly ductile,D) Rigid and difficult to deform,D) Rigid and difficult to deform,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,2,A,1,"The buoyant force is calculated experimentally by:
+A) Fb = Fa - Fw
+B) Fb = Fw - Fa
+C) Fb = V/g
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = Fa - Fw,B) Fb = Fw - Fa,C) Fb = V/g,D) Fb = ρVg,A) Fb = Fa - Fw,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,3,A,1,"A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.
+A) 1.6 × 10¹⁰ Pa
+B) 2.0 × 10¹¹ Pa
+C) 2.4 × 10¹¹ Pa
+D) 1.5 × 10¹¹ Pa","A cylindrical rod (L₀ = 2 m, A = 5 × 10⁻⁴ m²) stretches by 0.001 m under a 4000 N force. Determine the material's Young's modulus.",A) 1.6 × 10¹⁰ Pa,B) 2.0 × 10¹¹ Pa,C) 2.4 × 10¹¹ Pa,D) 1.5 × 10¹¹ Pa,A) 1.6 × 10¹⁰ Pa,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,4,C,1,"Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?
+A) LT⁻¹Θ
+B) LT⁻²Θ⁻²
+C) LT⁻¹Θ⁻¹
+D) LT⁻¹","Given the equation v = v₀ + AT, where v and v₀ represent speed and T represents temperature, what is the dimensional formula for A?",A) LT⁻¹Θ,B) LT⁻²Θ⁻²,C) LT⁻¹Θ⁻¹,D) LT⁻¹,C) LT⁻¹Θ⁻¹,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,5,B,1,"Enamel has a higher wear resistance while dentin has a higher force resistance
+A) False
+B) True",Enamel has a higher wear resistance while dentin has a higher force resistance,A) False,B) True,,,B) True,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,6,A,1,"Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.
+A) -1
+B) -2
+C) 2
+D) 1","Use dimensional analysis to find the value of n in the expression F= mv²(r)ⁿ, assuming F stands for force, m for mass, v for speed, and r for radius.",A) -1,B) -2,C) 2,D) 1,A) -1,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,7,B,1,"Why is enamel stiffer than dentin?
+A) Enamel is more brittle
+B) Enamel has a higher Young's modulus
+C) Enamel has a higher stress limit
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel is more brittle,B) Enamel has a higher Young's modulus,C) Enamel has a higher stress limit,D) Enamel is softer,B) Enamel has a higher Young's modulus,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,8,A,1,"Enamel is tough compared to dentin
+A) False
+B) True",Enamel is tough compared to dentin,A) False,B) True,,,A) False,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,9,B,1,"Hooke's Law is expressed as:
+A) V = IR
+B) F = kΔL
+C) F = ma
+D) P = F/A",Hooke's Law is expressed as:,A) V = IR,B) F = kΔL,C) F = ma,D) P = F/A,B) F = kΔL,Mechanics & Elasticity
+Q1_MON1_PHYS.101_F26-27,D,10,D,1,"If surface tension is defined as work per unit area, what are its dimensions?
+A) M²LT⁻²
+B) MLT⁻²
+C) LT⁻²
+D) MT⁻²","If surface tension is defined as work per unit area, what are its dimensions?",A) M²LT⁻²,B) MLT⁻²,C) LT⁻²,D) MT⁻²,D) MT⁻²,Mechanics & Elasticity
+Q1_MON2_PHYS.101_F26-27,A,1,D,1,"Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.
+A) m
+B) m s
+C) s
+D) m/s","Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.",A) m,B) m s,C) s,D) m/s,D) m/s,Units (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,A,2,D,1,"Which of the following is a vector quantity
+A) energy
+B) density
+C) temperature
+D) magnetic field",Which of the following is a vector quantity,A) energy,B) density,C) temperature,D) magnetic field,D) magnetic field,Vectors (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,A,3,A,1,"Which of these unit systems uses more than just mass, length, and time?
+A) SI
+B) MKS
+C) CGS
+D) British System","Which of these unit systems uses more than just mass, length, and time?",A) SI,B) MKS,C) CGS,D) British System,A) SI,Units (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,A,4,B,1,"The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:
+A) MLT⁻²
+B) ML⁻¹T⁻¹
+C) MT⁻²
+D) M²LT⁻²",The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:,A) MLT⁻²,B) ML⁻¹T⁻¹,C) MT⁻²,D) M²LT⁻²,B) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,A,5,C,1,"Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?
+A) m = 1 and n = -2
+B) m = -1 and n = -2
+C) m = 1 and n = -1
+D) m = 2 and n = -1","Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?",A) m = 1 and n = -2,B) m = -1 and n = -2,C) m = 1 and n = -1,D) m = 2 and n = -1,C) m = 1 and n = -1,Dimensions (DIF: 3)
+Q1_MON2_PHYS.101_F26-27,A,6,D,1,"What holds atoms together in a solid?
+A) Strong nuclear forces
+B) Weak nuclear forces
+C) Gravitational forces
+D) Electrical forces",What holds atoms together in a solid?,A) Strong nuclear forces,B) Weak nuclear forces,C) Gravitational forces,D) Electrical forces,D) Electrical forces,General
+Q1_MON2_PHYS.101_F26-27,A,7,C,1,"Crystalline solids have atoms arranged in:
+A) Random structure
+B) Free-flowing form
+C) Ordered structure
+D) Erratic motion",Crystalline solids have atoms arranged in:,A) Random structure,B) Free-flowing form,C) Ordered structure,D) Erratic motion,C) Ordered structure,General
+Q1_MON2_PHYS.101_F26-27,A,8,A,1,"Which of the following is an amorphous solid?
+A) Glass
+B) Sodium chloride
+C) Diamond
+D) Copper",Which of the following is an amorphous solid?,A) Glass,B) Sodium chloride,C) Diamond,D) Copper,A) Glass,General
+Q1_MON2_PHYS.101_F26-27,A,9,A,1,"A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?
+A) -4.76 × 10⁻⁴
+B) -3.81 × 10⁻⁴
+C) -5.33 × 10⁻⁴
+D) -4.00 × 10⁻⁴",A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?,A) -4.76 × 10⁻⁴,B) -3.81 × 10⁻⁴,C) -5.33 × 10⁻⁴,D) -4.00 × 10⁻⁴,A) -4.76 × 10⁻⁴,General
+Q1_MON2_PHYS.101_F26-27,A,10,B,1,"Which statement best describes the difference between enamel and dentin?
+A) Enamel is more flexible than dentin and can withstand greater strain.
+B) Enamel is stiffer and more brittle, breaking earlier than dentin.
+C) Dentin is more brittle and stiff compared to enamel.
+D) Both enamel and dentin have the same ultimate strength.",Which statement best describes the difference between enamel and dentin?,A) Enamel is more flexible than dentin and can withstand greater strain.,"B) Enamel is stiffer and more brittle, breaking earlier than dentin.",C) Dentin is more brittle and stiff compared to enamel.,D) Both enamel and dentin have the same ultimate strength.,"B) Enamel is stiffer and more brittle, breaking earlier than dentin.",General
+Q1_MON2_PHYS.101_F26-27,B,1,D,1,"Which statement best describes the difference between enamel and dentin?
+A) Dentin is more brittle and stiff compared to enamel.
+B) Enamel is more flexible than dentin and can withstand greater strain.
+C) Both enamel and dentin have the same ultimate strength.
+D) Enamel is stiffer and more brittle, breaking earlier than dentin.",Which statement best describes the difference between enamel and dentin?,A) Dentin is more brittle and stiff compared to enamel.,B) Enamel is more flexible than dentin and can withstand greater strain.,C) Both enamel and dentin have the same ultimate strength.,"D) Enamel is stiffer and more brittle, breaking earlier than dentin.","D) Enamel is stiffer and more brittle, breaking earlier than dentin.",General
+Q1_MON2_PHYS.101_F26-27,B,2,D,1,"Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?
+A) m = 1 and n = -2
+B) m = 2 and n = -1
+C) m = -1 and n = -2
+D) m = 1 and n = -1","Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?",A) m = 1 and n = -2,B) m = 2 and n = -1,C) m = -1 and n = -2,D) m = 1 and n = -1,D) m = 1 and n = -1,Dimensions (DIF: 3)
+Q1_MON2_PHYS.101_F26-27,B,3,A,1,"Which of the following is a vector quantity
+A) magnetic field
+B) density
+C) temperature
+D) energy",Which of the following is a vector quantity,A) magnetic field,B) density,C) temperature,D) energy,A) magnetic field,Vectors (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,B,4,C,1,"Which of the following is an amorphous solid?
+A) Copper
+B) Diamond
+C) Glass
+D) Sodium chloride",Which of the following is an amorphous solid?,A) Copper,B) Diamond,C) Glass,D) Sodium chloride,C) Glass,General
+Q1_MON2_PHYS.101_F26-27,B,5,B,1,"Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.
+A) s
+B) m/s
+C) m
+D) m s","Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.",A) s,B) m/s,C) m,D) m s,B) m/s,Units (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,B,6,A,1,"Crystalline solids have atoms arranged in:
+A) Ordered structure
+B) Erratic motion
+C) Free-flowing form
+D) Random structure",Crystalline solids have atoms arranged in:,A) Ordered structure,B) Erratic motion,C) Free-flowing form,D) Random structure,A) Ordered structure,General
+Q1_MON2_PHYS.101_F26-27,B,7,C,1,"A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?
+A) -3.81 × 10⁻⁴
+B) -5.33 × 10⁻⁴
+C) -4.76 × 10⁻⁴
+D) -4.00 × 10⁻⁴",A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?,A) -3.81 × 10⁻⁴,B) -5.33 × 10⁻⁴,C) -4.76 × 10⁻⁴,D) -4.00 × 10⁻⁴,C) -4.76 × 10⁻⁴,General
+Q1_MON2_PHYS.101_F26-27,B,8,A,1,"The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:
+A) ML⁻¹T⁻¹
+B) MT⁻²
+C) MLT⁻²
+D) M²LT⁻²",The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:,A) ML⁻¹T⁻¹,B) MT⁻²,C) MLT⁻²,D) M²LT⁻²,A) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,B,9,B,1,"Which of these unit systems uses more than just mass, length, and time?
+A) MKS
+B) SI
+C) CGS
+D) British System","Which of these unit systems uses more than just mass, length, and time?",A) MKS,B) SI,C) CGS,D) British System,B) SI,Units (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,B,10,B,1,"What holds atoms together in a solid?
+A) Strong nuclear forces
+B) Electrical forces
+C) Gravitational forces
+D) Weak nuclear forces",What holds atoms together in a solid?,A) Strong nuclear forces,B) Electrical forces,C) Gravitational forces,D) Weak nuclear forces,B) Electrical forces,General
+Q1_MON2_PHYS.101_F26-27,C,1,D,1,"Which statement best describes the difference between enamel and dentin?
+A) Both enamel and dentin have the same ultimate strength.
+B) Enamel is more flexible than dentin and can withstand greater strain.
+C) Dentin is more brittle and stiff compared to enamel.
+D) Enamel is stiffer and more brittle, breaking earlier than dentin.",Which statement best describes the difference between enamel and dentin?,A) Both enamel and dentin have the same ultimate strength.,B) Enamel is more flexible than dentin and can withstand greater strain.,C) Dentin is more brittle and stiff compared to enamel.,"D) Enamel is stiffer and more brittle, breaking earlier than dentin.","D) Enamel is stiffer and more brittle, breaking earlier than dentin.",General
+Q1_MON2_PHYS.101_F26-27,C,2,B,1,"Which of the following is a vector quantity
+A) density
+B) magnetic field
+C) energy
+D) temperature",Which of the following is a vector quantity,A) density,B) magnetic field,C) energy,D) temperature,B) magnetic field,Vectors (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,C,3,C,1,"Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.
+A) m
+B) s
+C) m/s
+D) m s","Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.",A) m,B) s,C) m/s,D) m s,C) m/s,Units (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,C,4,A,1,"Which of these unit systems uses more than just mass, length, and time?
+A) SI
+B) MKS
+C) British System
+D) CGS","Which of these unit systems uses more than just mass, length, and time?",A) SI,B) MKS,C) British System,D) CGS,A) SI,Units (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,C,5,C,1,"The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:
+A) M²LT⁻²
+B) MLT⁻²
+C) ML⁻¹T⁻¹
+D) MT⁻²",The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:,A) M²LT⁻²,B) MLT⁻²,C) ML⁻¹T⁻¹,D) MT⁻²,C) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,C,6,B,1,"Which of the following is an amorphous solid?
+A) Diamond
+B) Glass
+C) Sodium chloride
+D) Copper",Which of the following is an amorphous solid?,A) Diamond,B) Glass,C) Sodium chloride,D) Copper,B) Glass,General
+Q1_MON2_PHYS.101_F26-27,C,7,C,1,"What holds atoms together in a solid?
+A) Weak nuclear forces
+B) Strong nuclear forces
+C) Electrical forces
+D) Gravitational forces",What holds atoms together in a solid?,A) Weak nuclear forces,B) Strong nuclear forces,C) Electrical forces,D) Gravitational forces,C) Electrical forces,General
+Q1_MON2_PHYS.101_F26-27,C,8,B,1,"Crystalline solids have atoms arranged in:
+A) Free-flowing form
+B) Ordered structure
+C) Random structure
+D) Erratic motion",Crystalline solids have atoms arranged in:,A) Free-flowing form,B) Ordered structure,C) Random structure,D) Erratic motion,B) Ordered structure,General
+Q1_MON2_PHYS.101_F26-27,C,9,D,1,"A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?
+A) -4.00 × 10⁻⁴
+B) -3.81 × 10⁻⁴
+C) -5.33 × 10⁻⁴
+D) -4.76 × 10⁻⁴",A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?,A) -4.00 × 10⁻⁴,B) -3.81 × 10⁻⁴,C) -5.33 × 10⁻⁴,D) -4.76 × 10⁻⁴,D) -4.76 × 10⁻⁴,General
+Q1_MON2_PHYS.101_F26-27,C,10,C,1,"Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?
+A) m = 2 and n = -1
+B) m = -1 and n = -2
+C) m = 1 and n = -1
+D) m = 1 and n = -2","Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?",A) m = 2 and n = -1,B) m = -1 and n = -2,C) m = 1 and n = -1,D) m = 1 and n = -2,C) m = 1 and n = -1,Dimensions (DIF: 3)
+Q1_MON2_PHYS.101_F26-27,D,1,B,1,"Which of the following is an amorphous solid?
+A) Diamond
+B) Glass
+C) Sodium chloride
+D) Copper",Which of the following is an amorphous solid?,A) Diamond,B) Glass,C) Sodium chloride,D) Copper,B) Glass,General
+Q1_MON2_PHYS.101_F26-27,D,2,A,1,"Which of the following is a vector quantity
+A) magnetic field
+B) energy
+C) temperature
+D) density",Which of the following is a vector quantity,A) magnetic field,B) energy,C) temperature,D) density,A) magnetic field,Vectors (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,D,3,A,1,"Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.
+A) m/s
+B) m s
+C) m
+D) s","Given the equation a = bt + l, where a and l are expressed in meters (m) and t is in seconds (s), determine the SI unit for the constant b.",A) m/s,B) m s,C) m,D) s,A) m/s,Units (DIF: 1)
+Q1_MON2_PHYS.101_F26-27,D,4,D,1,"Crystalline solids have atoms arranged in:
+A) Free-flowing form
+B) Random structure
+C) Erratic motion
+D) Ordered structure",Crystalline solids have atoms arranged in:,A) Free-flowing form,B) Random structure,C) Erratic motion,D) Ordered structure,D) Ordered structure,General
+Q1_MON2_PHYS.101_F26-27,D,5,A,1,"Which statement best describes the difference between enamel and dentin?
+A) Enamel is stiffer and more brittle, breaking earlier than dentin.
+B) Dentin is more brittle and stiff compared to enamel.
+C) Enamel is more flexible than dentin and can withstand greater strain.
+D) Both enamel and dentin have the same ultimate strength.",Which statement best describes the difference between enamel and dentin?,"A) Enamel is stiffer and more brittle, breaking earlier than dentin.",B) Dentin is more brittle and stiff compared to enamel.,C) Enamel is more flexible than dentin and can withstand greater strain.,D) Both enamel and dentin have the same ultimate strength.,"A) Enamel is stiffer and more brittle, breaking earlier than dentin.",General
+Q1_MON2_PHYS.101_F26-27,D,6,D,1,"The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:
+A) MT⁻²
+B) M²LT⁻²
+C) MLT⁻²
+D) ML⁻¹T⁻¹",The viscous force F acting on a liquid layer of area A with a velocity gradient Δv / Δx is given by F = ηA(Δv / Δx). The dimensions of the coefficient of viscosity (η) are:,A) MT⁻²,B) M²LT⁻²,C) MLT⁻²,D) ML⁻¹T⁻¹,D) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,D,7,B,1,"Which of these unit systems uses more than just mass, length, and time?
+A) MKS
+B) SI
+C) CGS
+D) British System","Which of these unit systems uses more than just mass, length, and time?",A) MKS,B) SI,C) CGS,D) British System,B) SI,Units (DIF: 2)
+Q1_MON2_PHYS.101_F26-27,D,8,D,1,"What holds atoms together in a solid?
+A) Strong nuclear forces
+B) Weak nuclear forces
+C) Gravitational forces
+D) Electrical forces",What holds atoms together in a solid?,A) Strong nuclear forces,B) Weak nuclear forces,C) Gravitational forces,D) Electrical forces,D) Electrical forces,General
+Q1_MON2_PHYS.101_F26-27,D,9,D,1,"A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?
+A) -3.81 × 10⁻⁴
+B) -5.33 × 10⁻⁴
+C) -4.00 × 10⁻⁴
+D) -4.76 × 10⁻⁴",A solid sphere made of lead (Bulk Modulus = 4.2 × 10¹⁰) experiences an increase in pressure of 2 × 10⁷ Pa. What is the fractional change in its volume?,A) -3.81 × 10⁻⁴,B) -5.33 × 10⁻⁴,C) -4.00 × 10⁻⁴,D) -4.76 × 10⁻⁴,D) -4.76 × 10⁻⁴,General
+Q1_MON2_PHYS.101_F26-27,D,10,C,1,"Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?
+A) m = 2 and n = -1
+B) m = 1 and n = -2
+C) m = 1 and n = -1
+D) m = -1 and n = -2","Assuming wavelength λ depends on Planck's constant h and momentum p according to the equation λ = hᵐpⁿ, what must be the values of the exponents m and n?",A) m = 2 and n = -1,B) m = 1 and n = -2,C) m = 1 and n = -1,D) m = -1 and n = -2,C) m = 1 and n = -1,Dimensions (DIF: 3)
+Q1_TUE1_PHYS.101_F26-27,A,1,D,1,"Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?
+A) Shear stress
+B) Uniform pressure
+C) Volume stress
+D) Tensile or compressive stress",Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?,A) Shear stress,B) Uniform pressure,C) Volume stress,D) Tensile or compressive stress,D) Tensile or compressive stress,Elasticity
+Q1_TUE1_PHYS.101_F26-27,A,2,B,1,"The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.
+A) A: L³T³, B: L³T⁻¹
+B) A: L³T⁻³, B: L³T
+C) A: L⁻³T³, B: L³T⁻¹
+D) A: L³T, B: L³T⁻³","The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.","A) A: L³T³, B: L³T⁻¹","B) A: L³T⁻³, B: L³T","C) A: L⁻³T³, B: L³T⁻¹","D) A: L³T, B: L³T⁻³","B) A: L³T⁻³, B: L³T",Dimensions
+Q1_TUE1_PHYS.101_F26-27,A,3,D,1,"On a stress-strain curve, the elastic limit represents:
+A) The maximum force the material can withstand before failing.
+B) The absolute maximum elongation the material can achieve.
+C) The exact point where the material breaks.
+D) The point beyond which a material will not return to its original shape.","On a stress-strain curve, the elastic limit represents:",A) The maximum force the material can withstand before failing.,B) The absolute maximum elongation the material can achieve.,C) The exact point where the material breaks.,D) The point beyond which a material will not return to its original shape.,D) The point beyond which a material will not return to its original shape.,Elasticity
+Q1_TUE1_PHYS.101_F26-27,A,4,A,1,"Identify the situation that serves as a classic example of shear stress:
+A) A book being pushed sideways
+B) A steel beam supporting a load
+C) A sphere sinking in the ocean
+D) A stretched biceps muscle",Identify the situation that serves as a classic example of shear stress:,A) A book being pushed sideways,B) A steel beam supporting a load,C) A sphere sinking in the ocean,D) A stretched biceps muscle,A) A book being pushed sideways,Elasticity
+Q1_TUE1_PHYS.101_F26-27,A,5,A,1,"The dimensions [ML²T⁻²] correspond to which of the following physical quantities?
+A) Work
+B) Power
+C) Pressure
+D) Momentum",The dimensions [ML²T⁻²] correspond to which of the following physical quantities?,A) Work,B) Power,C) Pressure,D) Momentum,A) Work,Dimensions
+Q1_TUE1_PHYS.101_F26-27,A,6,A,1,"Enamel is 3 times brittle than dentin
+A) True
+B) False",Enamel is 3 times brittle than dentin,A) True,B) False,,,A) True,Dental Materials
+Q1_TUE1_PHYS.101_F26-27,A,7,D,1,"Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).
+A) 1.7 × 10⁻⁵ m²
+B) 4.2 × 10⁻⁷ m²
+C) 7.7 × 10⁻⁸ m²
+D) 7.7 × 10⁻⁶ m²",Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).,A) 1.7 × 10⁻⁵ m²,B) 4.2 × 10⁻⁷ m²,C) 7.7 × 10⁻⁸ m²,D) 7.7 × 10⁻⁶ m²,D) 7.7 × 10⁻⁶ m²,Elasticity
+Q1_TUE1_PHYS.101_F26-27,A,8,C,1,"What are the dimensions of Density (ρ), which is defined as mass per unit volume?
+A) [ML⁻¹]
+B) [MLT⁻¹]
+C) [ML⁻³]
+D) [M⁻¹L³]","What are the dimensions of Density (ρ), which is defined as mass per unit volume?",A) [ML⁻¹],B) [MLT⁻¹],C) [ML⁻³],D) [M⁻¹L³],C) [ML⁻³],Dimensions
+Q1_TUE1_PHYS.101_F26-27,A,9,C,1,"How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?
+A) Be halved
+B) Increase four times
+C) Double
+D) Remain the same",How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?,A) Be halved,B) Increase four times,C) Double,D) Remain the same,C) Double,Fluids
+Q1_TUE1_PHYS.101_F26-27,A,10,A,1,"Which prefix is used to represent 10⁹?
+A) Giga (G)
+B) Tera (T)
+C) Mega (M)
+D) Kilo (k)",Which prefix is used to represent 10⁹?,A) Giga (G),B) Tera (T),C) Mega (M),D) Kilo (k),A) Giga (G),Units
+Q1_TUE1_PHYS.101_F26-27,B,1,A,1,"Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).
+A) 7.7 × 10⁻⁶ m²
+B) 7.7 × 10⁻⁸ m²
+C) 4.2 × 10⁻⁷ m²
+D) 1.7 × 10⁻⁵ m²",Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).,A) 7.7 × 10⁻⁶ m²,B) 7.7 × 10⁻⁸ m²,C) 4.2 × 10⁻⁷ m²,D) 1.7 × 10⁻⁵ m²,A) 7.7 × 10⁻⁶ m²,Elasticity
+Q1_TUE1_PHYS.101_F26-27,B,2,A,1,"How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?
+A) Double
+B) Increase four times
+C) Remain the same
+D) Be halved",How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?,A) Double,B) Increase four times,C) Remain the same,D) Be halved,A) Double,Fluids
+Q1_TUE1_PHYS.101_F26-27,B,3,C,1,"Which prefix is used to represent 10⁹?
+A) Kilo (k)
+B) Mega (M)
+C) Giga (G)
+D) Tera (T)",Which prefix is used to represent 10⁹?,A) Kilo (k),B) Mega (M),C) Giga (G),D) Tera (T),C) Giga (G),Units
+Q1_TUE1_PHYS.101_F26-27,B,4,A,1,"On a stress-strain curve, the elastic limit represents:
+A) The point beyond which a material will not return to its original shape.
+B) The maximum force the material can withstand before failing.
+C) The exact point where the material breaks.
+D) The absolute maximum elongation the material can achieve.","On a stress-strain curve, the elastic limit represents:",A) The point beyond which a material will not return to its original shape.,B) The maximum force the material can withstand before failing.,C) The exact point where the material breaks.,D) The absolute maximum elongation the material can achieve.,A) The point beyond which a material will not return to its original shape.,Elasticity
+Q1_TUE1_PHYS.101_F26-27,B,5,A,1,"The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.
+A) A: L³T⁻³, B: L³T
+B) A: L³T³, B: L³T⁻¹
+C) A: L⁻³T³, B: L³T⁻¹
+D) A: L³T, B: L³T⁻³","The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.","A) A: L³T⁻³, B: L³T","B) A: L³T³, B: L³T⁻¹","C) A: L⁻³T³, B: L³T⁻¹","D) A: L³T, B: L³T⁻³","A) A: L³T⁻³, B: L³T",Dimensions
+Q1_TUE1_PHYS.101_F26-27,B,6,B,1,"What are the dimensions of Density (ρ), which is defined as mass per unit volume?
+A) [ML⁻¹]
+B) [ML⁻³]
+C) [M⁻¹L³]
+D) [MLT⁻¹]","What are the dimensions of Density (ρ), which is defined as mass per unit volume?",A) [ML⁻¹],B) [ML⁻³],C) [M⁻¹L³],D) [MLT⁻¹],B) [ML⁻³],Dimensions
+Q1_TUE1_PHYS.101_F26-27,B,7,A,1,"Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?
+A) Tensile or compressive stress
+B) Uniform pressure
+C) Shear stress
+D) Volume stress",Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?,A) Tensile or compressive stress,B) Uniform pressure,C) Shear stress,D) Volume stress,A) Tensile or compressive stress,Elasticity
+Q1_TUE1_PHYS.101_F26-27,B,8,A,1,"The dimensions [ML²T⁻²] correspond to which of the following physical quantities?
+A) Work
+B) Pressure
+C) Momentum
+D) Power",The dimensions [ML²T⁻²] correspond to which of the following physical quantities?,A) Work,B) Pressure,C) Momentum,D) Power,A) Work,Dimensions
+Q1_TUE1_PHYS.101_F26-27,B,9,C,1,"Identify the situation that serves as a classic example of shear stress:
+A) A steel beam supporting a load
+B) A stretched biceps muscle
+C) A book being pushed sideways
+D) A sphere sinking in the ocean",Identify the situation that serves as a classic example of shear stress:,A) A steel beam supporting a load,B) A stretched biceps muscle,C) A book being pushed sideways,D) A sphere sinking in the ocean,C) A book being pushed sideways,Elasticity
+Q1_TUE1_PHYS.101_F26-27,B,10,B,1,"Enamel is 3 times brittle than dentin
+A) False
+B) True",Enamel is 3 times brittle than dentin,A) False,B) True,,,B) True,Dental Materials
+Q1_TUE1_PHYS.101_F26-27,C,1,A,1,"How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?
+A) Double
+B) Be halved
+C) Increase four times
+D) Remain the same",How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?,A) Double,B) Be halved,C) Increase four times,D) Remain the same,A) Double,Fluids
+Q1_TUE1_PHYS.101_F26-27,C,2,B,1,"The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.
+A) A: L³T, B: L³T⁻³
+B) A: L³T⁻³, B: L³T
+C) A: L⁻³T³, B: L³T⁻¹
+D) A: L³T³, B: L³T⁻¹","The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.","A) A: L³T, B: L³T⁻³","B) A: L³T⁻³, B: L³T","C) A: L⁻³T³, B: L³T⁻¹","D) A: L³T³, B: L³T⁻¹","B) A: L³T⁻³, B: L³T",Dimensions
+Q1_TUE1_PHYS.101_F26-27,C,3,D,1,"Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).
+A) 4.2 × 10⁻⁷ m²
+B) 1.7 × 10⁻⁵ m²
+C) 7.7 × 10⁻⁸ m²
+D) 7.7 × 10⁻⁶ m²",Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).,A) 4.2 × 10⁻⁷ m²,B) 1.7 × 10⁻⁵ m²,C) 7.7 × 10⁻⁸ m²,D) 7.7 × 10⁻⁶ m²,D) 7.7 × 10⁻⁶ m²,Elasticity
+Q1_TUE1_PHYS.101_F26-27,C,4,B,1,"Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?
+A) Shear stress
+B) Tensile or compressive stress
+C) Volume stress
+D) Uniform pressure",Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?,A) Shear stress,B) Tensile or compressive stress,C) Volume stress,D) Uniform pressure,B) Tensile or compressive stress,Elasticity
+Q1_TUE1_PHYS.101_F26-27,C,5,C,1,"What are the dimensions of Density (ρ), which is defined as mass per unit volume?
+A) [MLT⁻¹]
+B) [ML⁻¹]
+C) [ML⁻³]
+D) [M⁻¹L³]","What are the dimensions of Density (ρ), which is defined as mass per unit volume?",A) [MLT⁻¹],B) [ML⁻¹],C) [ML⁻³],D) [M⁻¹L³],C) [ML⁻³],Dimensions
+Q1_TUE1_PHYS.101_F26-27,C,6,A,1,"The dimensions [ML²T⁻²] correspond to which of the following physical quantities?
+A) Work
+B) Momentum
+C) Power
+D) Pressure",The dimensions [ML²T⁻²] correspond to which of the following physical quantities?,A) Work,B) Momentum,C) Power,D) Pressure,A) Work,Dimensions
+Q1_TUE1_PHYS.101_F26-27,C,7,A,1,"Enamel is 3 times brittle than dentin
+A) True
+B) False",Enamel is 3 times brittle than dentin,A) True,B) False,,,A) True,Dental Materials
+Q1_TUE1_PHYS.101_F26-27,C,8,D,1,"Which prefix is used to represent 10⁹?
+A) Tera (T)
+B) Kilo (k)
+C) Mega (M)
+D) Giga (G)",Which prefix is used to represent 10⁹?,A) Tera (T),B) Kilo (k),C) Mega (M),D) Giga (G),D) Giga (G),Units
+Q1_TUE1_PHYS.101_F26-27,C,9,D,1,"On a stress-strain curve, the elastic limit represents:
+A) The exact point where the material breaks.
+B) The absolute maximum elongation the material can achieve.
+C) The maximum force the material can withstand before failing.
+D) The point beyond which a material will not return to its original shape.","On a stress-strain curve, the elastic limit represents:",A) The exact point where the material breaks.,B) The absolute maximum elongation the material can achieve.,C) The maximum force the material can withstand before failing.,D) The point beyond which a material will not return to its original shape.,D) The point beyond which a material will not return to its original shape.,Elasticity
+Q1_TUE1_PHYS.101_F26-27,C,10,C,1,"Identify the situation that serves as a classic example of shear stress:
+A) A steel beam supporting a load
+B) A stretched biceps muscle
+C) A book being pushed sideways
+D) A sphere sinking in the ocean",Identify the situation that serves as a classic example of shear stress:,A) A steel beam supporting a load,B) A stretched biceps muscle,C) A book being pushed sideways,D) A sphere sinking in the ocean,C) A book being pushed sideways,Elasticity
+Q1_TUE1_PHYS.101_F26-27,D,1,D,1,"On a stress-strain curve, the elastic limit represents:
+A) The absolute maximum elongation the material can achieve.
+B) The exact point where the material breaks.
+C) The maximum force the material can withstand before failing.
+D) The point beyond which a material will not return to its original shape.","On a stress-strain curve, the elastic limit represents:",A) The absolute maximum elongation the material can achieve.,B) The exact point where the material breaks.,C) The maximum force the material can withstand before failing.,D) The point beyond which a material will not return to its original shape.,D) The point beyond which a material will not return to its original shape.,Elasticity
+Q1_TUE1_PHYS.101_F26-27,D,2,B,1,"Enamel is 3 times brittle than dentin
+A) False
+B) True",Enamel is 3 times brittle than dentin,A) False,B) True,,,B) True,Dental Materials
+Q1_TUE1_PHYS.101_F26-27,D,3,C,1,"Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?
+A) Shear stress
+B) Uniform pressure
+C) Tensile or compressive stress
+D) Volume stress",Which specific type of stress is Young's modulus (Y) used to characterize when evaluating a material's resistance to deformation?,A) Shear stress,B) Uniform pressure,C) Tensile or compressive stress,D) Volume stress,C) Tensile or compressive stress,Elasticity
+Q1_TUE1_PHYS.101_F26-27,D,4,D,1,"Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).
+A) 7.7 × 10⁻⁸ m²
+B) 4.2 × 10⁻⁷ m²
+C) 1.7 × 10⁻⁵ m²
+D) 7.7 × 10⁻⁶ m²",Calculate the cross-sectional area of a 4.7 m long steel wire that stretches by 0.11 cm under a tension of 360 N. (Given: Y = 20 × 10¹⁰ Pa).,A) 7.7 × 10⁻⁸ m²,B) 4.2 × 10⁻⁷ m²,C) 1.7 × 10⁻⁵ m²,D) 7.7 × 10⁻⁶ m²,D) 7.7 × 10⁻⁶ m²,Elasticity
+Q1_TUE1_PHYS.101_F26-27,D,5,C,1,"Identify the situation that serves as a classic example of shear stress:
+A) A sphere sinking in the ocean
+B) A stretched biceps muscle
+C) A book being pushed sideways
+D) A steel beam supporting a load",Identify the situation that serves as a classic example of shear stress:,A) A sphere sinking in the ocean,B) A stretched biceps muscle,C) A book being pushed sideways,D) A steel beam supporting a load,C) A book being pushed sideways,Elasticity
+Q1_TUE1_PHYS.101_F26-27,D,6,D,1,"The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.
+A) A: L⁻³T³, B: L³T⁻¹
+B) A: L³T³, B: L³T⁻¹
+C) A: L³T, B: L³T⁻³
+D) A: L³T⁻³, B: L³T","The volume of an object as a function of time is calculated by V = At³ + B/t, where t is time measured in seconds and V is in cubic meters. Determine the dimension of the constants A and B.","A) A: L⁻³T³, B: L³T⁻¹","B) A: L³T³, B: L³T⁻¹","C) A: L³T, B: L³T⁻³","D) A: L³T⁻³, B: L³T","D) A: L³T⁻³, B: L³T",Dimensions
+Q1_TUE1_PHYS.101_F26-27,D,7,B,1,"How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?
+A) Remain the same
+B) Double
+C) Increase four times
+D) Be halved",How is the buoyant force affected if the immersed volume of a cylinder in a fluid is doubled?,A) Remain the same,B) Double,C) Increase four times,D) Be halved,B) Double,Fluids
+Q1_TUE1_PHYS.101_F26-27,D,8,A,1,"The dimensions [ML²T⁻²] correspond to which of the following physical quantities?
+A) Work
+B) Power
+C) Pressure
+D) Momentum",The dimensions [ML²T⁻²] correspond to which of the following physical quantities?,A) Work,B) Power,C) Pressure,D) Momentum,A) Work,Dimensions
+Q1_TUE1_PHYS.101_F26-27,D,9,D,1,"What are the dimensions of Density (ρ), which is defined as mass per unit volume?
+A) [ML⁻¹]
+B) [MLT⁻¹]
+C) [M⁻¹L³]
+D) [ML⁻³]","What are the dimensions of Density (ρ), which is defined as mass per unit volume?",A) [ML⁻¹],B) [MLT⁻¹],C) [M⁻¹L³],D) [ML⁻³],D) [ML⁻³],Dimensions
+Q1_TUE1_PHYS.101_F26-27,D,10,A,1,"Which prefix is used to represent 10⁹?
+A) Giga (G)
+B) Mega (M)
+C) Tera (T)
+D) Kilo (k)",Which prefix is used to represent 10⁹?,A) Giga (G),B) Mega (M),C) Tera (T),D) Kilo (k),A) Giga (G),Units
+Q1_TUE2_PHYS.101_F26-27,A,1,D,1,"A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:
+A) Easy to stretch
+B) Easy to bend
+C) Difficult to compress
+D) Difficult to bend","A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:",A) Easy to stretch,B) Easy to bend,C) Difficult to compress,D) Difficult to bend,D) Difficult to bend,Elasticity
+Q1_TUE2_PHYS.101_F26-27,A,2,D,1,"Which of the following types of applied stress does the bulk modulus (B) of a material characterize?
+A) Shearing forces
+B) Stretching
+C) Bending and twisting
+D) Uniform squeezing",Which of the following types of applied stress does the bulk modulus (B) of a material characterize?,A) Shearing forces,B) Stretching,C) Bending and twisting,D) Uniform squeezing,D) Uniform squeezing,Elasticity
+Q1_TUE2_PHYS.101_F26-27,A,3,B,1,"In the cgs system of units, what are the respective base units for length, mass, and time?
+A) centimeter, kilogram, second
+B) centimeter, gram, second
+C) meter, kilogram, second
+D) foot, pound, second","In the cgs system of units, what are the respective base units for length, mass, and time?","A) centimeter, kilogram, second","B) centimeter, gram, second","C) meter, kilogram, second","D) foot, pound, second","B) centimeter, gram, second",Units
+Q1_TUE2_PHYS.101_F26-27,A,4,B,1,"What characterizes the ""Elastic Region"" of a material?
+A) The deformation is permanent.
+B) The relationship between force and elongation is linear.
+C) The material is strained but not hardening.
+D) The material is about to break.","What characterizes the ""Elastic Region"" of a material?",A) The deformation is permanent.,B) The relationship between force and elongation is linear.,C) The material is strained but not hardening.,D) The material is about to break.,B) The relationship between force and elongation is linear.,Elasticity
+Q1_TUE2_PHYS.101_F26-27,A,5,C,1,"A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?
+A) 1.2 × 10⁶ Pa
+B) 2.1 × 10⁵ Pa
+C) 5.1 × 10⁴ Pa
+D) 5.1 × 10³ Pa","A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?",A) 1.2 × 10⁶ Pa,B) 2.1 × 10⁵ Pa,C) 5.1 × 10⁴ Pa,D) 5.1 × 10³ Pa,C) 5.1 × 10⁴ Pa,Elasticity
+Q1_TUE2_PHYS.101_F26-27,A,6,B,1,"Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).
+A) v = Cg/h
+B) v = C√(gh)
+C) v = Cgh
+D) v = C√(g/h)","Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).",A) v = Cg/h,B) v = C√(gh),C) v = Cgh,D) v = C√(g/h),B) v = C√(gh),Dimensions
+Q1_TUE2_PHYS.101_F26-27,A,7,A,1,"Dentin is more stiff than enamel
+A) False
+B) True",Dentin is more stiff than enamel,A) False,B) True,,,A) False,Dental Materials
+Q1_TUE2_PHYS.101_F26-27,A,8,C,1,"What are the dimensions of Force?
+A) ML²T⁻²
+B) MLT⁻¹
+C) MLT⁻²
+D) ML⁻¹T⁻²",What are the dimensions of Force?,A) ML²T⁻²,B) MLT⁻¹,C) MLT⁻²,D) ML⁻¹T⁻²,C) MLT⁻²,Dimensions
+Q1_TUE2_PHYS.101_F26-27,A,9,B,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = Fa - Fw
+C) Fb = Fw - Fa
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = Fa - Fw,C) Fb = Fw - Fa,D) Fb = ρVg,B) Fb = Fa - Fw,Fluids
+Q1_TUE2_PHYS.101_F26-27,A,10,B,1,"The dimensions ML²T⁻² correspond to which of the following physical quantities?
+A) Power
+B) Work
+C) Pressure
+D) Momentum",The dimensions ML²T⁻² correspond to which of the following physical quantities?,A) Power,B) Work,C) Pressure,D) Momentum,B) Work,Dimensions
+Q1_TUE2_PHYS.101_F26-27,B,1,B,1,"Dentin is more stiff than enamel
+A) True
+B) False",Dentin is more stiff than enamel,A) True,B) False,,,B) False,Dental Materials
+Q1_TUE2_PHYS.101_F26-27,B,2,B,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = Fa - Fw
+C) Fb = Fw - Fa
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = Fa - Fw,C) Fb = Fw - Fa,D) Fb = ρVg,B) Fb = Fa - Fw,Fluids
+Q1_TUE2_PHYS.101_F26-27,B,3,B,1,"What are the dimensions of Force?
+A) ML²T⁻²
+B) MLT⁻²
+C) MLT⁻¹
+D) ML⁻¹T⁻²",What are the dimensions of Force?,A) ML²T⁻²,B) MLT⁻²,C) MLT⁻¹,D) ML⁻¹T⁻²,B) MLT⁻²,Dimensions
+Q1_TUE2_PHYS.101_F26-27,B,4,A,1,"The dimensions ML²T⁻² correspond to which of the following physical quantities?
+A) Work
+B) Momentum
+C) Pressure
+D) Power",The dimensions ML²T⁻² correspond to which of the following physical quantities?,A) Work,B) Momentum,C) Pressure,D) Power,A) Work,Dimensions
+Q1_TUE2_PHYS.101_F26-27,B,5,C,1,"Which of the following types of applied stress does the bulk modulus (B) of a material characterize?
+A) Shearing forces
+B) Stretching
+C) Uniform squeezing
+D) Bending and twisting",Which of the following types of applied stress does the bulk modulus (B) of a material characterize?,A) Shearing forces,B) Stretching,C) Uniform squeezing,D) Bending and twisting,C) Uniform squeezing,Elasticity
+Q1_TUE2_PHYS.101_F26-27,B,6,D,1,"In the cgs system of units, what are the respective base units for length, mass, and time?
+A) meter, kilogram, second
+B) foot, pound, second
+C) centimeter, kilogram, second
+D) centimeter, gram, second","In the cgs system of units, what are the respective base units for length, mass, and time?","A) meter, kilogram, second","B) foot, pound, second","C) centimeter, kilogram, second","D) centimeter, gram, second","D) centimeter, gram, second",Units
+Q1_TUE2_PHYS.101_F26-27,B,7,B,1,"A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?
+A) 2.1 × 10⁵ Pa
+B) 5.1 × 10⁴ Pa
+C) 1.2 × 10⁶ Pa
+D) 5.1 × 10³ Pa","A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?",A) 2.1 × 10⁵ Pa,B) 5.1 × 10⁴ Pa,C) 1.2 × 10⁶ Pa,D) 5.1 × 10³ Pa,B) 5.1 × 10⁴ Pa,Elasticity
+Q1_TUE2_PHYS.101_F26-27,B,8,C,1,"A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:
+A) Easy to stretch
+B) Difficult to compress
+C) Difficult to bend
+D) Easy to bend","A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:",A) Easy to stretch,B) Difficult to compress,C) Difficult to bend,D) Easy to bend,C) Difficult to bend,Elasticity
+Q1_TUE2_PHYS.101_F26-27,B,9,B,1,"Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).
+A) v = Cgh
+B) v = C√(gh)
+C) v = Cg/h
+D) v = C√(g/h)","Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).",A) v = Cgh,B) v = C√(gh),C) v = Cg/h,D) v = C√(g/h),B) v = C√(gh),Dimensions
+Q1_TUE2_PHYS.101_F26-27,B,10,B,1,"What characterizes the ""Elastic Region"" of a material?
+A) The deformation is permanent.
+B) The relationship between force and elongation is linear.
+C) The material is strained but not hardening.
+D) The material is about to break.","What characterizes the ""Elastic Region"" of a material?",A) The deformation is permanent.,B) The relationship between force and elongation is linear.,C) The material is strained but not hardening.,D) The material is about to break.,B) The relationship between force and elongation is linear.,Elasticity
+Q1_TUE2_PHYS.101_F26-27,C,1,B,1,"A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?
+A) 5.1 × 10³ Pa
+B) 5.1 × 10⁴ Pa
+C) 2.1 × 10⁵ Pa
+D) 1.2 × 10⁶ Pa","A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?",A) 5.1 × 10³ Pa,B) 5.1 × 10⁴ Pa,C) 2.1 × 10⁵ Pa,D) 1.2 × 10⁶ Pa,B) 5.1 × 10⁴ Pa,Elasticity
+Q1_TUE2_PHYS.101_F26-27,C,2,D,1,"Which of the following types of applied stress does the bulk modulus (B) of a material characterize?
+A) Shearing forces
+B) Stretching
+C) Bending and twisting
+D) Uniform squeezing",Which of the following types of applied stress does the bulk modulus (B) of a material characterize?,A) Shearing forces,B) Stretching,C) Bending and twisting,D) Uniform squeezing,D) Uniform squeezing,Elasticity
+Q1_TUE2_PHYS.101_F26-27,C,3,D,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = Fw - Fa
+C) Fb = ρVg
+D) Fb = Fa - Fw",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = Fw - Fa,C) Fb = ρVg,D) Fb = Fa - Fw,D) Fb = Fa - Fw,Fluids
+Q1_TUE2_PHYS.101_F26-27,C,4,C,1,"The dimensions ML²T⁻² correspond to which of the following physical quantities?
+A) Pressure
+B) Power
+C) Work
+D) Momentum",The dimensions ML²T⁻² correspond to which of the following physical quantities?,A) Pressure,B) Power,C) Work,D) Momentum,C) Work,Dimensions
+Q1_TUE2_PHYS.101_F26-27,C,5,B,1,"In the cgs system of units, what are the respective base units for length, mass, and time?
+A) centimeter, kilogram, second
+B) centimeter, gram, second
+C) foot, pound, second
+D) meter, kilogram, second","In the cgs system of units, what are the respective base units for length, mass, and time?","A) centimeter, kilogram, second","B) centimeter, gram, second","C) foot, pound, second","D) meter, kilogram, second","B) centimeter, gram, second",Units
+Q1_TUE2_PHYS.101_F26-27,C,6,A,1,"Dentin is more stiff than enamel
+A) False
+B) True",Dentin is more stiff than enamel,A) False,B) True,,,A) False,Dental Materials
+Q1_TUE2_PHYS.101_F26-27,C,7,B,1,"A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:
+A) Easy to stretch
+B) Difficult to bend
+C) Easy to bend
+D) Difficult to compress","A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:",A) Easy to stretch,B) Difficult to bend,C) Easy to bend,D) Difficult to compress,B) Difficult to bend,Elasticity
+Q1_TUE2_PHYS.101_F26-27,C,8,A,1,"Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).
+A) v = C√(gh)
+B) v = Cg/h
+C) v = C√(g/h)
+D) v = Cgh","Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).",A) v = C√(gh),B) v = Cg/h,C) v = C√(g/h),D) v = Cgh,A) v = C√(gh),Dimensions
+Q1_TUE2_PHYS.101_F26-27,C,9,D,1,"What characterizes the ""Elastic Region"" of a material?
+A) The material is about to break.
+B) The deformation is permanent.
+C) The material is strained but not hardening.
+D) The relationship between force and elongation is linear.","What characterizes the ""Elastic Region"" of a material?",A) The material is about to break.,B) The deformation is permanent.,C) The material is strained but not hardening.,D) The relationship between force and elongation is linear.,D) The relationship between force and elongation is linear.,Elasticity
+Q1_TUE2_PHYS.101_F26-27,C,10,B,1,"What are the dimensions of Force?
+A) MLT⁻¹
+B) MLT⁻²
+C) ML²T⁻²
+D) ML⁻¹T⁻²",What are the dimensions of Force?,A) MLT⁻¹,B) MLT⁻²,C) ML²T⁻²,D) ML⁻¹T⁻²,B) MLT⁻²,Dimensions
+Q1_TUE2_PHYS.101_F26-27,D,1,A,1,"A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?
+A) 5.1 × 10⁴ Pa
+B) 1.2 × 10⁶ Pa
+C) 2.1 × 10⁵ Pa
+D) 5.1 × 10³ Pa","A relaxed biceps muscle is modeled as a uniform cylinder with a length of 0.24 m and a cross-sectional area of 47 cm². If a tensile force of 25 N is required to stretch it by 2.5 cm, what is the Young's modulus of the muscle tissue?",A) 5.1 × 10⁴ Pa,B) 1.2 × 10⁶ Pa,C) 2.1 × 10⁵ Pa,D) 5.1 × 10³ Pa,A) 5.1 × 10⁴ Pa,Elasticity
+Q1_TUE2_PHYS.101_F26-27,D,2,D,1,"The dimensions ML²T⁻² correspond to which of the following physical quantities?
+A) Pressure
+B) Power
+C) Momentum
+D) Work",The dimensions ML²T⁻² correspond to which of the following physical quantities?,A) Pressure,B) Power,C) Momentum,D) Work,D) Work,Dimensions
+Q1_TUE2_PHYS.101_F26-27,D,3,A,1,"Dentin is more stiff than enamel
+A) False
+B) True",Dentin is more stiff than enamel,A) False,B) True,,,A) False,Dental Materials
+Q1_TUE2_PHYS.101_F26-27,D,4,C,1,"The buoyant force is calculated experimentally by:
+A) Fb = V/g
+B) Fb = Fw - Fa
+C) Fb = Fa - Fw
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = V/g,B) Fb = Fw - Fa,C) Fb = Fa - Fw,D) Fb = ρVg,C) Fb = Fa - Fw,Fluids
+Q1_TUE2_PHYS.101_F26-27,D,5,A,1,"In the cgs system of units, what are the respective base units for length, mass, and time?
+A) centimeter, gram, second
+B) meter, kilogram, second
+C) centimeter, kilogram, second
+D) foot, pound, second","In the cgs system of units, what are the respective base units for length, mass, and time?","A) centimeter, gram, second","B) meter, kilogram, second","C) centimeter, kilogram, second","D) foot, pound, second","A) centimeter, gram, second",Units
+Q1_TUE2_PHYS.101_F26-27,D,6,A,1,"Which of the following types of applied stress does the bulk modulus (B) of a material characterize?
+A) Uniform squeezing
+B) Bending and twisting
+C) Shearing forces
+D) Stretching",Which of the following types of applied stress does the bulk modulus (B) of a material characterize?,A) Uniform squeezing,B) Bending and twisting,C) Shearing forces,D) Stretching,A) Uniform squeezing,Elasticity
+Q1_TUE2_PHYS.101_F26-27,D,7,C,1,"What characterizes the ""Elastic Region"" of a material?
+A) The material is about to break.
+B) The material is strained but not hardening.
+C) The relationship between force and elongation is linear.
+D) The deformation is permanent.","What characterizes the ""Elastic Region"" of a material?",A) The material is about to break.,B) The material is strained but not hardening.,C) The relationship between force and elongation is linear.,D) The deformation is permanent.,C) The relationship between force and elongation is linear.,Elasticity
+Q1_TUE2_PHYS.101_F26-27,D,8,C,1,"Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).
+A) v = Cg/h
+B) v = Cgh
+C) v = C√(gh)
+D) v = C√(g/h)","Assuming that the velocity (v) of shallow water waves is a function of gravitational acceleration (g) and depth (h), which of these equations is dimensionally consistent? (Let C be a dimensionless constant).",A) v = Cg/h,B) v = Cgh,C) v = C√(gh),D) v = C√(g/h),C) v = C√(gh),Dimensions
+Q1_TUE2_PHYS.101_F26-27,D,9,B,1,"A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:
+A) Easy to stretch
+B) Difficult to bend
+C) Easy to bend
+D) Difficult to compress","A high shear modulus indicates that a material is highly resistant to shear deformation. Therefore, such a material is:",A) Easy to stretch,B) Difficult to bend,C) Easy to bend,D) Difficult to compress,B) Difficult to bend,Elasticity
+Q1_TUE2_PHYS.101_F26-27,D,10,D,1,"What are the dimensions of Force?
+A) ML⁻¹T⁻²
+B) ML²T⁻²
+C) MLT⁻¹
+D) MLT⁻²",What are the dimensions of Force?,A) ML⁻¹T⁻²,B) ML²T⁻²,C) MLT⁻¹,D) MLT⁻²,D) MLT⁻²,Dimensions
+Q1_WED1_PHYS.101_F26-27,A,1,B,1,"Dentin has a higher wear resistance while enamel has a higher force resistance
+A) True
+B) False",Dentin has a higher wear resistance while enamel has a higher force resistance,A) True,B) False,,,B) False,Dental Materials
+Q1_WED1_PHYS.101_F26-27,A,2,A,1,"Crystalline solids have atoms arranged in:
+A) Ordered structure
+B) Erratic motion
+C) Free-flowing form
+D) Random structure",Crystalline solids have atoms arranged in:,A) Ordered structure,B) Erratic motion,C) Free-flowing form,D) Random structure,A) Ordered structure,Matter
+Q1_WED1_PHYS.101_F26-27,A,3,D,1,"The buoyant force is calculated experimentally by:
+A) Fb = ρVg
+B) Fb = V/g
+C) Fb = Fw - Fa
+D) Fb = Fa - Fw",The buoyant force is calculated experimentally by:,A) Fb = ρVg,B) Fb = V/g,C) Fb = Fw - Fa,D) Fb = Fa - Fw,D) Fb = Fa - Fw,Fluids
+Q1_WED1_PHYS.101_F26-27,A,4,C,1,"A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?
+A) 2 × 10¹² Pa
+B) 1.5 × 10¹² Pa
+C) 1 × 10¹² Pa
+D) 3 × 10¹² Pa","A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?",A) 2 × 10¹² Pa,B) 1.5 × 10¹² Pa,C) 1 × 10¹² Pa,D) 3 × 10¹² Pa,C) 1 × 10¹² Pa,Elasticity
+Q1_WED1_PHYS.101_F26-27,A,5,B,1,"Dentin is tough compared to enamel
+A) False
+B) True",Dentin is tough compared to enamel,A) False,B) True,,,B) True,Dental Materials
+Q1_WED1_PHYS.101_F26-27,A,6,C,1,"MLT⁻¹ is the dimension of
+A) energy
+B) power
+C) momentum
+D) force",MLT⁻¹ is the dimension of,A) energy,B) power,C) momentum,D) force,C) momentum,Dimensions (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,A,7,B,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) ML⁻²T⁻²
+B) ML⁻¹T⁻¹
+C) MLT⁻²
+D) ML⁻³","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) ML⁻²T⁻²,B) ML⁻¹T⁻¹,C) MLT⁻²,D) ML⁻³,B) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED1_PHYS.101_F26-27,A,8,D,1,"In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be
+A) m s
+B) s
+C) m
+D) m/s","In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be",A) m s,B) s,C) m,D) m/s,D) m/s,Units (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,A,9,C,1,"Why is enamel stiffer than dentin?
+A) Enamel is softer
+B) Enamel has a higher stress limit
+C) Enamel has a higher Young's modulus
+D) Enamel is more brittle",Why is enamel stiffer than dentin?,A) Enamel is softer,B) Enamel has a higher stress limit,C) Enamel has a higher Young's modulus,D) Enamel is more brittle,C) Enamel has a higher Young's modulus,Dental Materials
+Q1_WED1_PHYS.101_F26-27,A,10,B,1,"Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?
+A) x = 1, y = 1 and z = -2
+B) x = 1/2, y = -1/2 and z = 1/2
+C) x = 1, y = 1 and z = -1
+D) x = -1/2, y = -1/2 and z = 1/2","Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?","A) x = 1, y = 1 and z = -2","B) x = 1/2, y = -1/2 and z = 1/2","C) x = 1, y = 1 and z = -1","D) x = -1/2, y = -1/2 and z = 1/2","B) x = 1/2, y = -1/2 and z = 1/2",Dimensions (DIF: 3)
+Q1_WED1_PHYS.101_F26-27,B,1,D,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) ML⁻²T⁻²
+B) ML⁻³
+C) MLT⁻²
+D) ML⁻¹T⁻¹","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) ML⁻²T⁻²,B) ML⁻³,C) MLT⁻²,D) ML⁻¹T⁻¹,D) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED1_PHYS.101_F26-27,B,2,D,1,"The buoyant force is calculated experimentally by:
+A) Fb = Fw - Fa
+B) Fb = V/g
+C) Fb = ρVg
+D) Fb = Fa - Fw",The buoyant force is calculated experimentally by:,A) Fb = Fw - Fa,B) Fb = V/g,C) Fb = ρVg,D) Fb = Fa - Fw,D) Fb = Fa - Fw,Fluids
+Q1_WED1_PHYS.101_F26-27,B,3,D,1,"In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be
+A) m
+B) m s
+C) s
+D) m/s","In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be",A) m,B) m s,C) s,D) m/s,D) m/s,Units (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,B,4,B,1,"Dentin is tough compared to enamel
+A) False
+B) True",Dentin is tough compared to enamel,A) False,B) True,,,B) True,Dental Materials
+Q1_WED1_PHYS.101_F26-27,B,5,D,1,"A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?
+A) 2 × 10¹² Pa
+B) 3 × 10¹² Pa
+C) 1.5 × 10¹² Pa
+D) 1 × 10¹² Pa","A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?",A) 2 × 10¹² Pa,B) 3 × 10¹² Pa,C) 1.5 × 10¹² Pa,D) 1 × 10¹² Pa,D) 1 × 10¹² Pa,Elasticity
+Q1_WED1_PHYS.101_F26-27,B,6,A,1,"Dentin has a higher wear resistance while enamel has a higher force resistance
+A) False
+B) True",Dentin has a higher wear resistance while enamel has a higher force resistance,A) False,B) True,,,A) False,Dental Materials
+Q1_WED1_PHYS.101_F26-27,B,7,D,1,"Crystalline solids have atoms arranged in:
+A) Free-flowing form
+B) Erratic motion
+C) Random structure
+D) Ordered structure",Crystalline solids have atoms arranged in:,A) Free-flowing form,B) Erratic motion,C) Random structure,D) Ordered structure,D) Ordered structure,Matter
+Q1_WED1_PHYS.101_F26-27,B,8,C,1,"Why is enamel stiffer than dentin?
+A) Enamel has a higher stress limit
+B) Enamel is more brittle
+C) Enamel has a higher Young's modulus
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel has a higher stress limit,B) Enamel is more brittle,C) Enamel has a higher Young's modulus,D) Enamel is softer,C) Enamel has a higher Young's modulus,Dental Materials
+Q1_WED1_PHYS.101_F26-27,B,9,C,1,"Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?
+A) x = -1/2, y = -1/2 and z = 1/2
+B) x = 1, y = 1 and z = -1
+C) x = 1/2, y = -1/2 and z = 1/2
+D) x = 1, y = 1 and z = -2","Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?","A) x = -1/2, y = -1/2 and z = 1/2","B) x = 1, y = 1 and z = -1","C) x = 1/2, y = -1/2 and z = 1/2","D) x = 1, y = 1 and z = -2","C) x = 1/2, y = -1/2 and z = 1/2",Dimensions (DIF: 3)
+Q1_WED1_PHYS.101_F26-27,B,10,C,1,"MLT⁻¹ is the dimension of
+A) force
+B) power
+C) momentum
+D) energy",MLT⁻¹ is the dimension of,A) force,B) power,C) momentum,D) energy,C) momentum,Dimensions (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,C,1,A,1,"The buoyant force is calculated experimentally by:
+A) Fb = Fa - Fw
+B) Fb = Fw - Fa
+C) Fb = V/g
+D) Fb = ρVg",The buoyant force is calculated experimentally by:,A) Fb = Fa - Fw,B) Fb = Fw - Fa,C) Fb = V/g,D) Fb = ρVg,A) Fb = Fa - Fw,Fluids
+Q1_WED1_PHYS.101_F26-27,C,2,C,1,"Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?
+A) x = -1/2, y = -1/2 and z = 1/2
+B) x = 1, y = 1 and z = -1
+C) x = 1/2, y = -1/2 and z = 1/2
+D) x = 1, y = 1 and z = -2","Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?","A) x = -1/2, y = -1/2 and z = 1/2","B) x = 1, y = 1 and z = -1","C) x = 1/2, y = -1/2 and z = 1/2","D) x = 1, y = 1 and z = -2","C) x = 1/2, y = -1/2 and z = 1/2",Dimensions (DIF: 3)
+Q1_WED1_PHYS.101_F26-27,C,3,B,1,"Dentin is tough compared to enamel
+A) False
+B) True",Dentin is tough compared to enamel,A) False,B) True,,,B) True,Dental Materials
+Q1_WED1_PHYS.101_F26-27,C,4,A,1,"Why is enamel stiffer than dentin?
+A) Enamel has a higher Young's modulus
+B) Enamel is more brittle
+C) Enamel has a higher stress limit
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel has a higher Young's modulus,B) Enamel is more brittle,C) Enamel has a higher stress limit,D) Enamel is softer,A) Enamel has a higher Young's modulus,Dental Materials
+Q1_WED1_PHYS.101_F26-27,C,5,B,1,"MLT⁻¹ is the dimension of
+A) power
+B) momentum
+C) energy
+D) force",MLT⁻¹ is the dimension of,A) power,B) momentum,C) energy,D) force,B) momentum,Dimensions (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,C,6,B,1,"Crystalline solids have atoms arranged in:
+A) Random structure
+B) Ordered structure
+C) Free-flowing form
+D) Erratic motion",Crystalline solids have atoms arranged in:,A) Random structure,B) Ordered structure,C) Free-flowing form,D) Erratic motion,B) Ordered structure,Matter
+Q1_WED1_PHYS.101_F26-27,C,7,A,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) ML⁻¹T⁻¹
+B) ML⁻³
+C) ML⁻²T⁻²
+D) MLT⁻²","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) ML⁻¹T⁻¹,B) ML⁻³,C) ML⁻²T⁻²,D) MLT⁻²,A) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED1_PHYS.101_F26-27,C,8,C,1,"A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?
+A) 1.5 × 10¹² Pa
+B) 2 × 10¹² Pa
+C) 1 × 10¹² Pa
+D) 3 × 10¹² Pa","A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?",A) 1.5 × 10¹² Pa,B) 2 × 10¹² Pa,C) 1 × 10¹² Pa,D) 3 × 10¹² Pa,C) 1 × 10¹² Pa,Elasticity
+Q1_WED1_PHYS.101_F26-27,C,9,A,1,"Dentin has a higher wear resistance while enamel has a higher force resistance
+A) False
+B) True",Dentin has a higher wear resistance while enamel has a higher force resistance,A) False,B) True,,,A) False,Dental Materials
+Q1_WED1_PHYS.101_F26-27,C,10,A,1,"In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be
+A) m/s
+B) m
+C) s
+D) m s","In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be",A) m/s,B) m,C) s,D) m s,A) m/s,Units (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,D,1,C,1,"Why is enamel stiffer than dentin?
+A) Enamel has a higher stress limit
+B) Enamel is more brittle
+C) Enamel has a higher Young's modulus
+D) Enamel is softer",Why is enamel stiffer than dentin?,A) Enamel has a higher stress limit,B) Enamel is more brittle,C) Enamel has a higher Young's modulus,D) Enamel is softer,C) Enamel has a higher Young's modulus,Dental Materials
+Q1_WED1_PHYS.101_F26-27,D,2,A,1,"Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?
+A) x = 1/2, y = -1/2 and z = 1/2
+B) x = -1/2, y = -1/2 and z = 1/2
+C) x = 1, y = 1 and z = -1
+D) x = 1, y = 1 and z = -2","Knowing that v = lˣmʸFᶻ, where v is the velocity, l is the length, m is the mass and F is the force; What is the values of x and y and z?","A) x = 1/2, y = -1/2 and z = 1/2","B) x = -1/2, y = -1/2 and z = 1/2","C) x = 1, y = 1 and z = -1","D) x = 1, y = 1 and z = -2","A) x = 1/2, y = -1/2 and z = 1/2",Dimensions (DIF: 3)
+Q1_WED1_PHYS.101_F26-27,D,3,B,1,"Dentin is tough compared to enamel
+A) False
+B) True",Dentin is tough compared to enamel,A) False,B) True,,,B) True,Dental Materials
+Q1_WED1_PHYS.101_F26-27,D,4,D,1,"Crystalline solids have atoms arranged in:
+A) Random structure
+B) Free-flowing form
+C) Erratic motion
+D) Ordered structure",Crystalline solids have atoms arranged in:,A) Random structure,B) Free-flowing form,C) Erratic motion,D) Ordered structure,D) Ordered structure,Matter
+Q1_WED1_PHYS.101_F26-27,D,5,D,1,"In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be
+A) s
+B) m s
+C) m
+D) m/s","In the relation α = βt + λ, α and λ are measured in meter (m) and t is measured in second (s). The SI unit of β must be",A) s,B) m s,C) m,D) m/s,D) m/s,Units (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,D,6,D,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) MLT⁻²
+B) ML⁻³
+C) ML⁻²T⁻²
+D) ML⁻¹T⁻¹","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) MLT⁻²,B) ML⁻³,C) ML⁻²T⁻²,D) ML⁻¹T⁻¹,D) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED1_PHYS.101_F26-27,D,7,B,1,"A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?
+A) 3 × 10¹² Pa
+B) 1 × 10¹² Pa
+C) 2 × 10¹² Pa
+D) 1.5 × 10¹² Pa","A cube with an edge length of 1 m experiences a uniform pressure increase of 1 × 10⁶ Pa, resulting in a volume change of 1 × 10⁻⁶ m³. What is the bulk modulus of the material?",A) 3 × 10¹² Pa,B) 1 × 10¹² Pa,C) 2 × 10¹² Pa,D) 1.5 × 10¹² Pa,B) 1 × 10¹² Pa,Elasticity
+Q1_WED1_PHYS.101_F26-27,D,8,D,1,"The buoyant force is calculated experimentally by:
+A) Fb = Fw - Fa
+B) Fb = V/g
+C) Fb = ρVg
+D) Fb = Fa - Fw",The buoyant force is calculated experimentally by:,A) Fb = Fw - Fa,B) Fb = V/g,C) Fb = ρVg,D) Fb = Fa - Fw,D) Fb = Fa - Fw,Fluids
+Q1_WED1_PHYS.101_F26-27,D,9,B,1,"MLT⁻¹ is the dimension of
+A) energy
+B) momentum
+C) power
+D) force",MLT⁻¹ is the dimension of,A) energy,B) momentum,C) power,D) force,B) momentum,Dimensions (DIF: 1)
+Q1_WED1_PHYS.101_F26-27,D,10,A,1,"Dentin has a higher wear resistance while enamel has a higher force resistance
+A) False
+B) True",Dentin has a higher wear resistance while enamel has a higher force resistance,A) False,B) True,,,A) False,Dental Materials
+Q1_WED2_PHYS.101_F26-27,A,1,A,1,"The Young's modulus of a material is a measure of:
+A) Its stiffness
+B) Its hardness
+C) Its tensile strength
+D) Its ductility",The Young's modulus of a material is a measure of:,A) Its stiffness,B) Its hardness,C) Its tensile strength,D) Its ductility,A) Its stiffness,Elasticity
+Q1_WED2_PHYS.101_F26-27,A,2,C,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) MLT⁻²
+B) ML⁻²T⁻²
+C) ML⁻¹T⁻¹
+D) ML⁻³","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) MLT⁻²,B) ML⁻²T⁻²,C) ML⁻¹T⁻¹,D) ML⁻³,C) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED2_PHYS.101_F26-27,A,3,B,1,"The dimensions of the density are
+A) LT⁻²
+B) ML⁻³
+C) MT⁻²
+D) MLT⁻²",The dimensions of the density are,A) LT⁻²,B) ML⁻³,C) MT⁻²,D) MLT⁻²,B) ML⁻³,Dimensions
+Q1_WED2_PHYS.101_F26-27,A,4,D,1,"If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is
+A) ML²T⁻¹
+B) MLT⁻¹
+C) ML²T⁻²
+D) LT⁻¹","If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is",A) ML²T⁻¹,B) MLT⁻¹,C) ML²T⁻²,D) LT⁻¹,D) LT⁻¹,Dimensions (DIF: 3)
+Q1_WED2_PHYS.101_F26-27,A,5,B,1,"Hooke's law holds good up to:
+A) Breaking point
+B) Elastic limit
+C) Yield point
+D) Ultimate limit",Hooke's law holds good up to:,A) Breaking point,B) Elastic limit,C) Yield point,D) Ultimate limit,B) Elastic limit,Elasticity
+Q1_WED2_PHYS.101_F26-27,A,6,A,1,"A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?
+A) 2.25×10⁷ N/m²
+B) 4.5×10¹⁰ N/m²
+C) 3×10⁹ N/m²
+D) 6×10¹⁰ N/m²","A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?",A) 2.25×10⁷ N/m²,B) 4.5×10¹⁰ N/m²,C) 3×10⁹ N/m²,D) 6×10¹⁰ N/m²,A) 2.25×10⁷ N/m²,Elasticity
+Q1_WED2_PHYS.101_F26-27,A,7,D,1,"A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?
+A) F × A
+B) A/F
+C) L × F
+D) F/A",A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?,A) F × A,B) A/F,C) L × F,D) F/A,D) F/A,Elasticity
+Q1_WED2_PHYS.101_F26-27,A,8,B,1,"The dimensional formula of strain is:
+A) M L² T⁻²
+B) M⁰ L⁰ T⁰
+C) M L T⁻²
+D) M L⁻¹ T⁻²",The dimensional formula of strain is:,A) M L² T⁻²,B) M⁰ L⁰ T⁰,C) M L T⁻²,D) M L⁻¹ T⁻²,B) M⁰ L⁰ T⁰,Dimensions
+Q1_WED2_PHYS.101_F26-27,A,9,C,1,"If a force is applied on a body along one dimension, it produces:
+A) Bulk stress
+B) Volume stress
+C) Tensile stress
+D) Shear stress","If a force is applied on a body along one dimension, it produces:",A) Bulk stress,B) Volume stress,C) Tensile stress,D) Shear stress,C) Tensile stress,Elasticity
+Q1_WED2_PHYS.101_F26-27,A,10,B,1,"The dimensions of acceleration are
+A) MLT⁻²
+B) LT⁻²
+C) MLT⁻¹
+D) MT⁻²",The dimensions of acceleration are,A) MLT⁻²,B) LT⁻²,C) MLT⁻¹,D) MT⁻²,B) LT⁻²,Dimensions (DIF: 1)
+Q1_WED2_PHYS.101_F26-27,B,1,A,1,"The Young's modulus of a material is a measure of:
+A) Its stiffness
+B) Its tensile strength
+C) Its hardness
+D) Its ductility",The Young's modulus of a material is a measure of:,A) Its stiffness,B) Its tensile strength,C) Its hardness,D) Its ductility,A) Its stiffness,Elasticity
+Q1_WED2_PHYS.101_F26-27,B,2,C,1,"The dimensional formula of strain is:
+A) M L⁻¹ T⁻²
+B) M L T⁻²
+C) M⁰ L⁰ T⁰
+D) M L² T⁻²",The dimensional formula of strain is:,A) M L⁻¹ T⁻²,B) M L T⁻²,C) M⁰ L⁰ T⁰,D) M L² T⁻²,C) M⁰ L⁰ T⁰,Dimensions
+Q1_WED2_PHYS.101_F26-27,B,3,B,1,"A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?
+A) L × F
+B) F/A
+C) A/F
+D) F × A",A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?,A) L × F,B) F/A,C) A/F,D) F × A,B) F/A,Elasticity
+Q1_WED2_PHYS.101_F26-27,B,4,C,1,"The dimensions of the density are
+A) LT⁻²
+B) MLT⁻²
+C) ML⁻³
+D) MT⁻²",The dimensions of the density are,A) LT⁻²,B) MLT⁻²,C) ML⁻³,D) MT⁻²,C) ML⁻³,Dimensions
+Q1_WED2_PHYS.101_F26-27,B,5,B,1,"If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is
+A) ML²T⁻²
+B) LT⁻¹
+C) ML²T⁻¹
+D) MLT⁻¹","If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is",A) ML²T⁻²,B) LT⁻¹,C) ML²T⁻¹,D) MLT⁻¹,B) LT⁻¹,Dimensions (DIF: 3)
+Q1_WED2_PHYS.101_F26-27,B,6,C,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) ML⁻³
+B) MLT⁻²
+C) ML⁻¹T⁻¹
+D) ML⁻²T⁻²","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) ML⁻³,B) MLT⁻²,C) ML⁻¹T⁻¹,D) ML⁻²T⁻²,C) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED2_PHYS.101_F26-27,B,7,D,1,"Hooke's law holds good up to:
+A) Breaking point
+B) Ultimate limit
+C) Yield point
+D) Elastic limit",Hooke's law holds good up to:,A) Breaking point,B) Ultimate limit,C) Yield point,D) Elastic limit,D) Elastic limit,Elasticity
+Q1_WED2_PHYS.101_F26-27,B,8,A,1,"The dimensions of acceleration are
+A) LT⁻²
+B) MLT⁻¹
+C) MLT⁻²
+D) MT⁻²",The dimensions of acceleration are,A) LT⁻²,B) MLT⁻¹,C) MLT⁻²,D) MT⁻²,A) LT⁻²,Dimensions (DIF: 1)
+Q1_WED2_PHYS.101_F26-27,B,9,C,1,"If a force is applied on a body along one dimension, it produces:
+A) Shear stress
+B) Bulk stress
+C) Tensile stress
+D) Volume stress","If a force is applied on a body along one dimension, it produces:",A) Shear stress,B) Bulk stress,C) Tensile stress,D) Volume stress,C) Tensile stress,Elasticity
+Q1_WED2_PHYS.101_F26-27,B,10,B,1,"A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?
+A) 4.5×10¹⁰ N/m²
+B) 2.25×10⁷ N/m²
+C) 3×10⁹ N/m²
+D) 6×10¹⁰ N/m²","A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?",A) 4.5×10¹⁰ N/m²,B) 2.25×10⁷ N/m²,C) 3×10⁹ N/m²,D) 6×10¹⁰ N/m²,B) 2.25×10⁷ N/m²,Elasticity
+Q1_WED2_PHYS.101_F26-27,C,1,C,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) ML⁻³
+B) MLT⁻²
+C) ML⁻¹T⁻¹
+D) ML⁻²T⁻²","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) ML⁻³,B) MLT⁻²,C) ML⁻¹T⁻¹,D) ML⁻²T⁻²,C) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED2_PHYS.101_F26-27,C,2,B,1,"The Young's modulus of a material is a measure of:
+A) Its tensile strength
+B) Its stiffness
+C) Its ductility
+D) Its hardness",The Young's modulus of a material is a measure of:,A) Its tensile strength,B) Its stiffness,C) Its ductility,D) Its hardness,B) Its stiffness,Elasticity
+Q1_WED2_PHYS.101_F26-27,C,3,A,1,"If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is
+A) LT⁻¹
+B) ML²T⁻²
+C) MLT⁻¹
+D) ML²T⁻¹","If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is",A) LT⁻¹,B) ML²T⁻²,C) MLT⁻¹,D) ML²T⁻¹,A) LT⁻¹,Dimensions (DIF: 3)
+Q1_WED2_PHYS.101_F26-27,C,4,A,1,"The dimensions of the density are
+A) ML⁻³
+B) LT⁻²
+C) MT⁻²
+D) MLT⁻²",The dimensions of the density are,A) ML⁻³,B) LT⁻²,C) MT⁻²,D) MLT⁻²,A) ML⁻³,Dimensions
+Q1_WED2_PHYS.101_F26-27,C,5,A,1,"A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?
+A) F/A
+B) L × F
+C) F × A
+D) A/F",A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?,A) F/A,B) L × F,C) F × A,D) A/F,A) F/A,Elasticity
+Q1_WED2_PHYS.101_F26-27,C,6,A,1,"A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?
+A) 2.25×10⁷ N/m²
+B) 6×10¹⁰ N/m²
+C) 3×10⁹ N/m²
+D) 4.5×10¹⁰ N/m²","A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?",A) 2.25×10⁷ N/m²,B) 6×10¹⁰ N/m²,C) 3×10⁹ N/m²,D) 4.5×10¹⁰ N/m²,A) 2.25×10⁷ N/m²,Elasticity
+Q1_WED2_PHYS.101_F26-27,C,7,C,1,"The dimensional formula of strain is:
+A) M L T⁻²
+B) M L⁻¹ T⁻²
+C) M⁰ L⁰ T⁰
+D) M L² T⁻²",The dimensional formula of strain is:,A) M L T⁻²,B) M L⁻¹ T⁻²,C) M⁰ L⁰ T⁰,D) M L² T⁻²,C) M⁰ L⁰ T⁰,Dimensions
+Q1_WED2_PHYS.101_F26-27,C,8,C,1,"The dimensions of acceleration are
+A) MLT⁻¹
+B) MT⁻²
+C) LT⁻²
+D) MLT⁻²",The dimensions of acceleration are,A) MLT⁻¹,B) MT⁻²,C) LT⁻²,D) MLT⁻²,C) LT⁻²,Dimensions (DIF: 1)
+Q1_WED2_PHYS.101_F26-27,C,9,A,1,"Hooke's law holds good up to:
+A) Elastic limit
+B) Yield point
+C) Ultimate limit
+D) Breaking point",Hooke's law holds good up to:,A) Elastic limit,B) Yield point,C) Ultimate limit,D) Breaking point,A) Elastic limit,Elasticity
+Q1_WED2_PHYS.101_F26-27,C,10,C,1,"If a force is applied on a body along one dimension, it produces:
+A) Volume stress
+B) Shear stress
+C) Tensile stress
+D) Bulk stress","If a force is applied on a body along one dimension, it produces:",A) Volume stress,B) Shear stress,C) Tensile stress,D) Bulk stress,C) Tensile stress,Elasticity
+Q1_WED2_PHYS.101_F26-27,D,1,A,1,"If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is
+A) LT⁻¹
+B) MLT⁻¹
+C) ML²T⁻²
+D) ML²T⁻¹","If x = √(FL/m), where F is force, L is length and m the mass, the dimension of x is",A) LT⁻¹,B) MLT⁻¹,C) ML²T⁻²,D) ML²T⁻¹,A) LT⁻¹,Dimensions (DIF: 3)
+Q1_WED2_PHYS.101_F26-27,D,2,A,1,"The Young's modulus of a material is a measure of:
+A) Its stiffness
+B) Its ductility
+C) Its hardness
+D) Its tensile strength",The Young's modulus of a material is a measure of:,A) Its stiffness,B) Its ductility,C) Its hardness,D) Its tensile strength,A) Its stiffness,Elasticity
+Q1_WED2_PHYS.101_F26-27,D,3,C,1,"A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?
+A) 3×10⁹ N/m²
+B) 6×10¹⁰ N/m²
+C) 2.25×10⁷ N/m²
+D) 4.5×10¹⁰ N/m²","A rod of length 1.5 m is stretched by 0.003 m when a force of 900 N is applied. If the cross-sectional area of the rod is 0.02 m², what is the Young's modulus of the material?",A) 3×10⁹ N/m²,B) 6×10¹⁰ N/m²,C) 2.25×10⁷ N/m²,D) 4.5×10¹⁰ N/m²,C) 2.25×10⁷ N/m²,Elasticity
+Q1_WED2_PHYS.101_F26-27,D,4,D,1,"The dimensional formula of strain is:
+A) M L⁻¹ T⁻²
+B) M L T⁻²
+C) M L² T⁻²
+D) M⁰ L⁰ T⁰",The dimensional formula of strain is:,A) M L⁻¹ T⁻²,B) M L T⁻²,C) M L² T⁻²,D) M⁰ L⁰ T⁰,D) M⁰ L⁰ T⁰,Dimensions
+Q1_WED2_PHYS.101_F26-27,D,5,C,1,"The dimensions of the density are
+A) MLT⁻²
+B) MT⁻²
+C) ML⁻³
+D) LT⁻²",The dimensions of the density are,A) MLT⁻²,B) MT⁻²,C) ML⁻³,D) LT⁻²,C) ML⁻³,Dimensions
+Q1_WED2_PHYS.101_F26-27,D,6,D,1,"If a force is applied on a body along one dimension, it produces:
+A) Volume stress
+B) Shear stress
+C) Bulk stress
+D) Tensile stress","If a force is applied on a body along one dimension, it produces:",A) Volume stress,B) Shear stress,C) Bulk stress,D) Tensile stress,D) Tensile stress,Elasticity
+Q1_WED2_PHYS.101_F26-27,D,7,A,1,"The dimensions of acceleration are
+A) LT⁻²
+B) MLT⁻¹
+C) MT⁻²
+D) MLT⁻²",The dimensions of acceleration are,A) LT⁻²,B) MLT⁻¹,C) MT⁻²,D) MLT⁻²,A) LT⁻²,Dimensions (DIF: 1)
+Q1_WED2_PHYS.101_F26-27,D,8,C,1,"Hooke's law holds good up to:
+A) Yield point
+B) Ultimate limit
+C) Elastic limit
+D) Breaking point",Hooke's law holds good up to:,A) Yield point,B) Ultimate limit,C) Elastic limit,D) Breaking point,C) Elastic limit,Elasticity
+Q1_WED2_PHYS.101_F26-27,D,9,B,1,"Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?
+A) MLT⁻²
+B) ML⁻¹T⁻¹
+C) ML⁻²T⁻²
+D) ML⁻³","Given that the viscosity is defined as pressure × time, what are the dimensions of the viscosity?",A) MLT⁻²,B) ML⁻¹T⁻¹,C) ML⁻²T⁻²,D) ML⁻³,B) ML⁻¹T⁻¹,Dimensions (DIF: 2)
+Q1_WED2_PHYS.101_F26-27,D,10,A,1,"A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?
+A) F/A
+B) L × F
+C) F × A
+D) A/F",A wire of length L and area of cross-section A is subjected to a force F. What is the formula for stress?,A) F/A,B) L × F,C) F × A,D) A/F,A) F/A,Elasticity

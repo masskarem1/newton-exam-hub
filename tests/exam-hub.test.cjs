@@ -21,29 +21,24 @@ function createMockRes() {
   };
 }
 
-test('1. Universal CSV Parser & 3-Tab Google Sheet State Builder (Dent101 Quiz 2: 4 Groups, 160 Questions, 870 Students)', async () => {
+test('1. Universal CSV Parser & 3-Tab Google Sheet State Builder (Dent101 Quiz 2 + Quiz 1: 10 Groups, 400 Questions, 1720 Submissions)', async () => {
   const apiMod = await import('../api/exam-hub.js');
   const settingsCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Settings.csv'), 'utf8');
   const questionsCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Models_Questions.csv'), 'utf8');
   const responsesCsv = fs.readFileSync(path.join(__dirname, '../google-sheet-templates/Student_Responses.csv'), 'utf8');
 
   const state = apiMod.buildExamHubStateFromCSVs({ settingsCsv, questionsCsv, responsesCsv });
-  assert.ok(state.exams['Q2_MON1_PHYS.101_F26-27'], 'MON1 should be loaded');
-  assert.ok(state.exams['Q2_TUE1_PHYS.101_F26-27'], 'TUE1 should be loaded');
-  assert.ok(state.exams['Q2_TUE2_PHYS.101_F26-27'], 'TUE2 should be loaded');
-  assert.ok(state.exams['Q2_WED1_PHYS.101_F26-27'], 'WED1 should be loaded');
+  assert.equal(Object.keys(state.exams).length, 10, 'Should load all 10 exam groups (4 Quiz 2 + 6 Quiz 1)');
+  assert.ok(state.exams['Q2_MON1_PHYS.101_F26-27'], 'Q2 MON1 should be loaded');
+  assert.ok(state.exams['Q1_MON1_PHYS.101_F26-27'], 'Q1 MON1 should be loaded');
+  assert.ok(state.exams['Q1_WED2_PHYS.101_F26-27'], 'Q1 WED2 should be loaded');
 
-  const totalStudents =
-    state.exams['Q2_MON1_PHYS.101_F26-27'].students.length +
-    state.exams['Q2_TUE1_PHYS.101_F26-27'].students.length +
-    state.exams['Q2_TUE2_PHYS.101_F26-27'].students.length +
-    state.exams['Q2_WED1_PHYS.101_F26-27'].students.length;
-  assert.equal(totalStudents, 870, 'Should parse all 870 student rows across MON1, TUE1, TUE2, WED1');
+  const totalStudents = Object.values(state.exams).reduce((acc, ex) => acc + ex.students.length, 0);
+  assert.equal(totalStudents, 1720, 'Should parse all 1720 student submissions (870 Quiz 2 + 850 Quiz 1)');
 
-  const mon1 = state.exams['Q2_MON1_PHYS.101_F26-27'];
-  assert.equal(mon1.model_keys.A[1], 'B');
-  assert.equal(mon1.model_keys.B[1], 'B');
-  assert.ok(mon1.question_bank.A[1].question_text.includes('equation of continuity'), 'Should load MON1 Q1 text');
+  const q1Mon1 = state.exams['Q1_MON1_PHYS.101_F26-27'];
+  assert.equal(q1Mon1.model_keys.A[1], 'D');
+  assert.ok(q1Mon1.question_bank.A[1].question_text.includes('kΔL'), 'Should have repaired Hooke Law kΔL symbol in Q1 MON1');
 });
 
 test('2. Student ID Lookup (Exact 9-Digit, Legacy 5-Digit Suffix & Ambiguity Rejection)', async () => {
@@ -101,6 +96,18 @@ test('3. Server-Side Student Isolation & Answer Key Release Gate', async () => {
   assert.equal(q5.student_ans, 'B');
   assert.equal(q5.correct_ans, 'C');
   assert.equal(q5.is_correct, false);
+
+  // Test Quiz 1 Auto-Detect (ALL_Q1) for student 200022703 (who is in both Quiz 1 WED1 and Quiz 2 WED1!)
+  const reqQ1 = {
+    method: 'POST',
+    body: { action: 'get-student-sheet', exam_id: 'ALL_Q1', student_id: '200022703' }
+  };
+  const resQ1 = createMockRes();
+  await handler(reqQ1, resQ1);
+  assert.equal(resQ1.statusCode, 200);
+  assert.equal(resQ1.body.exam_id, 'Q1_WED1_PHYS.101_F26-27');
+  assert.equal(resQ1.body.student.earned_points, 10);
+  assert.equal(resQ1.body.student.possible_points, 10);
 
   // Verify answer withholding when release_answers is FALSE
   const unreleasedExam = {
