@@ -875,12 +875,30 @@ function getDomainKnowledgeBase(isEn) {
    - طريقة كينغ لحساب المنوال (Mode): Mode = L + [f_2 / (f_1 + f_2)] * w.`;
 }
 
+// Smart cooldown tracker so rate-limited (429 RPM/RPD) models are temporarily bypassed
+const modelCooldownUntil = new Map();
+
 async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature = 0.25 }) {
-  const candidateModels = [
+  // Ordered by highest RPD & RPM capacity from Google AI Studio quota table:
+  // 1. gemini-3.5-flash-lite (15 RPM / 500 RPD)
+  // 2. gemini-3.1-flash-lite (15 RPM / 500 RPD)
+  // 3. gemini-2.5-flash-lite (10 RPM / 20 RPD)
+  // 4. gemini-2.5-flash      ( 5 RPM / 20 RPD)
+  // 5. gemini-3.8-flash      ( 5 RPM / 20 RPD)
+  // 6. gemini-3-flash        ( 5 RPM / 20 RPD)
+  const allCandidateModels = [
+    'gemini-3.5-flash-lite',
+    'gemini-3.1-flash-lite',
+    'gemini-2.5-flash-lite',
     'gemini-2.5-flash',
-    'gemini-2.0-flash',
-    'gemini-2.5-flash-lite'
+    'gemini-3.8-flash',
+    'gemini-3-flash'
   ];
+
+  const now = Date.now();
+  const readyModels = allCandidateModels.filter(m => (modelCooldownUntil.get(m) || 0) <= now);
+  const cooledModels = allCandidateModels.filter(m => (modelCooldownUntil.get(m) || 0) > now);
+  const candidateModels = [...readyModels, ...cooledModels];
 
   let lastError = null;
   for (const modelName of candidateModels) {
@@ -890,9 +908,6 @@ async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature =
         temperature,
         maxOutputTokens: 8192
       };
-      if (modelName.startsWith('gemini-2.5')) {
-        generationConfig.thinkingConfig = { thinkingBudget: 512 };
-      }
       if (expectJson) {
         generationConfig.responseMimeType = 'application/json';
       }
@@ -904,10 +919,11 @@ async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature =
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig
         }),
-        signal: AbortSignal.timeout ? AbortSignal.timeout(18000) : undefined
+        signal: AbortSignal.timeout ? AbortSignal.timeout(15000) : undefined
       });
 
       if (res.ok) {
+        modelCooldownUntil.delete(modelName);
         const json = await res.json();
         const parts = json.candidates?.[0]?.content?.parts || [];
         const rawText = parts
@@ -924,6 +940,11 @@ async function callGeminiAPI({ prompt, apiKey, expectJson = false, temperature =
         }
       } else {
         const errBody = await res.text();
+        if (res.status === 429) {
+          // Cooldown 60s on RPM limit, or 10 min if daily RPD quota is exhausted
+          const isDailyExhausted = /per\s*day|rpd|daily|quota/i.test(errBody);
+          modelCooldownUntil.set(modelName, Date.now() + (isDailyExhausted ? 10 * 60 * 1000 : 60 * 1000));
+        }
         lastError = `${modelName} HTTP ${res.status}: ${errBody.slice(0, 200)}`;
       }
     } catch (err) {
